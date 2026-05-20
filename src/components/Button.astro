@@ -1,6 +1,6 @@
 ---
 // Henter parametrene fra Astro.props
-const { variant = "primary", size = "medium", type = "button" } = Astro.props;
+const { variant = "primary", size = "medium", type = "button", href, target } = Astro.props;
 
 // Definer styling for varianter
 const variantClasses = {
@@ -19,10 +19,16 @@ const sizeClasses = {
 };
 ---
 
-<!--Sæt classes for den pågældende knap sammen ved hjælp af Astros class:list -->
-<button type={type} class:list={["btn", variantClasses[variant], sizeClasses[size]]}>
-	<span class="btn__label"><slot /></span>
-</button>
+<!--Render som <a> når href er givet, ellers <button> -->
+{href ? (
+	<a href={href} target={target} class:list={["btn", variantClasses[variant], sizeClasses[size]]}>
+		<span class="btn__label"><slot /></span>
+	</a>
+) : (
+	<button type={type} class:list={["btn", variantClasses[variant], sizeClasses[size]]}>
+		<span class="btn__label"><slot /></span>
+	</button>
+)}
 
 <style>
 	.btn {

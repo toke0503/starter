@@ -7,12 +7,22 @@ const { title } = Astro.props;
 <html lang="da">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{Astro.props.title}</title>
-		<script defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
+
+		<!-- Preconnect: åbner forbindelsen til Adobe Fonts tidligt -->
+		<link rel="preconnect" href="https://use.typekit.net" crossorigin />
+		<link rel="preconnect" href="https://p.typekit.net" crossorigin />
+		<link rel="dns-prefetch" href="https://use.typekit.net" />
+
+		<!-- Fonts -->
+		<link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- Intersect observer: lokal kopi i stedet for unpkg CDN -->
+		<script defer src="/observer.min.js"></script>
 	</head>
 	<body class="">
 		

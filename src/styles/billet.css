@@ -1,0 +1,184 @@
+/* ── Billet-side styles ── */
+
+/* Hero */
+.billet-hero {
+	min-height: 100svh;
+	background: var(--color-rod);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8rem 2rem 4rem;
+}
+.billet-hero-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+/* Maskot */
+.billet-mascot {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1.75rem;
+}
+.billet-mascot svg {
+	width: 130px;
+	height: auto;
+}
+.billet-mascot svg path {
+	fill: var(--color-sand);
+}
+
+/* Hero-overskrift */
+.billet-title {
+	font-size: clamp(3.5rem, 8vw, 7.5rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.95;
+	margin: 0 0 1.75rem;
+}
+
+/* Hero-undertekst */
+.billet-sub {
+	font-family: var(--font-acumin) !important;
+	font-size: 1.25rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.6;
+	max-width: 560px;
+	margin: 0;
+	font-weight: 400;
+}
+
+/* Armbånd-sektion */
+.billet-armbaand {
+	background: var(--color-rod);
+	padding: 5rem 3rem 7rem;
+}
+.billet-armbaand-title {
+	text-align: center;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	margin: 0 0 3rem;
+}
+
+/* Grid */
+.billet-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+/* 2-kolonne variant (Glamping) */
+.billet-grid--2col {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+/* Kort */
+.billet-card {
+	background: var(--color-sand);
+	border-radius: 1.5rem;
+	padding: 2.5rem 2rem 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.billet-card-top {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+.billet-card-bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 2.5rem;
+}
+
+/* Kortindhold */
+.billet-card-name {
+	font-family: var(--font-acumin) !important;
+	font-weight: 700 !important;
+	font-size: 1.35rem !important;
+	text-transform: uppercase;
+	color: var(--color-rod) !important;
+	text-align: center;
+	margin: 0;
+	line-height: 1.2;
+}
+.billet-card-subtitle {
+	font-family: var(--font-acumin) !important;
+	font-weight: 700 !important;
+	font-size: 0.95rem !important;
+	color: var(--color-rod) !important;
+	text-align: center;
+	margin: 0;
+}
+.billet-card-desc {
+	font-family: var(--font-acumin) !important;
+	font-size: 0.95rem !important;
+	font-weight: 400 !important;
+	color: var(--color-rod) !important;
+	text-align: center;
+	line-height: 1.55;
+	margin: 0;
+}
+.billet-card-price {
+	font-family: var(--font-acumin) !important;
+	font-weight: 700 !important;
+	font-size: 2.5rem !important;
+	color: var(--color-rod) !important;
+	margin: 0 0 0.25rem !important;
+	line-height: 1;
+	text-transform: none !important;
+}
+
+/* Knap */
+.billet-card-btn {
+	display: block;
+	width: 100%;
+	padding: 0.875rem 1rem;
+	border: 2px solid var(--color-rod);
+	border-radius: 3rem;
+	font-family: var(--font-acumin) !important;
+	font-weight: 600 !important;
+	font-size: 1rem !important;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-rod) !important;
+	text-decoration: none;
+	text-align: center;
+	transition: background 0.2s ease, color 0.2s ease;
+	box-sizing: border-box;
+}
+.billet-card-btn:hover {
+	background: var(--color-rod);
+	color: var(--color-sand) !important;
+}
+
+/* Overnatning-sektion */
+.billet-overnatning {
+	background: var(--color-gron);
+	padding: 5rem 3rem 7rem;
+}
+.billet-overnatning-title {
+	text-align: center;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	margin: 0 0 3rem;
+}
+
+
+/* Knap i kort: reducer side-padding og sæt bredde */
+.billet-card-bottom .btn {
+	width: 100%;
+	padding-left: 1.5rem !important;
+	padding-right: 1.5rem !important;
+	white-space: nowrap;
+}
+

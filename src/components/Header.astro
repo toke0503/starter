@@ -5,139 +5,87 @@ const pathname = Astro.url.pathname;
 ---
 
 <header
+	id="site-header"
 	style="
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 100;
+		z-index: 102;
 		background: linear-gradient(180deg, rgba(5,16,10,0.88) 0%, rgba(5,16,10,0.55) 30%, rgba(5,16,10,0.15) 55%, transparent 72%);
 		padding: 1.375rem 3rem 3.5rem;
 		pointer-events: none;
+		transition: background 0.3s ease;
 	"
 >
 	<div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; pointer-events: auto;">
 
-		<!-- Logo + sted og dato -->
 		<div style="display: flex; flex-direction: row; align-items: center; gap: 1.75rem;">
 			<a
 				href="/"
 				class="font-walnut header-logo"
-				style="
-					font-size: 2rem;
-					color: var(--color-sand);
-					text-decoration: none;
-					text-transform: uppercase;
-					line-height: 1;
-					white-space: nowrap;
-					letter-spacing: 0.01em;
-				"
-			>
-				Midtfyns Festival
-			</a>
+				style="font-size: 2rem; color: var(--color-sand); text-decoration: none; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: 0.01em;"
+			>Midtfyns Festival</a>
 
-			<!-- Sted og dato -->
-			<div style="line-height: 1.45;">
+			<div class="header-location" style="line-height: 1.45;">
 				<span style="display: block; font-family: var(--font-acumin); font-size: 0.875rem; color: var(--color-sand);">Dyrskuepladsen, Ringe</span>
 				<span style="display: block; font-family: var(--font-acumin); font-size: 0.875rem; color: var(--color-sand);">4. – 5 sep 26</span>
 			</div>
 		</div>
 
-		<!-- Nav + burger -->
 		<nav style="display: flex; flex-direction: row; align-items: center; gap: 2.5rem;">
 			<a href="/program" class="header-nav-link" style="color: var(--color-sand); text-decoration: none; font-size: 1.15rem;">Program</a>
 			<a href="/billet" class="header-nav-link" style="color: var(--color-sand); text-decoration: none; font-size: 1.15rem;">Billetter</a>
 
-			<!-- Hamburger -->
 			<button
 				id="burger-btn"
 				aria-label="Åbn menu"
 				class="header-burger"
 				style="background: none; border: none; cursor: pointer; padding: 0.25rem; display: flex; flex-direction: column; gap: 5px;"
 			>
-				<span style="display: block; width: 28px; height: 2.5px; background: var(--color-sand); border-radius: 2px;"></span>
-				<span style="display: block; width: 28px; height: 2.5px; background: var(--color-sand); border-radius: 2px;"></span>
-				<span style="display: block; width: 28px; height: 2.5px; background: var(--color-sand); border-radius: 2px;"></span>
+				<span></span>
+				<span></span>
+				<span></span>
 			</button>
 		</nav>
-
 	</div>
 </header>
 
 <!-- Fullscreen menu overlay -->
-<div
-	id="mobile-menu"
-	style="
-		display: none;
-		position: fixed;
-		inset: 0;
-		z-index: 101;
-		flex-direction: row;
-	"
->
-	<!-- Venstre panel: festivalbillede med overlay -->
-	<div style="position: relative; width: 33%; overflow: hidden; flex-shrink: 0;">
-		<img
-			src={baren.src}
-			alt=""
-			style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
-		/>
+<div id="mobile-menu" aria-hidden="true">
+
+	<!-- Venstre panel -->
+	<div class="menu-panel-left">
+		<img src={baren.src} alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
 		<div style="position: absolute; inset: 0; background: rgba(254,247,221,0.45);"></div>
-
-		<!-- Midtfyns Festival øverst til venstre — samme størrelse og position som i headeren -->
-		<div style="position: absolute; top: 1.375rem; left: 3rem; z-index: 1;">
-			<span class="font-walnut" style="color: var(--color-sand); font-size: 2rem; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: 0.01em;">Midtfyns Festival</span>
-		</div>
-
-		<!-- MENU lodret tekst nederst til venstre -->
 		<div style="position: absolute; bottom: 2.5rem; left: 1.5rem; z-index: 1;">
 			<span class="font-walnut" style="color: var(--color-sand); font-size: 16rem; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 0.82; letter-spacing: -0.04em;">Menu</span>
 		</div>
 	</div>
 
-	<!-- Højre panel: sand baggrund med nav -->
-	<div style="position: relative; flex: 1; background: var(--color-sand); display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 3rem 4rem 3rem 2rem; overflow: hidden;">
-
-		<!-- Aaringe dekoration — centreret på midten af overlayets højde -->
-		<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 58rem; pointer-events: none; z-index: 0;">
-			<img src={aaringe.src} alt="" style="width: 100%; height: auto; display: block;" />
-		</div>
-
-		<!-- Luk-knap øverst til højre -->
-		<button
-			id="close-menu-btn"
-			aria-label="Luk menu"
-			class="menu-close-btn"
-			style="position: absolute; top: 2.5rem; right: 3rem; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 2;"
-		>
-			<svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-				<line x1="3" y1="3" x2="27" y2="27" stroke="var(--color-rod)" stroke-width="2.5" stroke-linecap="round"/>
-				<line x1="27" y1="3" x2="3" y2="27" stroke="var(--color-rod)" stroke-width="2.5" stroke-linecap="round"/>
-			</svg>
-		</button>
+	<!-- Højre panel -->
+	<div class="menu-panel-right">
 
 		<!-- Nav links -->
-		<nav style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 0.35rem;">
-			<a href="/billet" class="font-walnut menu-overlay-link">Billetter</a>
-			<a href="/program" class="font-walnut menu-overlay-link">Program</a>
-			<a href="/praktisk" class="font-walnut menu-overlay-link">Info</a>
-			<a href="/om" class="font-walnut menu-overlay-link">Om Midtfyns</a>
+		<nav style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 2rem;">
+			<a href="/billet"     class="font-walnut menu-overlay-link">Billetter</a>
+			<a href="/program"    class="font-walnut menu-overlay-link">Program</a>
+			<a href="/praktisk"   class="font-walnut menu-overlay-link">Info</a>
+			<a href="/om"         class="font-walnut menu-overlay-link">Om Midtfyns</a>
 			<a href="/ung-i-midten" class="font-walnut menu-overlay-link">Ung i Midten</a>
-			<a href="/kontakt" class="font-walnut menu-overlay-link">Kontakt</a>
+			<a href="/kontakt"    class="font-walnut menu-overlay-link">Kontakt</a>
 		</nav>
 
-		<!-- Sociale medier nederst til højre -->
+		<!-- Sociale medier -->
 		<div style="position: absolute; bottom: 3rem; right: 4rem; text-align: right; z-index: 1;">
 			<span style="display: block; font-family: var(--font-acumin); font-size: 0.8rem; color: var(--color-rod); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.55; margin-bottom: 0.75rem;">Følg os på<br/>sociale medier</span>
 			<div style="display: flex; gap: 0.625rem; justify-content: flex-end;">
-				<!-- Facebook -->
 				<a href="https://facebook.com/midtfynsfestival" target="_blank" rel="noopener" class="social-icon-link">
 					<svg width="38" height="38" viewBox="0 0 38 38" fill="none">
 						<circle cx="19" cy="19" r="18" stroke="var(--color-rod)" stroke-width="1.5"/>
 						<path d="M20.5,14H22.5V11.5H20C17.8,11.5 16.5,13 16.5,15V16.5H14.5V19H16.5V26.5H19.5V19H21.5L22,16.5H19.5V15C19.5,14.4 19.9,14 20.5,14Z" fill="var(--color-rod)"/>
 					</svg>
 				</a>
-				<!-- Instagram -->
 				<a href="https://instagram.com/midtfynsfestival" target="_blank" rel="noopener" class="social-icon-link">
 					<svg width="38" height="38" viewBox="0 0 38 38" fill="none">
 						<circle cx="19" cy="19" r="18" stroke="var(--color-rod)" stroke-width="1.5"/>
@@ -146,7 +94,6 @@ const pathname = Astro.url.pathname;
 						<circle cx="23.5" cy="14.5" r="0.9" fill="var(--color-rod)"/>
 					</svg>
 				</a>
-				<!-- TikTok -->
 				<a href="https://tiktok.com/@midtfynsfestival" target="_blank" rel="noopener" class="social-icon-link">
 					<svg width="38" height="38" viewBox="0 0 38 38" fill="none">
 						<circle cx="19" cy="19" r="18" stroke="var(--color-rod)" stroke-width="1.5"/>
@@ -157,89 +104,188 @@ const pathname = Astro.url.pathname;
 		</div>
 
 	</div>
+
+	<!-- Aaringe — absolut over begge paneler, centreret i hele overlayets flade -->
+	<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 46rem; pointer-events: none; z-index: 2;">
+		<img src={aaringe.src} alt="" style="width: 100%; height: auto; display: block;" />
+	</div>
+
 </div>
 
-<style>
-	.header-logo {
-		transition: opacity 0.2s ease;
+<style is:global>
+	/* Reservér altid plads til scrollbaren — forhindrer layout-shift når overflow: hidden sættes.
+	   background-color sørger for at gutter-arealet er sandfarvet i stedet for hvidt. */
+	html {
+		scrollbar-gutter: stable;
+		background-color: var(--color-sand);
 	}
-	.header-logo:hover {
-		opacity: 0.72;
+</style>
+
+<style>
+	/* ─── Header: logo hover ─── */
+	.header-logo { transition: opacity 0.2s ease, color 0.3s ease; }
+	.header-logo:hover { opacity: 0.72; }
+
+	/* ─── Header: sted/dato og nav-links fader ud når menu åbner ─── */
+	.header-location,
+	.header-nav-link { transition: opacity 0.2s ease; }
+	#site-header.menu-open .header-location,
+	#site-header.menu-open .header-nav-link {
+		opacity: 0;
+		pointer-events: none;
 	}
 
-	.header-nav-link {
-		position: relative;
-	}
+	/* ─── Nav link understreg slide-in ─── */
+	.header-nav-link { position: relative; }
 	.header-nav-link::after {
 		content: '';
 		position: absolute;
-		bottom: -3px;
-		left: 0;
-		right: 0;
+		bottom: -3px; left: 0; right: 0;
 		height: 1.5px;
 		background: var(--color-sand);
 		transform: scaleX(0);
 		transform-origin: left;
 		transition: transform 0.2s ease;
 	}
-	.header-nav-link:hover::after {
-		transform: scaleX(1);
+	.header-nav-link:hover::after { transform: scaleX(1); }
+
+	/* ─── Burger knap ─── */
+	.header-burger { transition: opacity 0.2s ease; }
+	.header-burger:hover { opacity: 0.65; }
+	.header-burger span {
+		display: block;
+		width: 28px; height: 2.5px;
+		background: var(--color-sand);
+		border-radius: 2px;
+		transition: transform 0.3s ease, opacity 0.2s ease, background 0.3s ease;
+	}
+	/* Burger → X */
+	.header-burger.is-open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+	.header-burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+	.header-burger.is-open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+	/* ─── Header når menu er åben ─── */
+	#site-header.menu-open { background: transparent !important; }
+	#site-header.menu-open .header-burger span { background: var(--color-rod); }
+	#site-header.menu-open .header-logo { color: var(--color-rod) !important; }
+
+	/* ─── Overlay: grundlæggende layout ─── */
+	#mobile-menu {
+		display: none;
+		position: fixed;
+		inset: 0;
+		z-index: 101;
+		flex-direction: row;
+		background: var(--color-sand);
+		/* Animation: start usynlig */
+		opacity: 0;
+		transition: opacity 0.35s ease;
+	}
+	#mobile-menu.is-visible { opacity: 1; }
+
+	/* ─── Venstre panel: glider ind fra venstre ─── */
+	.menu-panel-left {
+		position: relative;
+		width: 33%;
+		overflow: hidden;
+		flex-shrink: 0;
+		transform: translateX(-20px);
+		transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+	#mobile-menu.is-visible .menu-panel-left { transform: translateX(0); }
+
+	/* ─── Højre panel: ingen slide — sand-baggrunden er statisk ─── */
+	.menu-panel-right {
+		position: relative;
+		flex: 1;
+		background: var(--color-sand);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-end;
+		padding: 3rem 4rem 3rem 2rem;
+		overflow: hidden;
 	}
 
-	.header-burger {
-		transition: opacity 0.2s ease;
-	}
-	.header-burger:hover {
-		opacity: 0.65;
-	}
-
+	/* ─── Nav links: stagger slide fra højre ─── */
 	.menu-overlay-link {
 		font-size: clamp(2.25rem, 3.5vw, 3.75rem);
 		color: var(--color-rod);
 		text-decoration: none;
 		text-transform: uppercase;
 		line-height: 1.15;
-		transition: opacity 0.2s ease;
+		opacity: 0;
+		transform: translateX(18px);
+		transition: opacity 0.35s ease, transform 0.35s ease;
 	}
-	.menu-overlay-link:hover {
-		opacity: 0.65;
+	#mobile-menu.is-visible .menu-overlay-link {
+		opacity: 1;
+		transform: translateX(0);
 	}
+	#mobile-menu.is-visible .menu-overlay-link:hover { opacity: 0.65; }
 
-	.menu-close-btn {
-		transition: opacity 0.2s ease;
-	}
-	.menu-close-btn:hover {
-		opacity: 0.6;
-	}
+	/* Stagger delays */
+	#mobile-menu.is-visible .menu-overlay-link:nth-child(1) { transition: opacity 0.35s 0.08s ease, transform 0.35s 0.08s ease; }
+	#mobile-menu.is-visible .menu-overlay-link:nth-child(2) { transition: opacity 0.35s 0.14s ease, transform 0.35s 0.14s ease; }
+	#mobile-menu.is-visible .menu-overlay-link:nth-child(3) { transition: opacity 0.35s 0.20s ease, transform 0.35s 0.20s ease; }
+	#mobile-menu.is-visible .menu-overlay-link:nth-child(4) { transition: opacity 0.35s 0.26s ease, transform 0.35s 0.26s ease; }
+	#mobile-menu.is-visible .menu-overlay-link:nth-child(5) { transition: opacity 0.35s 0.32s ease, transform 0.35s 0.32s ease; }
+	#mobile-menu.is-visible .menu-overlay-link:nth-child(6) { transition: opacity 0.35s 0.38s ease, transform 0.35s 0.38s ease; }
 
-	.social-icon-link {
-		transition: opacity 0.2s ease;
-	}
-	.social-icon-link:hover {
-		opacity: 0.65;
-	}
+	/* ─── Social icons ─── */
+	.social-icon-link { transition: opacity 0.2s ease; }
+	.social-icon-link:hover { opacity: 0.65; }
 </style>
 
 <script>
-	const burgerBtn = document.getElementById('burger-btn');
-	const closeBtn = document.getElementById('close-menu-btn');
-	const mobileMenu = document.getElementById('mobile-menu');
+	const burgerBtn  = document.getElementById('burger-btn')   as HTMLButtonElement;
+	const mobileMenu = document.getElementById('mobile-menu')  as HTMLElement;
+	const siteHeader = document.getElementById('site-header')  as HTMLElement;
+
+	let menuOpen = false;
+	let hideTimeout: ReturnType<typeof setTimeout> | null = null;
 
 	function openMenu() {
+		menuOpen = true;
+		if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
+
 		mobileMenu.style.display = 'flex';
+		mobileMenu.removeAttribute('aria-hidden');
+
+		// To rAF-frames sikrer at display:flex er i render-træet inden transition starter
+		requestAnimationFrame(() => requestAnimationFrame(() => {
+			mobileMenu.classList.add('is-visible');
+		}));
+
 		document.body.style.overflow = 'hidden';
+		burgerBtn.classList.add('is-open');
+		siteHeader.classList.add('menu-open');
+		burgerBtn.setAttribute('aria-label', 'Luk menu');
 	}
 
 	function closeMenu() {
-		mobileMenu.style.display = 'none';
+		menuOpen = false;
+		mobileMenu.classList.remove('is-visible');
+		mobileMenu.setAttribute('aria-hidden', 'true');
+
 		document.body.style.overflow = '';
+		burgerBtn.classList.remove('is-open');
+		siteHeader.classList.remove('menu-open');
+		burgerBtn.setAttribute('aria-label', 'Åbn menu');
+
+		// Skjul først når fade-out er færdig (matcher longest transition: 0.45s)
+		hideTimeout = setTimeout(() => {
+			if (!menuOpen) mobileMenu.style.display = 'none';
+		}, 450);
 	}
 
-	burgerBtn?.addEventListener('click', openMenu);
-	closeBtn?.addEventListener('click', closeMenu);
+	burgerBtn?.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
 
-	// Luk ved klik på link
 	mobileMenu?.querySelectorAll('a').forEach(link => {
 		link.addEventListener('click', closeMenu);
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && menuOpen) closeMenu();
 	});
 </script>
