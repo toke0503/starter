@@ -1,20 +1,37 @@
 ---
 // Henter parametrene fra Astro.props
-const { htmlheading="h2", size="medium", font="sans", stylingclasses=""} = Astro.props; 
+const { htmlheading="h2", size, font, stylingclasses=""} = Astro.props; 
 const Htmlheading = htmlheading;
- 
-//Definer den styling (Tailwind classes), der gør sig gældende for de forskellige størrelser.
-const sizeClasses = {
-"large": "text-3xl lg:text-6xl",
-"medium": "text-2xl lg:text-3xl",
-"small": "text-xl",
+
+// Hvis der ikke er angivet en font, vælg walnut for h1/h2 og acumin for h3/h4
+const fontProp = font ?? (htmlheading === 'h1' || htmlheading === 'h2' ? 'walnut' : 'acumin');
+
+// Definer default størrelse pr. heading-tag, så det matcher designsystemet
+const defaultSizeByHeading = {
+"h1": "text-[170px]",
+"h2": "text-[52px]",
+"h3": "text-[42px]",
+"h4": "text-[27px]",
 };
+
+// Definer valgfrie størrelsesklasser til manuel override via `size` prop
+const sizeClasses = {
+"large": "text-[170px]",
+"medium": "text-[52px]",
+"small": "text-[42px]",
+"xsmall": "text-[27px]",
+};
+
+const resolvedSizeClass = size ? sizeClasses[size] : defaultSizeByHeading[htmlheading];
 
 //Definer den styling (Tailwind classes), der gør sig gældende for de forskellige skrifttyper.
 const fontClasses = {
-"display": "font-display",
-"sans": "font-sans",
-"serif": "font-serif",
+"display": "font-walnut",
+"sans": "font-acumin",
+"serif": "font-body",
+"walnut": "font-walnut",
+"acumin": "font-acumin",
+"body": "font-body",
 };
 ---
-<Htmlheading class:list={[stylingclasses, sizeClasses[size], fontClasses[font]]}><slot /></Htmlheading>
+<Htmlheading class:list={[stylingclasses, resolvedSizeClass, fontClasses[fontProp]]}><slot /></Htmlheading>

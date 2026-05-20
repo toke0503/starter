@@ -1,50 +1,87 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 @import "tailwindcss-animated";
 @import "tailwindcss-intersect";
 
-@font-face {
-  font-family: 'Honk';
-  src: url('/fonts/Honk-Regular-VariableFont_MORF,SHLN.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  src: url('/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Domine';
-  src: url('/fonts/Domine-Regular.ttf') format('truetype');
-}
+/* Removed local Honk, Quicksand and Domine @font-face declarations */
 
 @theme {
   /* Her tilføjes theme variable // tokens */
 
   /*Farver */
-  --color-primary-400: #00E4F5;
-  --color-primary-500: #006269;
-  --color-primary-600: #006D75;
-  --color-secondary-400: #F5E400;
-  --color-secondary-500: #F5A600;
-  --color-secondary-600: #F57A00;
+  --color-rod: #f15c56;
+  --color-gron: #375639;
+  --color-sand: #fef7dd;
+  --color-sort: #000000;
+  --color-hvid: #ffffff;
 
   /*Typografi */
-  --font-display: 'Honk', monospace;
-  --font-sans: 'Quicksand', sans-serif;
-  --font-serif: 'Domine', serif;
+  /* Removed display/sans/serif tokens (Honk/Quicksand/Domine)
+     Added body font `geller-headline` for paragraph text */
+  --font-body: "geller-headline", serif;
+  --font-walnut: "walnut", sans-serif;
+  --font-acumin: "acumin-pro", sans-serif;
 }
 
 @layer base {
+  h1,
+  h2 {
+    font-family: var(--font-walnut);
+    font-weight: 400;
+    font-style: normal;
+  }
 
+  h1 {
+    font-size: 170px;
+  }
+
+  h2 {
+    font-size: 52px;
+  }
+
+  h3,
+  h4 {
+    font-family: var(--font-acumin);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  h3 {
+    font-size: 42px;
+  }
+
+  h4 {
+    font-size: 27px;
+  }
+
+  a {
+    font-family: var(--font-acumin);
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
-@layer components{
-
+@layer components {
 }
 
-@layer utilities{
-  
+@layer utilities {
+  .font-walnut {
+    font-family: var(--font-walnut) !important;
+  }
+  .font-acumin {
+    font-family: var(--font-acumin) !important;
+  }
+  .font-body {
+    font-family: var(--font-body) !important;
+  }
 }
