@@ -1,6 +1,6 @@
 ---
 // Henter parametrene fra Astro.props
-const { htmlheading="h2", size, font, stylingclasses=""} = Astro.props; 
+const { htmlheading="h2", size, font, stylingclasses="", class: userClass="" } = Astro.props; 
 const Htmlheading = htmlheading;
 
 // Hvis der ikke er angivet en font, vælg walnut for h1/h2 og acumin for h3/h4
@@ -34,4 +34,4 @@ const fontClasses = {
 "body": "font-body",
 };
 ---
-<Htmlheading class:list={[stylingclasses, resolvedSizeClass, fontClasses[fontProp]]}><slot /></Htmlheading>
+<Htmlheading class:list={[stylingclasses, resolvedSizeClass, fontClasses[fontProp], userClass]}><slot /></Htmlheading>

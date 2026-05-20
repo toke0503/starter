@@ -1,15 +1,873 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Link from "../components/Link.astro";
-import { Image } from "astro:assets";
-import thumbsup from "../assets/images/thumbsup.png";
-import Heading from "../components/Heading.astro";
-import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+import Heading from "../components/Heading.astro";
+import { Image } from "astro:assets";
+
+// Import images
+import velkommen from "../assets/images/velkommen_til_midtfyns festvial.webp";
+import ungIMidten from "../assets/images/fællessang.webp";
+import nonprofit from "../assets/images/frivilige.webp";
+import frivillige from "../assets/images/frivilig_armbånd.webp";
+import scene from "../assets/images/tom_scene.webp";
+import musik from "../assets/images/drone_crowd.webp";
+import faellesskab from "../assets/images/faelleskab.webp";
+import foodtruck from "../assets/images/foodtruck_og_fælleskab.webp";
+
+// Import SVG
+import logoSvg from "../assets/svg/logo.svg";
+import aaringeSvg from "../assets/svg/aaringe.svg";
+import brevMaskotSvg from "../assets/svg/brev_maskot.svg";
+import soundwaveSvg from "../assets/svg/soundwave.svg";
+import soundwave1Svg from "../assets/svg/soundwave1.svg";
+import soundwave2Svg from "../assets/svg/soundwave2.svg";
+
+// Import kunstner pressebilleder
+import augustHoyen from "../assets/images/pressebillede_august_hoyen.webp";
+import drewSycamore from "../assets/images/pressebillede_drew_sycamore.webp";
+import dizzyMizzLizzy from "../assets/images/pressebillede_dizzy_mizz_lizzy.webp";
+import snuk from "../assets/images/pressebillede_snuk.webp";
+import sofie1998 from "../assets/images/pressebillede_sofie1998.webp";
+import madsen from "../assets/images/pressebillede_madsen.webp";
+import madsLanger from "../assets/images/pressebillede_mads_langer.webp";
+import shuBiDua from "../assets/images/pressebillede_shu_bi_dua.webp";
+import saveus from "../assets/images/pressebillede_saveus.webp";
+import vonQuar from "../assets/images/pressebillede_von_quar.webp";
+import lykke from "../assets/images/pressebillede_lykke.webp";
+import patina from "../assets/images/pressebillede_patina.webp";
+import uligeNumre from "../assets/images/pressebillede_ullige_numre.webp";
+import eddie from "../assets/images/pressebillede_eddie.webp";
+import gerlachRosendahl from "../assets/images/pressebillede_gerlach_rosendahl.webp";
+
+const artists = [
+	{ name: "August Høyen",       img: augustHoyen },
+	{ name: "Drew Sycamore",      img: drewSycamore },
+	{ name: "Dizzy Mizz Lizzy",   img: dizzyMizzLizzy },
+	{ name: "Snuk",               img: snuk },
+	{ name: "Sofie 1998",         img: sofie1998 },
+	{ name: "Madsen",             img: madsen },
+	{ name: "Mads Langer",        img: madsLanger },
+	{ name: "Shu-bi-dua",         img: shuBiDua },
+	{ name: "SaveUs",             img: saveus },
+	{ name: "Von Quar",           img: vonQuar },
+	{ name: "Lykke",              img: lykke },
+	{ name: "Patina",             img: patina },
+	{ name: "Ulige Numre",        img: uligeNumre },
+	{ name: "Eddie",              img: eddie },
+	{ name: "Gerlach & Rosendahl",img: gerlachRosendahl },
+];
 ---
-<MainLayout title="Titel">
-	<main class="container mx-auto p-4">
-		<Heading htmlheading="h1">Lav noget flot!</Heading>
-        <Text teksttype="brødtekst">Så bliver Anders glad:-)</Text>
+
+<MainLayout>
+	<main class="w-full overflow-hidden">
+		<!-- Hero Section -->
+		<section class="relative w-full bg-gron overflow-hidden min-h-screen flex flex-col items-center justify-center py-20">
+			<img src={logoSvg.src} alt="Midtfyns Festival Logo" class="w-64 h-auto mb-12" />
+			<Heading htmlheading="h1" font="walnut" class="text-hvid text-center mb-6">Midtfyns Festival</Heading>
+			<Heading htmlheading="h3" font="acumin" class="text-hvid text-center uppercase tracking-wide">Af græsrødder og ildsjæle</Heading>
+		</section>
+
+		<!-- Countdown Section directly under hero -->
+		<section class="relative w-full overflow-hidden">
+			<Image src={faellesskab} alt="Fællesskab" class="w-full h-[76vh] object-cover" />
+			<div class="absolute inset-0 bg-black/40"></div>
+			<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+				<Heading
+					htmlheading="h1"
+					font="walnut"
+					class="text-hvid text-center uppercase mb-12 leading-none countdown-heading"
+				>
+					Vi samles igen om
+				</Heading>
+				<div class="countdown-wrapper flex flex-row flex-wrap items-end justify-center gap-20 mb-12">
+					<div class="countdown-item flex items-end gap-2">
+						<h1 id="cd-days" class="countdown-number text-hvid font-walnut leading-none">39</h1>
+						<h3 id="cd-days-label" class="countdown-label text-hvid font-acumin uppercase">dage</h3>
+					</div>
+					<div class="countdown-item flex items-end gap-2">
+						<h1 id="cd-hours" class="countdown-number text-hvid font-walnut leading-none">04</h1>
+						<h3 id="cd-hours-label" class="countdown-label text-hvid font-acumin uppercase">timer</h3>
+					</div>
+					<div class="countdown-item flex items-end gap-2">
+						<h1 id="cd-mins" class="countdown-number text-hvid font-walnut leading-none">42</h1>
+						<h3 id="cd-mins-label" class="countdown-label text-hvid font-acumin uppercase">minutter</h3>
+					</div>
+					<div class="countdown-item flex items-end gap-2">
+						<h1 id="cd-secs" class="countdown-number text-hvid font-walnut leading-none">14</h1>
+						<h3 id="cd-secs-label" class="countdown-label text-hvid font-acumin uppercase">sekunder</h3>
+					</div>
+				</div>
+				<div class="mb-6">
+					<Button variant="white" size="large">KØB DIN BILLET</Button>
+				</div>
+			</div>
+
+			<script>
+			// Countdown script — updates DOM every second
+			(function(){
+			  const target = new Date('2026-09-04T00:00:00+02:00');
+			  const $days = document.getElementById('cd-days');
+			  const $hours = document.getElementById('cd-hours');
+			  const $mins = document.getElementById('cd-mins');
+			  const $secs = document.getElementById('cd-secs');
+			  function pad(n){return String(n).padStart(2,'0');}
+			  function tick(){
+			    const now = new Date();
+			    let diff = Math.max(0, target - now);
+			    const days = Math.floor(diff / (1000*60*60*24));
+			    diff -= days * (1000*60*60*24);
+			    const hours = Math.floor(diff / (1000*60*60));
+			    diff -= hours * (1000*60*60);
+			    const mins = Math.floor(diff / (1000*60));
+			    diff -= mins * (1000*60);
+			    const secs = Math.floor(diff / 1000);
+			    if($days) $days.textContent = days;
+			    if($hours) $hours.textContent = pad(hours);
+			    if($mins) $mins.textContent = pad(mins);
+			    if($secs) $secs.textContent = pad(secs);
+			  }
+			  tick();
+			  setInterval(tick,1000);
+			})();
+			</script>
+		</section>
+
+		<!-- Ny På Scenen Section -->
+		<section class="relative w-full pt-32 pb-28 bg-sand overflow-hidden">
+
+			<!-- Aaringe dekorationer -->
+			<img
+				src={aaringeSvg.src}
+				alt=""
+				aria-hidden="true"
+				class="absolute -top-16 -right-28 w-[38rem] opacity-75 pointer-events-none select-none"
+			/>
+			<img
+				src={aaringeSvg.src}
+				alt=""
+				aria-hidden="true"
+				class="absolute -bottom-16 -left-28 w-[32rem] opacity-65 pointer-events-none select-none"
+			/>
+
+			<!-- Overskrift + badge -->
+			<div class="max-w-7xl mx-auto px-8 relative z-10">
+				<div class="relative text-center mb-8">
+					<div
+						class="absolute top-2 right-0"
+						style="
+							background: var(--color-rod);
+							color: var(--color-sand);
+							padding: 0.7rem 2rem;
+							font-family: var(--font-body);
+							font-size: 1.15rem;
+							font-weight: 400;
+							white-space: nowrap;
+							transform: rotate(6deg);
+							transform-origin: right top;
+						"
+					>
+						Fuldt program · kommer snart
+					</div>
+					<Heading
+						htmlheading="h1"
+						font="walnut"
+						class="text-rod text-center uppercase program-heading"
+					>
+						På scenen
+					</Heading>
+				</div>
+
+				<p class="text-center text-rod font-geller text-2xl leading-relaxed max-w-3xl mx-auto mb-16">
+					Glæd dig til et stærkt program med både etablerede navne og nye favoritter
+				</p>
+			</div>
+
+			<!-- Fuld-bredde auto-scrollende marquee -->
+			<div class="overflow-hidden mb-16 py-4 relative z-10">
+				<!--
+					To identiske spor side om side.
+					Animationen kører translateX(-50%) = præcis ét spors bredde.
+					Når den resetter, ser det identisk ud → ingen synlig overgang.
+				-->
+				<div
+					data-marquee
+					style="display: flex; flex-direction: row; flex-wrap: nowrap; width: max-content; animation: marquee-scroll 55s linear infinite;"
+				>
+					<!-- Spor 1 -->
+					<div style="display: flex; flex-direction: row; flex-wrap: nowrap; gap: 1.5rem; padding-right: 1.5rem;">
+						{artists.map((artist) => (
+							<div
+								class="relative overflow-hidden rounded-[2rem]"
+								style="width: 14rem; height: 22rem; flex-shrink: 0;"
+							>
+								<Image
+									src={artist.img}
+									alt={artist.name}
+									class="absolute inset-0 w-full h-full object-cover object-center block"
+									style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+								/>
+							</div>
+						))}
+					</div>
+					<!-- Spor 2 — identisk kopi, skjult for skærmlæsere -->
+					<div aria-hidden="true" style="display: flex; flex-direction: row; flex-wrap: nowrap; gap: 1.5rem; padding-right: 1.5rem;">
+						{artists.map((artist) => (
+							<div
+								class="relative overflow-hidden rounded-[2rem]"
+								style="width: 14rem; height: 22rem; flex-shrink: 0;"
+							>
+								<Image
+									src={artist.img}
+									alt={artist.name}
+									class="absolute inset-0 w-full h-full object-cover object-center block"
+									style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+								/>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<!-- Knap -->
+			<div class="flex justify-center relative z-10">
+				<Button variant="primary" size="large">SE PROGRAMMET</Button>
+			</div>
+
+		</section>
+
+		<!-- Kom i Stemning Section -->
+		<section class="relative w-full pt-28 pb-32 overflow-hidden" style="background: var(--color-rod);">
+
+			<!-- Sektion header -->
+			<div class="max-w-7xl mx-auto px-8 mb-16 text-center">
+				<Heading
+					htmlheading="h1"
+					font="walnut"
+					class="uppercase stemning-heading text-sand"
+				>
+					Kom i stemning
+				</Heading>
+				<p style="color: var(--color-sand); font-family: var(--font-body); font-size: 1.25rem; max-width: 42rem; margin: 1.5rem auto 0; line-height: 1.7;">
+					Sæt dig i festival-mode allerede nu — lyt til vores officielle playlist og bliv klar til at synge med fra første node.
+				</p>
+			</div>
+
+			<!-- Spotify embed med soundwave-baggrund -->
+			<div style="position: relative; width: 100%; padding: 0 0 4rem 0; overflow: hidden;">
+
+				<!-- Soundwave dekorationer — bagved iframe, sand mod rød baggrund -->
+				<img
+					src={soundwaveSvg.src}
+					alt=""
+					aria-hidden="true"
+					style="
+						position: absolute;
+						top: 45%;
+						left: 50%;
+						transform: translate(-50%, -65%);
+						width: 100%;
+						min-width: 1440px;
+						pointer-events: none;
+						select: none;
+						z-index: 1;
+					"
+				/>
+				<img
+					src={soundwave1Svg.src}
+					alt=""
+					aria-hidden="true"
+					style="
+						position: absolute;
+						top: 45%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						width: 100%;
+						min-width: 1440px;
+						pointer-events: none;
+						select: none;
+						z-index: 2;
+					"
+				/>
+				<img
+					src={soundwave2Svg.src}
+					alt=""
+					aria-hidden="true"
+					style="
+						position: absolute;
+						top: 45%;
+						left: 50%;
+						transform: translate(-50%, -35%);
+						width: 100%;
+						min-width: 1440px;
+						pointer-events: none;
+						select: none;
+						z-index: 3;
+					"
+				/>
+
+				<!-- Spotify iframe, centreret, over soundwaves -->
+				<div
+					style="
+						position: relative;
+						z-index: 10;
+						max-width: 900px;
+						margin: 0 auto;
+						padding: 0 2rem;
+					"
+				>
+					<iframe
+						style="border-radius: 16px; display: block;"
+						src="https://open.spotify.com/embed/playlist/39Ve7NVQitcRAfUmzIzriK?utm_source=generator&theme=0"
+						width="100%"
+						height="480"
+						frameborder="0"
+						allowfullscreen=""
+						allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+						loading="lazy"
+					></iframe>
+				</div>
+
+			</div>
+
+			<!-- Nyhedsbrevskort under Spotify -->
+			<div class="max-w-7xl mx-auto px-8" style="position: relative; z-index: 10;">
+				<div
+					style="
+						background: var(--color-sand);
+						border-radius: 2rem;
+						padding: 3.5rem 3.5rem 0 3.5rem;
+						overflow: hidden;
+						position: relative;
+					"
+				>
+					<!-- To kolonner: venstre tekst+maskot / højre formular -->
+					<div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: stretch;">
+
+						<!-- Venstre: overskrift + brødtekst + maskot i bund -->
+						<div style="position: relative; padding-bottom: 3.5rem; min-height: 22rem;">
+							<Heading htmlheading="h2" font="walnut" class="text-rod uppercase">
+								Mere Midtfyn i indbakken
+							</Heading>
+							<p class="text-rod" style="margin-top: 1.5rem;">
+								Få musik, programslip, festivalnyt og små glimt fra Midtfyn direkte i din indbakke.
+							</p>
+							<!-- Maskot forankret i bund, centreret i kolonnen -->
+							<img
+								src={brevMaskotSvg.src}
+								alt=""
+								aria-hidden="true"
+								style="
+									position: absolute;
+									bottom: 3.5rem;
+									left: 50%;
+									transform: translateX(-50%);
+									width: 18rem;
+									height: auto;
+									display: block;
+								"
+							/>
+						</div>
+
+						<!-- Højre: formular -->
+						<form id="newsletter-form" novalidate style="display: flex; flex-direction: column; gap: 1.25rem; padding-top: 0.25rem; padding-bottom: 3.5rem;">
+
+							<!-- Navn -->
+							<div style="display: flex; flex-direction: column; gap: 0.4rem;">
+								<p class="text-rod" style="margin: 0;">Navn</p>
+								<input
+									type="text"
+									id="fornavn"
+									class="newsletter-input"
+									placeholder="Skriv dit fornavn"
+									style="
+										background: var(--color-rod);
+										border: none;
+										border-radius: 0.5rem;
+										padding: 1rem 1.25rem;
+										width: 100%;
+										outline: none;
+										color: var(--color-sand);
+										font-family: var(--font-acumin);
+										font-size: 1rem;
+									"
+								/>
+								<span id="fornavn-error" class="newsletter-error">Fornavn er påkrævet</span>
+							</div>
+
+							<!-- Efternavn -->
+							<div style="display: flex; flex-direction: column; gap: 0.4rem;">
+								<p class="text-rod" style="margin: 0;">Efternavn</p>
+								<input
+									type="text"
+									id="efternavn"
+									class="newsletter-input"
+									placeholder="Skriv dit efternavn"
+									style="
+										background: var(--color-rod);
+										border: none;
+										border-radius: 0.5rem;
+										padding: 1rem 1.25rem;
+										width: 100%;
+										outline: none;
+										color: var(--color-sand);
+										font-family: var(--font-acumin);
+										font-size: 1rem;
+									"
+								/>
+								<span id="efternavn-error" class="newsletter-error">Efternavn er påkrævet</span>
+							</div>
+
+							<!-- E-mail -->
+							<div style="display: flex; flex-direction: column; gap: 0.4rem;">
+								<p class="text-rod" style="margin: 0;">E-mail</p>
+								<input
+									type="email"
+									id="email"
+									class="newsletter-input"
+									placeholder="din@email.dk"
+									style="
+										background: var(--color-rod);
+										border: none;
+										border-radius: 0.5rem;
+										padding: 1rem 1.25rem;
+										width: 100%;
+										outline: none;
+										color: var(--color-sand);
+										font-family: var(--font-acumin);
+										font-size: 1rem;
+									"
+								/>
+								<span id="email-error" class="newsletter-error">Indtast en gyldig e-mail — husk snabel-å (@)</span>
+							</div>
+
+							<!-- Checkbox + disclaimer -->
+							<div style="display: flex; flex-direction: column; gap: 0.4rem;">
+								<label style="display: flex; flex-direction: row; gap: 0.875rem; align-items: flex-start; cursor: pointer;">
+									<input type="checkbox" id="consent-cb" class="newsletter-cb-input" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+									<span class="newsletter-cb-box"></span>
+									<p class="text-rod" style="margin: 0;">
+										Ved tilmelding bekræfter du at være indforstået med at vi behandler dine personlige oplysninger. Mere info i vores <a href="#" class="text-rod font-body" style="text-decoration: underline; font-size: inherit;">privatlivspolitik</a> *
+									</p>
+								</label>
+								<span id="consent-error" class="newsletter-error">Du skal acceptere betingelserne for at fortsætte</span>
+							</div>
+
+							<!-- Knap -->
+							<div style="display: flex; justify-content: flex-end;">
+								<Button variant="primary" size="large" type="submit">BLIV OPDATERET</Button>
+							</div>
+
+						</form>
+
+						<script>
+						(function () {
+							const form = document.getElementById('newsletter-form');
+							if (!form) return;
+
+							let hasSubmitted = false;
+
+							const fields = [
+								{
+									id: 'fornavn',
+									errorId: 'fornavn-error',
+									validate: (v) => v.trim() ? null : 'Fornavn er påkrævet',
+								},
+								{
+									id: 'efternavn',
+									errorId: 'efternavn-error',
+									validate: (v) => v.trim() ? null : 'Efternavn er påkrævet',
+								},
+								{
+									id: 'email',
+									errorId: 'email-error',
+									validate: (v) => {
+										if (!v.trim()) return 'E-mail er påkrævet';
+										if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
+											return 'Indtast en gyldig e-mail — husk snabel-å (@)';
+										return null;
+									},
+								},
+							];
+
+							function validateField(input, errorEl, validate) {
+								const msg = validate(input.value);
+								if (msg) {
+									errorEl.textContent = msg;
+									errorEl.style.visibility = 'visible';
+									input.style.outline = '2px solid var(--color-sand)';
+									return false;
+								}
+								errorEl.style.visibility = 'hidden';
+								input.style.outline = 'none';
+								return true;
+							}
+
+							// Live-validering efter første submit-forsøg
+							fields.forEach(({ id, errorId, validate }) => {
+								const input = document.getElementById(id);
+								const errorEl = document.getElementById(errorId);
+								input.addEventListener('input', () => {
+									if (hasSubmitted) validateField(input, errorEl, validate);
+								});
+							});
+
+							// Checkbox live
+							const cb = document.getElementById('consent-cb');
+							const cbError = document.getElementById('consent-error');
+							cb.addEventListener('change', () => {
+								if (hasSubmitted) {
+									cbError.style.visibility = cb.checked ? 'hidden' : 'visible';
+								}
+							});
+
+							form.addEventListener('submit', (e) => {
+								e.preventDefault();
+								hasSubmitted = true;
+
+								let valid = true;
+
+								fields.forEach(({ id, errorId, validate }) => {
+									const input = document.getElementById(id);
+									const errorEl = document.getElementById(errorId);
+									if (!validateField(input, errorEl, validate)) valid = false;
+								});
+
+								if (!cb.checked) {
+									cbError.style.visibility = 'visible';
+									valid = false;
+								} else {
+									cbError.style.visibility = 'hidden';
+								}
+
+								if (valid) {
+									// TODO: send til backend / e-mail service
+									console.log('Formular indsendt korrekt');
+								}
+							});
+						})();
+						</script>
+
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Mere end en Festival Section -->
+		<section class="relative w-full py-24 overflow-hidden" style="background: var(--color-gron);">
+
+			<!-- Aaringe dekoration — hvid via CSS filter, stor, venstre side -->
+			<img src={aaringeSvg.src} alt="" aria-hidden="true"
+				style="position: absolute; left: -18rem; top: 62%; transform: translateY(-50%); width: 82rem; pointer-events: none; filter: brightness(0) invert(1);" />
+
+			<!-- Sektionsoverskrift -->
+			<div class="max-w-7xl mx-auto px-8 mb-14 text-center relative" style="z-index: 10;">
+				<Heading htmlheading="h1" font="walnut" class="text-hvid uppercase program-heading">
+					Mere end en festival
+				</Heading>
+			</div>
+
+			<!-- Kort-container -->
+			<div class="max-w-7xl mx-auto px-8 relative" style="z-index: 10; display: flex; flex-direction: column; gap: 2rem;">
+
+				<!-- Kort 1: Ung i Midten — billede venstre -->
+				<div style="background: var(--color-gron); border: 3px solid rgba(255,255,255,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+					<div style="width: 36%; flex-shrink: 0; position: relative;">
+						<Image
+							src={ungIMidten}
+							alt="Ung i Midten"
+							class="absolute inset-0 w-full h-full object-cover block"
+							style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+						/>
+					</div>
+					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+						<div>
+							<Heading htmlheading="h2" font="walnut" class="text-hvid uppercase">Ung i Midten</Heading>
+							<p class="text-hvid" style="margin-top: 1rem;">
+								Ung i Midten samler unge fra hele Faaborg-Midtfyn til en festivaldag fyldt med musik, fællesskab og nye oplevelser. Her mødes unge på tværs af skoler, interesser og fællesskaber for at skabe minder, relationer og plads til at være ung samme.
+							</p>
+						</div>
+						<Button variant="white" size="large">OPLEV UNG I MIDTEN</Button>
+					</div>
+				</div>
+
+				<!-- Kort 2: Frivilighed — tekst venstre, billede højre -->
+				<div style="background: var(--color-gron); border: 3px solid rgba(255,255,255,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+						<div>
+							<Heading htmlheading="h2" font="walnut" class="text-hvid uppercase">Frivilighed</Heading>
+							<p class="text-hvid" style="margin-top: 1rem;">
+								Midtfyns Festival er skabt af fællesskab, ildsjæle og frivillige kræfter. Som frivillig bliver du en del af holdet bag festivalen og er med til at skabe oplevelser, stemning og fællesskab på pladsen i Ringe.
+							</p>
+						</div>
+						<Button variant="white" size="large">BLIV EN DEL AF FÆLLESSKABET</Button>
+					</div>
+					<div style="width: 36%; flex-shrink: 0; position: relative;">
+						<Image
+							src={nonprofit}
+							alt="Frivillige ved Midtfyns Festival"
+							class="absolute inset-0 w-full h-full object-cover block"
+							style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+						/>
+					</div>
+				</div>
+
+				<!-- Kort 3: Alt er Non-Profit — billede venstre -->
+				<div style="background: var(--color-gron); border: 3px solid rgba(255,255,255,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+					<div style="width: 36%; flex-shrink: 0; position: relative;">
+						<Image
+							src={foodtruck}
+							alt="Fællesskab og foodtrucks ved Midtfyns Festival"
+							class="absolute inset-0 w-full h-full object-cover block"
+							style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+						/>
+					</div>
+					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+						<div>
+							<Heading htmlheading="h2" font="walnut" class="text-hvid uppercase">Alt er Non-Profit</Heading>
+							<p class="text-hvid" style="margin-top: 1rem;">
+								Midtfyns Festival er bygget på fællesskab, frivillighed og engagerede lokale kræfter. Som medlem af foreningen er du med til at bakke op om festivalen og sikre, at den folkelige festivalstemning lever videre.
+							</p>
+						</div>
+						<Button variant="white" size="large">BAK OP OM FESTIVALEN</Button>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+
+
+		<!-- Footer -->
+		<footer class="relative w-full py-20 bg-sand overflow-hidden">
+			<div class="max-w-7xl mx-auto px-8">
+				<div class="grid grid-cols-3 gap-12 mb-12">
+					<div>
+						<h3 class="text-2xl font-acumin text-rod mb-6">Foreningen</h3>
+						<p class="font-geller text-rod">
+							Lombjergevej 20<br />
+							5750 Ringe<br />
+							Danmark<br />
+							CVR: 39609304
+						</p>
+					</div>
+
+					<div>
+						<h3 class="text-2xl font-acumin text-rod mb-6">Generel kontakt</h3>
+						<p class="font-geller text-rod">info@midtfynsfestival.dk</p>
+					</div>
+
+					<div>
+						<h3 class="text-2xl font-acumin text-rod mb-6">Bliv frivillig</h3>
+						<p class="font-geller text-rod">
+							<span class="text-rod">Skriv til </span>
+							<a href="#" class="underline text-rod">frivilligkordinatoren</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="border-t-2 border-rod pt-12 flex items-center justify-between">
+					<div class="font-walnut text-3xl text-rod">
+						Midtfyns Festival
+					</div>
+
+					<div class="flex gap-6">
+						<a href="#" class="text-rod hover:text-gron">Instagram</a>
+						<a href="#" class="text-rod hover:text-gron">Facebook</a>
+						<a href="#" class="text-rod hover:text-gron">TikTok</a>
+					</div>
+				</div>
+
+				<p class="text-center font-geller text-rod text-sm mt-8">
+					Af græsrødder og Ildsjæle
+				</p>
+			</div>
+		</footer>
 	</main>
 </MainLayout>
+
+<style>
+	:global {
+		.font-walnut {
+			font-family: var(--font-walnut);
+		}
+		.font-acumin {
+			font-family: var(--font-acumin);
+		}
+		.font-geller {
+			font-family: var(--font-body);
+		}
+		.bg-rod {
+			background-color: var(--color-rod);
+		}
+		.bg-gron {
+			background-color: var(--color-gron);
+		}
+		.bg-sand {
+			background-color: var(--color-sand);
+		}
+		.bg-sort {
+			background-color: var(--color-sort);
+		}
+		.bg-hvid {
+			background-color: var(--color-hvid);
+		}
+		.text-rod {
+			color: var(--color-rod);
+		}
+		.text-gron {
+			color: var(--color-gron);
+		}
+		.text-sand {
+			color: var(--color-sand);
+		}
+		.text-sort {
+			color: var(--color-sort);
+		}
+		.text-hvid {
+			color: var(--color-hvid);
+		}
+		.border-rod {
+			border-color: var(--color-rod);
+		}
+		.border-gron {
+			border-color: var(--color-gron);
+		}
+		.border-sand {
+			border-color: var(--color-sand);
+		}
+
+		.countdown-heading {
+			font-size: clamp(3rem, 7vw, 7rem);
+			line-height: 0.9;
+		}
+
+		.countdown-wrapper {
+			align-items: flex-end;
+			gap: clamp(3rem, 6vw, 8rem);
+		}
+
+		.countdown-item {
+			align-items: flex-end;
+		}
+
+		.countdown-number {
+			font-size: clamp(4rem, 9vw, 8rem);
+			line-height: 0.8;
+		}
+
+		.countdown-label {
+			font-size: clamp(1.5rem, 2vw, 2.5rem);
+			line-height: 1;
+			padding-bottom: 0.7rem;
+			letter-spacing: 0.03em;
+		}
+
+		.program-heading {
+			font-size: clamp(4rem, 9vw, 9rem);
+			line-height: 0.9;
+		}
+
+		.stemning-heading {
+			font-size: clamp(4rem, 9vw, 9rem);
+			line-height: 0.9;
+		}
+
+		.program-badge {
+			background: var(--color-rod);
+			color: var(--color-sand);
+			padding: 0.75rem 2rem;
+			font-family: var(--font-acumin);
+			font-size: 1.1rem;
+			font-weight: 400;
+			letter-spacing: 0.01em;
+			transform: rotate(6deg);
+			transform-origin: right top;
+			width: fit-content;
+			white-space: nowrap;
+		}
+
+
+		@media (max-width: 768px) {
+			.countdown-wrapper {
+				gap: 2.5rem;
+			}
+
+			.countdown-item {
+				width: 100%;
+				justify-content: center;
+			}
+
+			.countdown-label {
+				padding-bottom: 0.35rem;
+			}
+
+			/* Lidt langsommere på mobil */
+			[data-marquee] {
+				animation-duration: 40s !important;
+			}
+		}
+	}
+</style>
+
+<!-- Keyframes skal være i is:global for at undgå Astros scoping af animationsnavne -->
+<style is:global>
+	/*
+	 * -50% er relativt til elementets EGEN bredde (= de to spors samlede bredde).
+	 * Dvs. vi translater præcis ét spors bredde — sømløst loop uanset skærmstørrelse.
+	 */
+	@keyframes marquee-scroll {
+		from { transform: translateX(0); }
+		to   { transform: translateX(-50%); }
+	}
+
+	@media (max-width: 768px) {
+		[data-marquee] { animation-duration: 40s !important; }
+	}
+
+	/* Fejlmeddelelser — visibility i stedet for display så layout ikke skubbes */
+	.newsletter-error {
+		visibility: hidden;
+		font-family: var(--font-body);
+		font-size: 0.875rem;
+		color: var(--color-rod);
+		font-style: italic;
+	}
+
+	/* Placeholder-farve på nyhedsbrev-inputs */
+	.newsletter-input::placeholder {
+		color: var(--color-sand);
+		opacity: 0.65;
+	}
+
+	/* Custom checkbox */
+	.newsletter-cb-box {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.375rem;
+		height: 1.375rem;
+		border: 3px solid var(--color-rod);
+		border-radius: 0.3rem;
+		flex-shrink: 0;
+		margin-top: 0.2rem;
+		background: transparent;
+		transition: background 0.15s ease;
+	}
+
+	.newsletter-cb-input:checked + .newsletter-cb-box {
+		background: var(--color-rod);
+	}
+
+	/* Sand-farvet checkmark via clip-path */
+	.newsletter-cb-input:checked + .newsletter-cb-box::after {
+		content: '';
+		display: block;
+		width: 0.35rem;
+		height: 0.6rem;
+		border-right: 2.5px solid var(--color-sand);
+		border-bottom: 2.5px solid var(--color-sand);
+		transform: rotate(45deg) translate(-1px, -1px);
+	}
+</style>	

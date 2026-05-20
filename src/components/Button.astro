@@ -1,22 +1,184 @@
 ---
 // Henter parametrene fra Astro.props
-const { variant= "primary", size = "medium" } = Astro.props; 
- 
-//Definer den styling (Tailwind classes, der gør sig gældende for alle knapper)
-const buttonStyling = "border-2 px-16 py-4"; 
- 
-//Definer den styling (Tailwind classes), der gør sig gældende for de forskellige varianter 
+const { variant = "primary", size = "medium", type = "button" } = Astro.props;
+
+// Definer styling for varianter
 const variantClasses = {
-"primary": "border-black hover:bg-black hover:text-white hover:-skew-x-12 transition-all duration-700", /* border-primary-500 */
-"secondary": "border-blue-500 hover:bg-blue-500 hover:border-blue-200" /* border-secondary-500 */
+	primary: "btn--primary",
+	secondary: "btn--secondary",
+	green: "btn--green",
+	white: "btn--white",
+	sand: "btn--sand"
 };
- 
-//Definer den styling (Tailwind classes), der gør sig gældende for de forskelligeog størrelser.
+
+// Definer valgfrie tekststørrelser
 const sizeClasses = {
-"large": "text-4xl",
-"medium": "text-xl",
-"small": "text-large"
+	large: "btn--large",
+	medium: "btn--medium",
+	small: "btn--small"
 };
 ---
+
 <!--Sæt classes for den pågældende knap sammen ved hjælp af Astros class:list -->
-<button class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}><slot /></button>
+<button type={type} class:list={["btn", variantClasses[variant], sizeClasses[size]]}>
+	<span class="btn__label"><slot /></span>
+</button>
+
+<style>
+	.btn {
+		--btn-border-width: 3px;
+		--btn-radius: 1.25rem;
+		position: relative;
+		display: inline-flex;
+		padding: 1.1875rem 5rem 1.125rem 5rem;
+		justify-content: center;
+		align-items: center;
+		gap: 0.625rem;
+		overflow: visible;
+		border-radius: var(--btn-radius);
+		border: var(--btn-border-width) solid transparent;
+		transition: all 0.25s ease;
+		line-height: 1;
+		font-family: var(--font-acumin);
+		font-size: 28px;
+		font-weight: 400;
+		-webkit-font-smoothing: antialiased;
+		font-style: normal;
+		text-transform: uppercase;
+	}
+
+	.btn::after {
+		content: "";
+		position: absolute;
+		inset: calc(var(--btn-border-width) * -1);
+		border-radius: inherit;
+		pointer-events: none;
+		opacity: 0;
+		box-sizing: border-box;
+
+		border: 3px dashed var(--color-rod);
+		border-spacing: 12px;
+
+		transition: opacity 0.2s ease;
+	}
+
+	.btn__label {
+		position: relative;
+		z-index: 3;
+	}
+
+	.btn--primary {
+		border: var(--btn-border-width) solid #f15c56;
+		color: var(--color-rod);
+		background-color: transparent;
+	}
+
+	.btn--primary:hover {
+		background-color: transparent;
+		color: var(--color-rod);
+		border-color: transparent;
+		text-shadow:
+			0 0 0 currentColor,
+			0.03em 0 0 currentColor,
+			-0.03em 0 0 currentColor;
+	}
+
+	.btn--primary:hover::after {
+		opacity: 1;
+	}
+
+	.btn--secondary {
+		border: var(--btn-border-width) solid #375639;
+		color: var(--color-gron);
+		background-color: transparent;
+	}
+
+	.btn--secondary:hover {
+		background-color: var(--color-gron);
+		color: var(--color-hvid);
+	}
+
+	.btn--green {
+		border: var(--btn-border-width) solid var(--color-gron);
+		color: var(--color-gron);
+		background-color: transparent;
+	}
+
+	.btn--green:hover {
+		background-color: transparent;
+		color: var(--color-gron);
+		border-color: transparent;
+		text-shadow:
+			0 0 0 currentColor,
+			0.03em 0 0 currentColor,
+			-0.03em 0 0 currentColor;
+	}
+
+	.btn--green:hover::after {
+		opacity: 1;
+	}
+
+	.btn--green::after {
+		border-color: var(--color-gron);
+	}
+
+	.btn--white {
+		border: var(--btn-border-width) solid var(--color-hvid);
+		color: var(--color-hvid);
+		background-color: transparent;
+	}
+
+	.btn--white:hover {
+		background-color: transparent;
+		color: var(--color-hvid);
+		border-color: transparent;
+		text-shadow:
+			0 0 0 currentColor,
+			0.03em 0 0 currentColor,
+			-0.03em 0 0 currentColor;
+	}
+
+	.btn--white:hover::after {
+		opacity: 1;
+	}
+
+	.btn--white::after {
+		border-color: var(--color-hvid);
+	}
+
+	.btn--sand {
+		border: var(--btn-border-width) solid var(--color-sand);
+		color: var(--color-sand);
+		background-color: transparent;
+	}
+
+	.btn--sand:hover {
+		background-color: transparent;
+		color: var(--color-sand);
+		border-color: transparent;
+		text-shadow:
+			0 0 0 currentColor,
+			0.03em 0 0 currentColor,
+			-0.03em 0 0 currentColor;
+	}
+
+	.btn--sand:hover::after {
+		opacity: 1;
+	}
+
+	.btn--sand::after {
+		border-color: var(--color-sand);
+	}
+
+	.btn--large {
+		font-size: 32px;
+	}
+
+	.btn--medium {
+		font-size: 28px;
+	}
+
+	.btn--small {
+		font-size: 24px;
+	}
+</style>
