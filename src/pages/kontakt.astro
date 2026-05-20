@@ -1,4 +1,90 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import brevMaskotRaw from "../assets/svg/brev_maskot.svg?raw";
+import aaringeRaw from "../assets/svg/aaringe.svg?raw";
+import bgImage from "../assets/images/fælleskab1.webp";
+import "../styles/kontakt.css";
 ---
-<MainLayout></MainLayout>
+
+<MainLayout title="Kontakt – Midtfyns Festival">
+
+	<section class="kontakt-section">
+
+		<!-- Baggrundsbillede -->
+		<img src={bgImage.src} alt="" class="kontakt-bg" />
+		<div class="kontakt-bg-overlay"></div>
+
+		<!-- Kortet -->
+		<div class="kontakt-card">
+
+			<!-- Aaringe dekoration nederst til højre -->
+			<div class="kontakt-aaringe" set:html={aaringeRaw}></div>
+
+			<!-- Header: h1 + brevfyr -->
+			<div class="kontakt-header">
+				<h1 class="font-walnut kontakt-title">Kontakt</h1>
+				<div class="kontakt-mascot" set:html={brevMaskotRaw}></div>
+			</div>
+
+			<!-- Indhold: info til venstre, formular til højre -->
+			<div class="kontakt-content">
+
+				<!-- Venstre kolonne -->
+				<div class="kontakt-left">
+					<h2 class="font-walnut kontakt-brand">Midtfyns Festival</h2>
+
+					<div class="kontakt-info">
+						<!-- Adresse -->
+						<div class="kontakt-info-row">
+							<svg class="kontakt-info-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" stroke="var(--color-rod)" stroke-width="1.5" fill="none"/>
+							</svg>
+							<p class="kontakt-info-text">
+								Lombjergevej 20<br/>
+								5750 Ringe<br/>
+								Danmark
+							</p>
+						</div>
+
+						<!-- Email -->
+						<div class="kontakt-info-row">
+							<svg class="kontakt-info-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<rect x="3" y="5" width="18" height="14" rx="2" stroke="var(--color-rod)" stroke-width="1.5"/>
+								<path d="M3 8L12 13.5L21 8" stroke="var(--color-rod)" stroke-width="1.5"/>
+							</svg>
+							<p class="kontakt-info-text">
+								<a href="mailto:info@midtfynsfestival.dk">info@midtfynsfestival.dk</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Højre kolonne: formular -->
+				<form class="kontakt-form" method="POST">
+
+					<div class="kontakt-form-row">
+						<div class="kontakt-field">
+							<label class="kontakt-label" for="navn">Dit navn:</label>
+							<input class="kontakt-input" id="navn" name="navn" type="text" placeholder="Anders Andersen" />
+						</div>
+						<div class="kontakt-field">
+							<label class="kontakt-label" for="mail">Din mail:</label>
+							<input class="kontakt-input" id="mail" name="mail" type="email" placeholder="Anders@andersen.dk" />
+						</div>
+					</div>
+
+					<div class="kontakt-field">
+						<label class="kontakt-label" for="besked">Din besked:</label>
+						<textarea class="kontakt-textarea" id="besked" name="besked" placeholder="Besked skrives her"></textarea>
+					</div>
+
+					<Button variant="primary" type="submit">Send besked</Button>
+
+				</form>
+
+			</div>
+		</div>
+	</section>
+
+</MainLayout>

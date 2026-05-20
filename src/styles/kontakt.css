@@ -1,0 +1,207 @@
+/* ── Kontakt-side ── */
+
+.kontakt-section {
+	min-height: 100svh;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5rem 2rem;
+}
+
+.kontakt-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+	z-index: 0;
+}
+
+.kontakt-bg-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(5, 16, 10, 0.5);
+	z-index: 1;
+}
+
+/* ── Kortet ── */
+.kontakt-card {
+	position: relative;
+	z-index: 2;
+	background: var(--color-sand);
+	border-radius: 2rem;
+	padding: 4rem 4.5rem 6rem 4.5rem;
+	width: 92%;
+	max-width: 1400px;
+	/* overflow synlig så aaringe kan stikke ud */
+	overflow: visible;
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+/* ── Header: h1 + brevfyr ── */
+.kontakt-header {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+}
+
+/* ── Maskot — flyder til højre for h1 ── */
+.kontakt-mascot {
+	position: absolute;
+	top: -1rem;
+	right: 0;
+	pointer-events: none;
+	z-index: 3;
+}
+.kontakt-mascot svg {
+	width: 160px;
+	height: auto;
+}
+
+/* ── Aaringe — nederst til højre, bag formularen ── */
+.kontakt-aaringe {
+	position: absolute;
+	bottom: -14rem;
+	right: -8rem;
+	pointer-events: none;
+	z-index: 0;
+}
+.kontakt-aaringe svg {
+	width: 680px;
+	height: auto;
+}
+
+/* ── Indhold: 2-kolonne grid ── */
+.kontakt-content {
+	display: grid;
+	grid-template-columns: 1fr 1.6fr;
+	gap: 4rem;
+	align-items: start;
+}
+
+/* ── Venstre kolonne ── */
+.kontakt-left {
+	padding-top: 1.6rem;
+}
+
+.kontakt-title {
+	font-size: clamp(4rem, 6vw, 6rem) !important;
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0;
+}
+
+.kontakt-brand {
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	margin: 0 0 1.75rem;
+	line-height: 1;
+}
+
+.kontakt-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.kontakt-info-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.kontakt-info-icon {
+	flex-shrink: 0;
+	margin-top: 0.1rem;
+}
+
+.kontakt-info-text {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	line-height: 1.65;
+	margin: 0;
+}
+
+.kontakt-info-text a {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	text-decoration: none;
+}
+.kontakt-info-text a:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+/* ── Formular ── */
+.kontakt-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	position: relative;
+	z-index: 2;
+}
+
+.kontakt-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.kontakt-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.kontakt-label {
+	font-family: var(--font-acumin) !important;
+	font-size: 0.95rem !important;
+	font-weight: 700 !important;
+	color: var(--color-rod) !important;
+	margin: 0;
+}
+
+.kontakt-input,
+.kontakt-textarea {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	background: var(--color-sand) !important;
+	border: 1.5px solid var(--color-rod);
+	border-radius: 0.75rem;
+	padding: 0.9rem 1rem;
+	outline: none;
+	transition: box-shadow 0.2s ease;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.kontakt-input::placeholder,
+.kontakt-textarea::placeholder {
+	color: rgba(241, 92, 86, 0.4);
+}
+
+.kontakt-input:focus,
+.kontakt-textarea:focus {
+	box-shadow: 0 0 0 3px rgba(241, 92, 86, 0.18);
+}
+
+.kontakt-textarea {
+	resize: vertical;
+	min-height: 200px;
+}
+
+/* ── Send-knap: fuld bredde ── */
+.kontakt-form .btn {
+	width: 100% !important;
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+	background: var(--color-sand) !important;
+}
