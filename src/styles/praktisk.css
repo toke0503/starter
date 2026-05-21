@@ -1,0 +1,289 @@
+/* ── Praktisk Information-side ── */
+
+/* ── Hero ── */
+.praktisk-hero {
+	position: relative;
+	min-height: 100svh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+}
+
+.praktisk-hero-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+	z-index: 0;
+}
+
+/* Mørkt overlay for læsbarhed */
+.praktisk-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba(5, 16, 10, 0.75) 0%,
+		rgba(5, 16, 10, 0.35) 50%,
+		rgba(5, 16, 10, 0.1) 100%
+	);
+	z-index: 1;
+}
+
+/* Indhold nederst til venstre */
+.praktisk-hero-content {
+	position: relative;
+	z-index: 2;
+	padding: 0 3rem 4rem 3rem;
+	max-width: 700px;
+}
+
+.praktisk-title {
+	font-size: clamp(5rem, 12vw, 10rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0 0 1.5rem;
+}
+
+.praktisk-subtitle {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.7;
+	margin: 0;
+	max-width: 560px;
+}
+
+/* Maskot — nederst til højre */
+.praktisk-mascot {
+	position: absolute;
+	bottom: 1rem;
+	right: 3rem;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.praktisk-mascot svg {
+	width: 200px;
+	height: auto;
+}
+
+/* ── FAQ-sektion ── */
+.praktisk-faq {
+	position: relative;
+	background: var(--color-sand);
+	padding: 6rem 3rem 8rem;
+	overflow: hidden;
+}
+
+/* Aaringe dekorationer */
+.praktisk-faq-aaringe {
+	position: absolute;
+	pointer-events: none;
+	z-index: 0;
+}
+.praktisk-faq-aaringe svg {
+	width: 520px;
+	height: auto;
+}
+
+.praktisk-faq-aaringe--left {
+	top: 4rem;
+	left: -14rem;
+}
+
+.praktisk-faq-aaringe--right {
+	bottom: -8rem;
+	right: -14rem;
+}
+
+/* Centreret indholdskolonne */
+.praktisk-faq-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 860px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+/* Gruppe: titel + accordions */
+.praktisk-faq-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.praktisk-faq-title {
+	font-size: clamp(2rem, 4vw, 3rem) !important;
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 0 2rem;
+}
+
+/* Accordion-item */
+.praktisk-faq-item {
+	border: 1.5px solid var(--color-rod);
+	border-radius: 0.75rem;
+	margin-bottom: 0.6rem;
+	overflow: hidden;
+}
+
+.praktisk-faq-item:last-child {
+	margin-bottom: 0;
+}
+
+/* Fjern standard browser-pil */
+.praktisk-faq-item summary {
+	list-style: none;
+}
+.praktisk-faq-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.praktisk-faq-summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.1rem 1.5rem;
+	cursor: pointer;
+	gap: 1rem;
+	user-select: none;
+	background: transparent !important;
+}
+
+.praktisk-faq-summary:hover {
+	background: transparent !important;
+}
+
+.praktisk-faq-question {
+	font-family: var(--font-acumin) !important;
+	font-size: 1.15rem !important;
+	font-weight: 400 !important;
+	color: var(--color-rod) !important;
+	margin: 0;
+}
+
+/* Chevron */
+.praktisk-faq-chevron {
+	flex-shrink: 0;
+	color: var(--color-rod);
+	transition: transform 0.25s ease;
+}
+
+.praktisk-faq-item[open] .praktisk-faq-chevron {
+	transform: rotate(-90deg);
+}
+
+/* Svar-indhold */
+.praktisk-faq-answer {
+	overflow: hidden;
+	height: 0;
+	cursor: pointer;
+}
+
+/* Hover på hele boksen samlet */
+.praktisk-faq-item {
+	transition: background 0.2s ease;
+}
+
+.praktisk-faq-item:hover {
+	background: rgba(241, 92, 86, 0.04);
+}
+
+.praktisk-faq-item--sand:hover {
+	background: rgba(254, 247, 221, 0.06);
+}
+
+.praktisk-faq-answer p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	line-height: 1.7;
+	margin: 0;
+	padding: 0.4rem 1.5rem 0;
+}
+
+.praktisk-faq-answer p:last-child {
+	padding-bottom: 1.25rem;
+}
+
+.praktisk-faq-answer strong {
+	font-weight: 700;
+}
+
+/* ── Mad og Drikkevarer (sand sektion, aaringe højre) ── */
+.praktisk-mad {
+	position: relative;
+	background: var(--color-sand);
+	padding: 6rem 3rem 8rem;
+	overflow: hidden;
+}
+
+.praktisk-mad-aaringe {
+	top: 4rem;
+	left: auto !important;
+	right: -14rem;
+}
+
+/* ── Transport + Parkering (grøn sektion) ── */
+.praktisk-transport {
+	position: relative;
+	background: var(--color-gron);
+	padding: 6rem 3rem 8rem;
+	overflow: hidden;
+}
+
+.praktisk-transport-title {
+	font-size: clamp(2rem, 4vw, 3rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 0 2rem;
+}
+
+/* ── Camping (rød sektion) ── */
+.praktisk-camping {
+	position: relative;
+	background: var(--color-rod);
+	padding: 6rem 3rem 8rem;
+	overflow: hidden;
+}
+
+.praktisk-camping-title {
+	font-size: clamp(2rem, 4vw, 3rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 0 2rem;
+}
+
+/* Sand-variant af accordion (til brug på grøn og rød baggrund) */
+.praktisk-faq-item--sand {
+	border-color: var(--color-sand) !important;
+}
+
+.praktisk-faq-item--sand .praktisk-faq-question {
+	color: var(--color-sand) !important;
+}
+
+.praktisk-faq-item--sand .praktisk-faq-chevron {
+	color: var(--color-sand) !important;
+}
+
+.praktisk-faq-item--sand .praktisk-faq-summary:hover {
+	background: rgba(254, 247, 221, 0.06) !important;
+}
+
+.praktisk-faq-item--sand .praktisk-faq-answer {
+	border-top-color: var(--color-sand) !important;
+}
+
+.praktisk-faq-item--sand .praktisk-faq-answer p {
+	color: var(--color-sand) !important;
+}

@@ -1,4 +1,178 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import logoSandRaw from "../assets/svg/logo_sandfarve.svg?raw";
+import aaringeRaw from "../assets/svg/aaringe.svg?raw";
+import talebobbel from "../assets/svg/talebobbel.svg?raw";
+import bgImage from "../assets/images/tom_scene.webp";
+import droneColor from "../assets/images/drone_crowd.webp";
+import droneBw from "../assets/images/drone_crowd_bw.webp";
+import ildsjæleImg1 from "../assets/images/frivilig_armbånd.webp";
+import ildsjæleImg2 from "../assets/images/baren.webp";
+import ildsjæleImg3 from "../assets/images/camping_sunset.webp";
+import frivilligImg from "../assets/images/frivilige.webp";
+import faellesskabImg1 from "../assets/images/mudder_og_regnslag.webp";
+import faellesskabImg2 from "../assets/images/fællessang.webp";
+import faellesskabImg3 from "../assets/images/skaal.webp";
+import faellesskabImg4 from "../assets/images/faelleskab.webp";
+import "../styles/om.css";
 ---
-<MainLayout></MainLayout>
+
+<MainLayout title="Om Midtfyns Festival">
+
+	<!-- ── Hero ── -->
+	<section class="om-hero">
+		<img src={bgImage.src} alt="" class="om-hero-bg" />
+		<div class="om-hero-overlay"></div>
+
+		<div class="om-hero-content">
+			<h1 class="font-walnut om-hero-title">Om Midtfyns<br/>Festival</h1>
+			<p class="om-hero-subtitle">Af græsrødder og ildsjæle</p>
+		</div>
+
+		<div class="om-hero-mascot" set:html={logoSandRaw}></div>
+	</section>
+
+	<!-- ── Vores Historie ── -->
+	<section class="om-historie">
+
+		<div class="om-historie-aaringe" set:html={aaringeRaw}></div>
+
+		<div class="om-historie-inner">
+
+			<!-- Tekst -->
+			<div class="om-historie-text">
+				<h2 class="font-walnut om-historie-title">Vores Historie</h2>
+				<p class="om-historie-p">Midtfyns Festival blev første gang afholdt i 1976 og udviklede sig hurtigt til en af Danmarks mest folkekære festivaler. Festivalpladsen i Ringe dannede gennem årtier rammen om store musikoplevelser, fællesskab og sommernætter fyldt med liv.</p>
+				<p class="om-historie-p">Festivalen samlede både internationale artister og lokale ildsjæle omkring en fælles kærlighed til musik og mennesker. Selvom festivalen lukkede i 2004, forsvandt følelsen aldrig helt.</p>
+				<p class="om-historie-p">I dag bliver Midtfyns Festival vækket til live igen – med respekt for historien og med ønsket om at skabe nye minder for en ny generation.</p>
+			</div>
+
+			<!-- Before/After Slider -->
+			<div class="om-slider" id="om-slider">
+				<img src={droneColor.src} alt="Midtfyns Festival nu" class="om-slider-color" />
+				<div class="om-slider-bw-clip">
+					<img src={droneBw.src} alt="Midtfyns Festival før" class="om-slider-bw" />
+				</div>
+				<div class="om-slider-handle">
+					<div class="om-slider-line"></div>
+					<div class="om-slider-knob">
+						<svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M6 1L1 7L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						<svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M2 1L7 7L2 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ── Græsrødder og Ildsjæle ── -->
+	<section class="om-ildsjæle">
+
+		<div class="om-ildsjæle-aaringe" set:html={aaringeRaw}></div>
+
+		<div class="om-ildsjæle-inner">
+
+			<!-- Tekst -->
+			<div class="om-ildsjæle-text">
+				<h2 class="font-walnut om-ildsjæle-title">Græsrødder og Ildsjæle</h2>
+				<p class="om-ildsjæle-p">Midtfyns Festival er skabt af mennesker med passion.</p>
+				<p class="om-ildsjæle-p">Festivalen drives af frivillige, lokale kræfter og ildsjæle, som sammen arbejder for at skabe en festival med nærvær, fællesskab og plads til alle. Det handler ikke kun om musik, men om at samle mennesker og skabe noget, man er stolt af at være en del af.</p>
+				<p class="om-ildsjæle-p">Fra planlægning til barvagter, scenebyggeri og fællesspisning – festivalen bliver til gennem mennesker, der brænder for at skabe oplevelser sammen.</p>
+			</div>
+
+			<!-- Billeder + citat -->
+			<div class="om-ildsjæle-right">
+				<div class="om-ildsjæle-photos">
+					<img src={ildsjæleImg1.src} alt="" class="om-ildsjæle-photo" />
+					<img src={ildsjæleImg2.src} alt="" class="om-ildsjæle-photo" />
+					<img src={ildsjæleImg3.src} alt="" class="om-ildsjæle-photo" />
+				</div>
+				<div class="om-ildsjæle-quote">
+					<Fragment set:html={talebobbel} />
+					<p class="om-ildsjæle-quote-text">"Vi ønsker at skabe en festival, hvor fællesskabet er lige så vigtigt som musikken."</p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ── Frivillighed ── -->
+	<section class="om-frivillighed">
+
+		<div class="om-frivillighed-aaringe" set:html={aaringeRaw}></div>
+
+		<div class="om-frivillighed-inner">
+
+			<!-- Blob-billede til venstre -->
+			<div class="om-frivillighed-img-wrap">
+				<img src={frivilligImg.src} alt="" class="om-frivillighed-img" />
+			</div>
+
+			<!-- Tekst til højre -->
+			<div class="om-frivillighed-text">
+				<h2 class="font-walnut om-frivillighed-title">Frivillighed</h2>
+				<p class="om-frivillighed-p">Midtfyns Festival ville ikke eksistere uden frivillige. Som frivillig bliver du en del af et fællesskab, hvor man løfter i flok og skaber festivalen sammen. Her mødes mennesker på tværs af alder, erfaring og baggrund med et fælles mål: at skabe noget særligt på Midtfyn.</p>
+				<p class="om-frivillighed-p">Uanset om du hjælper i baren, bygger festivalpladsen op eller tager imod gæster, er du med til at skabe den stemning og energi, festivalen er kendt for.</p>
+				<p class="om-frivillighed-p">Som frivillig får du:</p>
+				<ul class="om-frivillighed-list">
+					<li>En unik festivaloplevelse</li>
+					<li>Nye relationer og fællesskab</li>
+					<li>Adgang til festivalen</li>
+					<li>Mulighed for at blive en del af historien</li>
+				</ul>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ── Vores Fællesskab ── -->
+	<section class="om-faellesskab">
+
+		<div class="om-faellesskab-aaringe" set:html={aaringeRaw}></div>
+
+		<div class="om-faellesskab-inner">
+
+			<!-- Tekst -->
+			<div class="om-faellesskab-text">
+				<h2 class="font-walnut om-faellesskab-title">Vores Fællesskab</h2>
+				<p class="om-faellesskab-p">Midtfyns Festival er bygget på fælles ejerskab, nærvær og oplevelser, der bringer mennesker sammen.</p>
+				<p class="om-faellesskab-p">Festivalen ønsker at skabe et frirum, hvor der er plads til forskellighed, nysgerrighed og nye relationer. Her mødes gamle festivalgæster med en ny generation omkring musik, minder og fællesskab.</p>
+				<p class="om-faellesskab-p">Det handler om øjeblikkene foran scenen, samtalerne på campingpladsen og følelsen af at være en del af noget større.</p>
+				<p class="om-faellesskab-p">Midtfyns Festival er ikke bare en festival.<br/>Det er en folkefest med rødder på Midtfyn.</p>
+			</div>
+
+			<!-- 2×2 billedgrid -->
+			<div class="om-faellesskab-grid">
+				<img src={faellesskabImg1.src} alt="" class="om-faellesskab-img" />
+				<img src={faellesskabImg2.src} alt="" class="om-faellesskab-img" />
+				<img src={faellesskabImg3.src} alt="" class="om-faellesskab-img" />
+				<img src={faellesskabImg4.src} alt="" class="om-faellesskab-img" />
+			</div>
+
+		</div>
+	</section>
+
+</MainLayout>
+
+<script>
+	const slider = document.getElementById('om-slider')!;
+	const bwClip = slider.querySelector<HTMLElement>('.om-slider-bw-clip')!;
+	const handle  = slider.querySelector<HTMLElement>('.om-slider-handle')!;
+	let isDragging = false;
+
+	function setPosition(clientX: number) {
+		const rect = slider.getBoundingClientRect();
+		let pct = ((clientX - rect.left) / rect.width) * 100;
+		pct = Math.max(0, Math.min(100, pct));
+		bwClip.style.clipPath = `inset(0 0 0 ${pct}%)`;
+		handle.style.left     = `${pct}%`;
+	}
+
+	slider.addEventListener('mousedown', e => { isDragging = true; setPosition(e.clientX); e.preventDefault(); });
+	window.addEventListener('mousemove', e => { if (isDragging) setPosition(e.clientX); });
+	window.addEventListener('mouseup',   () => { isDragging = false; });
+
+	slider.addEventListener('touchstart', e => { isDragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+	window.addEventListener('touchmove',  e => { if (isDragging) setPosition(e.touches[0].clientX); }, { passive: true });
+	window.addEventListener('touchend',   () => { isDragging = false; });
+</script>

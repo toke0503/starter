@@ -1,0 +1,271 @@
+/* ── Ung i Midten-side ── */
+
+/* ── Hero ── */
+.ung-hero {
+	position: relative;
+	min-height: 100svh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+}
+
+.ung-hero-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+	z-index: 0;
+}
+
+.ung-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba(5, 16, 10, 0.72) 0%,
+		rgba(5, 16, 10, 0.3) 50%,
+		rgba(5, 16, 10, 0.05) 100%
+	);
+	z-index: 1;
+}
+
+/* Indhold nederst til venstre */
+.ung-hero-content {
+	position: relative;
+	z-index: 2;
+	padding: 0 3rem 4rem 3rem;
+}
+
+.ung-hero-title {
+	font-size: clamp(3rem, 10vw, 10rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0 0 1.5rem;
+	white-space: nowrap;
+}
+
+/* ── Mere end en festival ── */
+.ung-mere {
+	background: var(--color-sand);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+.ung-mere-inner {
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: center;
+}
+
+.ung-mere-title {
+	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	line-height: 1;
+	margin: 0 0 2rem;
+}
+
+.ung-mere-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	line-height: 1.75;
+	margin: 0 0 1.25rem;
+}
+
+.ung-mere-p:last-child {
+	margin-bottom: 0;
+}
+
+/* Aaringe — vises i højre kolonne, forskudt mod højre */
+.ung-mere-aaringe {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: -26rem;
+}
+
+.ung-mere-aaringe svg {
+	width: 100%;
+	max-width: 660px;
+	height: auto;
+}
+
+/* ── Et sted hvor unge er i centrum ── */
+.ung-centrum {
+	position: relative;
+	background: var(--color-gron);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+.ung-centrum-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1.4fr;
+	gap: 6rem;
+	align-items: stretch;
+}
+
+/* Aaringe — centeret bag billedkolonnen */
+.ung-centrum-aaringe {
+	position: absolute;
+	top: 50%;
+	left: 22%;
+	transform: translate(-50%, -50%);
+	width: 45%;
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0.2;
+}
+
+.ung-centrum-aaringe svg {
+	width: 100%;
+	height: auto;
+}
+
+.ung-centrum-aaringe svg path {
+	stroke: var(--color-sand) !important;
+}
+
+/* Direkte grid-child — intet indhold i flow, stretch sætter højden */
+.ung-centrum-img-wrap {
+	position: relative;
+	z-index: 1;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	min-height: 0;
+}
+
+/* Absolut billede — bidrager ikke til grid-rækkens højde */
+.ung-centrum-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.ung-centrum-title {
+	font-size: clamp(2.5rem, 4.5vw, 4rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 1.05;
+	margin: 0 0 1.75rem;
+}
+
+.ung-centrum-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.75;
+	margin: 0 0 0.25rem;
+}
+
+.ung-centrum-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ung-centrum-list li {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.75;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.ung-centrum-list li::before {
+	content: '·';
+	position: absolute;
+	left: 0;
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+/* ── Skabt Sammen med Unge ── */
+.ung-skabt {
+	position: relative;
+	background: var(--color-gron);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+/* Subtil maskot-dekoration i baggrunden */
+.ung-skabt-deko {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0.12;
+}
+
+.ung-skabt-deko svg {
+	width: 520px;
+	height: auto;
+}
+
+.ung-skabt-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1.2fr;
+	gap: 6rem;
+	align-items: center;
+}
+
+.ung-skabt-title {
+	font-size: clamp(3.5rem, 9vw, 8rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0;
+	white-space: nowrap;
+}
+
+.ung-skabt-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.75;
+	margin: 0 0 1.25rem;
+}
+
+.ung-skabt-p:last-child {
+	margin-bottom: 0;
+}
+
+/* ── Fuld-bredde billede ── */
+.ung-fullwidth-img {
+	display: block;
+	width: 100%;
+	height: 60vh;
+	object-fit: cover;
+	object-position: center center;
+}
+
+/* ── Hero subtitle ── */
+.ung-hero-subtitle {
+	font-family: var(--font-acumin) !important;
+	font-size: clamp(1.2rem, 2.5vw, 2.5rem) !important;
+	color: var(--color-sand) !important;
+	line-height: 1.2;
+	margin: 0;
+	white-space: nowrap;
+}

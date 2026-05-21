@@ -1,0 +1,176 @@
+/* ── Kunstner-side ── */
+
+/* ── Hero ── */
+.kunstner-hero {
+	position: relative;
+	min-height: 100svh;
+	overflow: hidden;
+}
+
+.kunstner-hero-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+	z-index: 0;
+}
+
+/* ── Info-sektion ── */
+.kunstner-info {
+	position: relative;
+	background: var(--color-gron);
+	overflow: hidden;
+	padding: 10rem 3rem 12rem;
+}
+
+/* Aaringe dekorationer */
+.kunstner-info-aaringe {
+	position: absolute;
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0.25;
+}
+
+.kunstner-info-aaringe svg {
+	width: 780px;
+	height: auto;
+}
+
+.kunstner-info-aaringe svg path {
+	stroke: var(--color-sand) !important;
+}
+
+.kunstner-info-aaringe--left {
+	top: 50%;
+	left: -14rem;
+	transform: translateY(-40%);
+}
+
+.kunstner-info-aaringe--right {
+	top: 50%;
+	right: -14rem;
+	transform: translateY(-60%);
+}
+
+/* Indhold — centreret kolonne */
+.kunstner-info-content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+/* Kunstnernavn */
+.kunstner-info-navn {
+	font-size: clamp(5rem, 12vw, 10rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0 0 7rem;
+}
+
+/* Scene + Showstart blokke */
+.kunstner-info-meta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4.5rem;
+	margin-bottom: 7rem;
+}
+
+.kunstner-info-meta-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+.kunstner-info-label {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	letter-spacing: 0.04em;
+}
+
+.kunstner-info-value {
+	font-size: clamp(2rem, 5vw, 3.5rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+/* Knapper side om side */
+.kunstner-info-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	margin-bottom: 8rem;
+}
+
+/* Bio-tekst — venstrestillet i centreret kolonne */
+.kunstner-info-bio {
+	text-align: left;
+	width: 100%;
+}
+
+.kunstner-info-bio p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.75;
+	margin: 0 0 1.75rem;
+}
+
+.kunstner-info-bio p:last-child {
+	margin-bottom: 0;
+}
+
+/* ── Spotify embed ── */
+.kunstner-spotify {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 900px;
+	margin: 10rem auto 0;
+}
+
+/* ── Sociale medier ── */
+.kunstner-social {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10rem;
+}
+
+.kunstner-social-title {
+	font-size: clamp(2rem, 4.5vw, 3.5rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 1.05;
+	margin: 0 0 3.5rem;
+	max-width: 700px;
+}
+
+.kunstner-social-icons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 3rem;
+}
+
+.kunstner-social-link {
+	transition: opacity 0.2s ease;
+}
+
+.kunstner-social-link:hover {
+	opacity: 0.65;
+}

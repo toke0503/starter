@@ -1,4 +1,210 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import programMaskotRaw from "../assets/svg/logo_sandfarve.svg?raw";
+import sangonskeRaw from "../assets/svg/sangonske_maskot.svg?raw";
+import aaringeRaw from "../assets/svg/aaringe.svg?raw";
+import bgImage from "../assets/images/artist_ryg.webp";
+import "../styles/program.css";
+
+import img_dizzy   from "../assets/images/pressebillede_dizzy_mizz_lizzy.webp";
+import img_saveus  from "../assets/images/pressebillede_saveus.webp";
+import img_ulige   from "../assets/images/pressebillede_ulige_numre1.webp";
+import img_mads    from "../assets/images/pressebillede_mads_langer.webp";
+import img_drew    from "../assets/images/pressebillede_drew_sycamore.webp";
+import img_madsen  from "../assets/images/pressebillede_madsen.webp";
+import img_august  from "../assets/images/pressebillede_august_hoyen.webp";
+import img_gerlach from "../assets/images/pressebillede_gerlach_rosendahl.webp";
+import img_shu     from "../assets/images/pressebillede_shu_bi_dua.webp";
+import img_patina  from "../assets/images/pressebillede_patina.webp";
+import img_vonquar from "../assets/images/pressebillede_von_quar.webp";
+import img_lykke   from "../assets/images/pressebillede_lykke.webp";
+import img_sofie   from "../assets/images/pressebillede_sofie1998.webp";
+import img_harske  from "../assets/images/pressebillede_harske_hubbi.webp";
+import img_carl    from "../assets/images/pressebillede_diabat_carl_emil_petersen.webp";
+import img_eddie   from "../assets/images/pressebillede_eddie.webp";
+import img_snuk    from "../assets/images/pressebillede_snuk.webp";
+import img_rikke   from "../assets/images/pressebillede_lydtaet_rikke_thomsen.webp";
+import img_djclaus from "../assets/images/pressebillede_djclaus.webp";
+
+// OBS: dag-værdier er placeholders — ret til korrekt program når klar
+const artists = [
+	{ name: "Dizzy Mizz Lizzy",           image: img_dizzy,   kategori: "musik",       dag: "lordag", scene: "ildsjaelen"  },
+	{ name: "Saveus",                     image: img_saveus,  kategori: "musik",       dag: "fredag", scene: "ildsjaelen"  },
+	{ name: "Ulige Numre",               image: img_ulige,   kategori: "musik",       dag: "lordag", scene: "ildsjaelen"  },
+	{ name: "Mads Langer",               image: img_mads,    kategori: "musik",       dag: "fredag", scene: "ildsjaelen"  },
+	{ name: "Drew Sycamore",             image: img_drew,    kategori: "musik",       dag: "lordag", scene: "ildsjaelen"  },
+	{ name: "Madsen",                    image: img_madsen,  kategori: "musik",       dag: "fredag", scene: "graesroden"  },
+	{ name: "August Høyen",              image: img_august,  kategori: "musik",       dag: "lordag", scene: "graesroden"  },
+	{ name: "Gerlach & Rosendahl",       image: img_gerlach, kategori: "musik",       dag: "lordag", scene: "ildsjaelen"  },
+	{ name: "Shu Bi Dua 2.0",           image: img_shu,     kategori: "musik",       dag: "lordag", scene: "graesroden"  },
+	{ name: "Patina",                    image: img_patina,  kategori: "musik",       dag: "fredag", scene: "graesroden"  },
+	{ name: "Von Quar",                  image: img_vonquar, kategori: "musik",       dag: "fredag", scene: "graesroden"  },
+	{ name: "Lykke",                     image: img_lykke,   kategori: "musik",       dag: "fredag", scene: "graesroden"  },
+	{ name: "Sofie1998",                 image: img_sofie,   kategori: "musik",       dag: "fredag", scene: "ildsjaelen"  },
+	{ name: "Harske Hubbi",             image: img_harske,  kategori: "aktiviteter", dag: "fredag", scene: "tidslommen"  },
+	{ name: "Diabat: Carl Emil Petersen", image: img_carl,   kategori: "aktiviteter", dag: "lordag", scene: "tidslommen"  },
+	{ name: "Eddie's Øl-show",          image: img_eddie,   kategori: "aktiviteter", dag: "lordag", scene: "tidslommen"  },
+	{ name: "Snuk",                      image: img_snuk,    kategori: "musik",       dag: "lordag", scene: "tidslommen"  },
+	{ name: "Lydtæt: Rikke Thomsen",    image: img_rikke,   kategori: "aktiviteter", dag: "fredag", scene: "tidslommen"  },
+	{ name: "DJ Claus",                  image: img_djclaus, kategori: "aktiviteter", dag: "lordag", scene: "tidslommen"  },
+];
 ---
-<MainLayout></MainLayout>
+
+<MainLayout title="Program – Midtfyns Festival">
+
+	<!-- ── Hero ── -->
+	<section class="program-hero">
+		<img src={bgImage.src} alt="" class="program-bg" />
+		<h1 class="font-walnut program-title">Program</h1>
+		<div class="program-mascot" set:html={programMaskotRaw}></div>
+	</section>
+
+	<!-- ── Artist-grid ── -->
+	<section class="program-artists">
+
+		<!-- Aaringe dekoration venstre side -->
+		<div class="program-artists-aaringe" set:html={aaringeRaw}></div>
+
+		<!-- Filter-bar -->
+		<nav class="program-filters">
+			<div class="program-filters-group">
+				<button class="filter-btn filter-btn--active" data-filter="kategori" data-value="alle">Alle</button>
+				<button class="filter-btn" data-filter="kategori" data-value="musik">Musik</button>
+				<button class="filter-btn" data-filter="kategori" data-value="aktiviteter">Aktiviteter</button>
+			</div>
+			<div class="program-filters-group">
+				<button class="filter-btn filter-btn--active" data-filter="scene" data-value="alle">Alle Scener</button>
+				<button class="filter-btn" data-filter="scene" data-value="graesroden">Græsroden</button>
+				<button class="filter-btn" data-filter="scene" data-value="ildsjaelen">Ildsjælen</button>
+				<button class="filter-btn" data-filter="scene" data-value="tidslommen">Tidslommen</button>
+			</div>
+			<div class="program-filters-group">
+				<button class="filter-btn filter-btn--active" data-filter="dag" data-value="alle">Alle Dage</button>
+				<button class="filter-btn" data-filter="dag" data-value="fredag">Fredag</button>
+				<button class="filter-btn" data-filter="dag" data-value="lordag">Lørdag</button>
+			</div>
+		</nav>
+
+		<!-- Grid -->
+		<div class="artist-grid" id="main-artist-grid">
+			{artists.map(artist => (
+				<article class="artist-card" data-name={artist.name} data-kategori={artist.kategori} data-dag={artist.dag} data-scene={artist.scene}>
+					<a href="/kunstner/saveus" class="artist-card-link" aria-label={`Læs mere om ${artist.name}`}></a>
+					<img src={artist.image.src} alt={artist.name} class="artist-card-img" />
+					<div class="artist-card-overlay"></div>
+					<h2 class="font-walnut artist-card-name">{artist.name}</h2>
+					<button class="artist-card-star" aria-label="Tilføj til favoritter">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+						</svg>
+					</button>
+				</article>
+			))}
+		</div>
+
+		<!-- Favoritter -->
+		<div class="program-favorites" id="program-favorites">
+			<h2 class="font-walnut program-favorites-title">Favoritter</h2>
+			<div class="artist-grid" id="favorites-grid"></div>
+		</div>
+
+	</section>
+
+	<!-- ── Sangønske-sektion ── -->
+	<section class="program-sangonske">
+		<div class="program-sangonske-maskot" set:html={sangonskeRaw}></div>
+		<h2 class="font-walnut program-sangonske-title">
+			Hvilke artister drømmer<br/>du om på Dyreskuepladsen?
+		</h2>
+		<p class="program-sangonske-text">
+			Hvem skal sætte lydspor til næste års Midtfyns Festival?
+			Bookingerne er så småt begyndt, og vi vil gerne høre, hvilke artister, bands eller DJs I
+			drømmer om at opleve på festivalen næste år. Del dine ønsker med os, måske står din
+			favorit på plakaten, når vi ses igen til sommer
+		</p>
+		<Button variant="sand" href="#">Del dine ønsker her</Button>
+	</section>
+
+</MainLayout>
+
+<script>
+	// ── Filtrering ──
+	let activeKategori = 'alle';
+	let activeScene    = 'alle';
+	let activeDag      = 'alle';
+
+	function updateGrid() {
+		document.querySelectorAll<HTMLElement>('#main-artist-grid .artist-card').forEach(card => {
+			const matchKategori = activeKategori === 'alle' || card.dataset.kategori === activeKategori;
+			const matchScene    = activeScene    === 'alle' || card.dataset.scene    === activeScene;
+			const matchDag      = activeDag      === 'alle' || card.dataset.dag      === activeDag;
+			card.style.display  = (matchKategori && matchScene && matchDag) ? '' : 'none';
+		});
+	}
+
+	(['kategori', 'scene', 'dag'] as const).forEach(filterType => {
+		document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(btn => {
+			btn.addEventListener('click', () => {
+				const value = (btn as HTMLElement).dataset.value!;
+				if (filterType === 'kategori') activeKategori = value;
+				if (filterType === 'scene')    activeScene    = value;
+				if (filterType === 'dag')      activeDag      = value;
+				document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(b => b.classList.remove('filter-btn--active'));
+				btn.classList.add('filter-btn--active');
+				updateGrid();
+			});
+		});
+	});
+
+	// ── Favoritter ──
+	const favSection  = document.getElementById('program-favorites') as HTMLElement;
+	const favGrid     = document.getElementById('favorites-grid')    as HTMLElement;
+
+	function syncFavVisibility() {
+		favSection.style.display = favGrid.children.length > 0 ? 'block' : 'none';
+	}
+
+	function removeFromFav(name: string) {
+		favGrid.querySelector<HTMLElement>(`.artist-card[data-name="${CSS.escape(name)}"]`)?.remove();
+		syncFavVisibility();
+	}
+
+	function addToFav(original: HTMLElement) {
+		const name = original.dataset.name!;
+		if (favGrid.querySelector(`[data-name="${CSS.escape(name)}"]`)) return;
+
+		const clone    = original.cloneNode(true) as HTMLElement;
+		const cloneBtn = clone.querySelector('.artist-card-star') as HTMLElement;
+		cloneBtn.classList.add('artist-card-star--active');
+
+		// Klik på stjernen i klonen → un-star originalen og fjern klonen
+		cloneBtn.addEventListener('click', e => {
+			e.stopPropagation();
+			const origCard    = document.querySelector<HTMLElement>(`#main-artist-grid .artist-card[data-name="${CSS.escape(name)}"]`);
+			const origStarBtn = origCard?.querySelector<HTMLElement>('.artist-card-star');
+			origStarBtn?.classList.remove('artist-card-star--active');
+			removeFromFav(name);
+		});
+
+		favGrid.appendChild(clone);
+		syncFavVisibility();
+	}
+
+	// Bind stjerne-knapper i hoved-grid
+	document.querySelectorAll<HTMLElement>('#main-artist-grid .artist-card').forEach(card => {
+		const starBtn = card.querySelector<HTMLElement>('.artist-card-star')!;
+		starBtn.addEventListener('click', e => {
+			e.stopPropagation();
+			const active = starBtn.classList.toggle('artist-card-star--active');
+			if (active) {
+				addToFav(card);
+			} else {
+				removeFromFav(card.dataset.name!);
+			}
+		});
+	});
+
+	// Start skjult
+	syncFavVisibility();
+</script>

@@ -1,0 +1,101 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+import aaringeRaw from "../../assets/svg/aaringe.svg?raw";
+import bgImage from "../../assets/images/pressebillede_saveus.webp";
+import "../../styles/kunstner.css";
+---
+
+<MainLayout title="Saveus – Midtfyns Festival">
+
+	<!-- ── Hero ── -->
+	<section class="kunstner-hero">
+		<img src={bgImage.src} alt="Saveus" class="kunstner-hero-bg" />
+	</section>
+
+	<!-- ── Info-sektion ── -->
+	<section class="kunstner-info">
+
+		<!-- Aaringe dekorationer -->
+		<div class="kunstner-info-aaringe kunstner-info-aaringe--left"  set:html={aaringeRaw}></div>
+		<div class="kunstner-info-aaringe kunstner-info-aaringe--right" set:html={aaringeRaw}></div>
+
+		<!-- Indhold -->
+		<div class="kunstner-info-content">
+
+			<h1 class="font-walnut kunstner-info-navn">Saveus</h1>
+
+			<div class="kunstner-info-meta">
+				<div class="kunstner-info-meta-item">
+					<span class="kunstner-info-label">Scene</span>
+					<span class="font-walnut kunstner-info-value">Ildsjælen</span>
+				</div>
+				<div class="kunstner-info-meta-item">
+					<span class="kunstner-info-label">Showstart</span>
+					<span class="font-walnut kunstner-info-value">Fredag 21:15</span>
+				</div>
+			</div>
+
+			<div class="kunstner-info-buttons">
+				<Button variant="sand">Tilføj favorit</Button>
+				<Button variant="sand" href="/billet">Køb billet</Button>
+			</div>
+
+			<div class="kunstner-info-bio">
+				<p>Saveus indtager Midtfyns Festival 2026 med ny musik, stærke følelser og en liveenergi i absolut topklasse. Efter et markant comeback har han igen cementeret sig som en af Danmarks mest intense og nærværende liveartister.</p>
+				<p>Med hits som Rush, Afterall og Billions samt det anmelderroste album LOVEFLOW bringer Saveus både nye sange og ikoniske favoritter som Ready To Die og Himalaya til scenen.</p>
+				<p>Glæd dig til en medrivende koncertoplevelse fyldt med nerve, fællesskab og musik, der rammer helt ind under huden.</p>
+			</div>
+
+		</div>
+
+		<!-- Spotify embed -->
+		<div class="kunstner-spotify">
+			<iframe
+				src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1oTuVi?utm_source=generator"
+				width="100%"
+				height="380"
+				frameborder="0"
+				allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+				loading="lazy"
+				style="border-radius: 1.25rem; display: block;"
+			></iframe>
+		</div>
+
+		<!-- Sociale medier -->
+		<div class="kunstner-social">
+			<h2 class="font-walnut kunstner-social-title">Hvis du ikk' kan få nok af Saveus</h2>
+			<div class="kunstner-social-icons">
+
+				<!-- Instagram -->
+				<a href="https://www.instagram.com/saveus/" target="_blank" rel="noopener" class="kunstner-social-link" aria-label="Saveus på Instagram">
+					<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="2" y="2" width="52" height="52" rx="16" stroke="var(--color-sand)" stroke-width="3"/>
+						<circle cx="28" cy="28" r="9.5" stroke="var(--color-sand)" stroke-width="3"/>
+						<circle cx="39.5" cy="16.5" r="2.5" fill="var(--color-sand)"/>
+					</svg>
+				</a>
+
+				<!-- TikTok -->
+				<a href="https://www.tiktok.com/@saveus_" target="_blank" rel="noopener" class="kunstner-social-link" aria-label="Saveus på TikTok">
+					<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32 8h5.5C38 13 42 16.5 47 17v5.5C44 22.5 41 21.5 38.5 20V34c0 7.2-5.8 13-13 13S12.5 41.2 12.5 34 18.3 21 25.5 21c.7 0 1.3.05 2 .15V27c-.65-.15-1.3-.25-2-.25-4 0-7.25 3.25-7.25 7.25S21.5 41.25 25.5 41.25 32.75 38 32.75 34V8H32Z" stroke="var(--color-sand)" stroke-width="3" stroke-linejoin="round"/>
+					</svg>
+				</a>
+
+				<!-- Spotify -->
+				<a href="https://open.spotify.com/artist/2rR0cafJvL0JVTC8E2qIqt" target="_blank" rel="noopener" class="kunstner-social-link" aria-label="Saveus på Spotify">
+					<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="28" cy="28" r="26" stroke="var(--color-sand)" stroke-width="3"/>
+						<path d="M16 22.5C22 20 32 20 38.5 23.5" stroke="var(--color-sand)" stroke-width="3" stroke-linecap="round"/>
+						<path d="M17.5 29C22.5 27 31 27 36.5 30" stroke="var(--color-sand)" stroke-width="3" stroke-linecap="round"/>
+						<path d="M19.5 35.5C23.5 34 30 34 34.5 36.5" stroke="var(--color-sand)" stroke-width="3" stroke-linecap="round"/>
+					</svg>
+				</a>
+
+			</div>
+		</div>
+
+	</section>
+
+</MainLayout>

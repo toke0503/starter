@@ -1,0 +1,265 @@
+/* ── Program-side ── */
+
+/* ── Hero ── */
+.program-hero {
+	position: relative;
+	min-height: 100svh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+}
+
+.program-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+	z-index: 0;
+}
+
+.program-title {
+	position: relative;
+	z-index: 2;
+	font-size: clamp(5rem, 12vw, 11rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0;
+	padding: 0 3rem 3rem 3rem;
+}
+
+.program-mascot {
+	position: absolute;
+	bottom: 2rem;
+	right: 3rem;
+	z-index: 2;
+	pointer-events: none;
+	opacity: 0.5;
+}
+.program-mascot svg {
+	width: 220px;
+	height: auto;
+}
+
+/* ── Sangønske-sektion ── */
+.program-sangonske {
+	background: var(--color-rod);
+	padding: 5rem 3rem 6rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.program-sangonske-maskot {
+	margin-bottom: 2.5rem;
+}
+.program-sangonske-maskot svg {
+	width: 280px;
+	height: auto;
+}
+
+.program-sangonske-title {
+	font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 1.05;
+	margin: 0 0 2rem;
+	max-width: 1200px;
+}
+
+.program-sangonske-text {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.7;
+	max-width: 620px;
+	margin: 0 0 3rem;
+}
+
+/* ── Artist-sektion ── */
+.program-artists {
+	position: relative;
+	background: var(--color-sand);
+	padding: 3.5rem 3rem 6rem;
+	overflow: hidden;
+}
+
+/* Aaringe — venstre side */
+.program-artists-aaringe {
+	position: absolute;
+	top: 50%;
+	left: -12rem;
+	transform: translateY(-50%);
+	pointer-events: none;
+	z-index: 0;
+}
+.program-artists-aaringe svg {
+	width: 480px;
+	height: auto;
+}
+
+/* ── Filter-bar ── */
+.program-filters {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2.5rem;
+	padding-bottom: 1.25rem;
+	border-bottom: 1.5px solid var(--color-rod);
+}
+
+.program-filters-group {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.filter-btn {
+	position: relative;
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	font-weight: 600 !important;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-rod) !important;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0 0 2px;
+	text-decoration: none;
+}
+
+.filter-btn::after {
+	content: '';
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+	height: 1.5px;
+	background: var(--color-rod);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.2s ease;
+}
+
+.filter-btn--active::after {
+	transform: scaleX(1);
+}
+
+.filter-btn:hover::after {
+	transform: scaleX(1);
+}
+
+/* ── Artist-grid ── */
+.artist-grid {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
+/* ── Favoritter ── */
+.program-favorites {
+	display: none;
+	margin-top: 4rem;
+	padding-top: 3rem;
+}
+
+.program-favorites-title {
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 0 2rem;
+}
+
+/* ── Artist-kort ── */
+.artist-card {
+	position: relative;
+	border-radius: 1.25rem;
+	overflow: hidden;
+	aspect-ratio: 3 / 4;
+	cursor: pointer;
+}
+
+/* Transparent klikflade over hele kortet — over overlay (z-index 1) */
+.artist-card-link {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}
+
+.artist-card-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+	display: block;
+}
+
+/* Gradient-overlay for læsbarhed */
+.artist-card-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.65) 0%,
+		rgba(0, 0, 0, 0.2) 45%,
+		transparent 70%
+	);
+	z-index: 1;
+}
+
+/* Artistnavn */
+.artist-card-name {
+	position: absolute;
+	bottom: 1rem;
+	left: 0.75rem;
+	right: 0.75rem;
+	z-index: 2;
+	font-size: 52px !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 1;
+	margin: 0;
+}
+
+/* Stjerne-knap */
+.artist-card-star {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	z-index: 3;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 50%;
+	background: rgba(254, 247, 221, 0.25);
+	border: 1.5px solid var(--color-rod);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-rod);
+	cursor: pointer;
+	transition: background 0.2s ease;
+	backdrop-filter: blur(4px);
+}
+
+.artist-card-star:hover {
+	background: rgba(254, 247, 221, 0.45);
+}
+
+.artist-card-star--active {
+	background: var(--color-sand);
+	color: var(--color-rod);
+}
+
+.artist-card-star--active svg path {
+	fill: var(--color-rod);
+	stroke: var(--color-rod);
+}

@@ -1,4 +1,257 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import logoSandRaw from "../assets/svg/logo_sandfarve.svg?raw";
+import aaringeRaw from "../assets/svg/aaringe.svg?raw";
+import bgImage from "../assets/images/velkommen_til_midtfyns festvial.webp";
+import "../styles/praktisk.css";
 ---
-<MainLayout></MainLayout>
+
+<MainLayout title="Praktisk Information – Midtfyns Festival">
+
+	<!-- ── Hero ── -->
+	<section class="praktisk-hero">
+		<img src={bgImage.src} alt="" class="praktisk-hero-bg" />
+		<div class="praktisk-hero-overlay"></div>
+
+		<div class="praktisk-hero-content">
+			<h1 class="font-walnut praktisk-title">Praktisk<br/>Information</h1>
+			<p class="praktisk-subtitle">
+				Hvordan kommer jeg til Midtfyns Festival, hvornår åbner campingområdet,
+				og hvad gør jeg med glemte sager efter festivalen?<br/>
+				Vi har samlet al den praktiske information, du skal bruge før, under og efter
+				Midtfyns Festival — så du er helt klar til festivaldagene
+			</p>
+		</div>
+
+		<!-- Maskot -->
+		<div class="praktisk-mascot" set:html={logoSandRaw}></div>
+	</section>
+
+	<!-- ── FAQ-sektion ── -->
+	<section class="praktisk-faq">
+
+		<div class="praktisk-faq-aaringe praktisk-faq-aaringe--left"  set:html={aaringeRaw}></div>
+		<div class="praktisk-faq-aaringe praktisk-faq-aaringe--right" set:html={aaringeRaw}></div>
+
+		<div class="praktisk-faq-inner">
+
+			<!-- Billetter og adgang -->
+			<div class="praktisk-faq-group">
+				<h2 class="font-walnut praktisk-faq-title">Billetter og adgang</h2>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Hvordan køber jeg billet?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Billetter købes online via festivalens billetsystem.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Kan jeg få refunderet min billet?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Billetter refunderes kun ved aflysning af hele festivalen.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Kan jeg videresælge min billet?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, via den officielle Fan-to-Fan-platform.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Må børn komme med?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, alle under 12 år skal være ledsaget af en betalende voksen.</p></div>
+				</details>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ── Transport + Parkering ── -->
+	<section class="praktisk-transport">
+
+		<div class="praktisk-faq-inner">
+			<div class="praktisk-faq-group">
+				<h2 class="font-walnut praktisk-transport-title">Transport + Parkering</h2>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Hvor foregår festivalen?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Dyrskuepladsen i Ringe.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Hvordan kommer jeg dertil med tog?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ringe Station ligger tæt på festivalpladsen.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Er der parkering?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, parkering findes tæt på pladsen.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Er der handicapparkering?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, ved hovedindgangen.</p></div>
+				</details>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- ── Camping ── -->
+	<section class="praktisk-camping">
+		<div class="praktisk-faq-inner">
+			<div class="praktisk-faq-group">
+				<h2 class="font-walnut praktisk-camping-title">Camping</h2>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Er der camping?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, camping ligger ved siden af festivalpladsen.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Må jeg tage campingvogn med?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Er der bad og toiletter?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, faciliteter findes på campingområdet.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item praktisk-faq-item--sand">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Hvornår åbner pladsen?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer">
+						<p><strong>Torsdag</strong><br/>16:30 pladsen åbner — 22:00 pladsen lukker</p>
+						<p><strong>Fredag</strong><br/>12:30 pladsen åbner — 02:00 pladsen lukker</p>
+						<p><strong>Lørdag</strong><br/>11:00 pladsen åbner — 02:00 tak for i år og pladsen lukker</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ── Mad og Drikkevarer ── -->
+	<section class="praktisk-mad">
+
+		<div class="praktisk-faq-aaringe praktisk-mad-aaringe" set:html={aaringeRaw}></div>
+
+		<div class="praktisk-faq-inner">
+			<div class="praktisk-faq-group">
+				<h2 class="font-walnut praktisk-faq-title">Mad og Drikkevarer</h2>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Må jeg tage egne drikkevarer med?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Nej.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Må jeg tage mad med?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Nej, men der sælges mad på pladsen.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Findes der vegetariske muligheder?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja.</p></div>
+				</details>
+
+				<details class="praktisk-faq-item">
+					<summary class="praktisk-faq-summary">
+						<h3 class="praktisk-faq-question">Kan man betale med kort?</h3>
+						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</summary>
+					<div class="praktisk-faq-answer"><p>Ja, festivalen anbefaler kort og MobilePay.</p></div>
+				</details>
+			</div>
+		</div>
+
+	</section>
+
+</MainLayout>
+
+<script>
+	document.querySelectorAll<HTMLDetailsElement>('.praktisk-faq-item').forEach(details => {
+		const summary = details.querySelector('summary')!;
+		const answer  = details.querySelector<HTMLElement>('.praktisk-faq-answer')!;
+
+		answer.style.height = '0px';
+
+		function closeItem() {
+			answer.style.height = answer.scrollHeight + 'px';
+			requestAnimationFrame(() => {
+				answer.style.transition = 'height 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
+				requestAnimationFrame(() => { answer.style.height = '0px'; });
+			});
+			answer.addEventListener('transitionend', () => {
+				details.removeAttribute('open');
+				answer.style.transition = '';
+			}, { once: true });
+		}
+
+		function openItem() {
+			details.setAttribute('open', '');
+			const target = answer.scrollHeight + 'px';
+			answer.style.height = '0px';
+			answer.style.transition = 'height 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
+			requestAnimationFrame(() => {
+				requestAnimationFrame(() => { answer.style.height = target; });
+			});
+			answer.addEventListener('transitionend', () => {
+				answer.style.height = 'auto';
+				answer.style.transition = '';
+			}, { once: true });
+		}
+
+		// Klik på summary åbner/lukker
+		summary.addEventListener('click', e => {
+			e.preventDefault();
+			details.open ? closeItem() : openItem();
+		});
+
+		// Klik på svaret lukker også boksen
+		answer.addEventListener('click', () => {
+			if (details.open) closeItem();
+		});
+	});
+</script>

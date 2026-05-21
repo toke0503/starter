@@ -1,0 +1,466 @@
+/* ── Om Midtfyns Festival-side ── */
+
+/* ── Hero ── */
+.om-hero {
+	position: relative;
+	min-height: 100svh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+}
+
+.om-hero-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+	z-index: 0;
+}
+
+.om-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba(5, 16, 10, 0.72) 0%,
+		rgba(5, 16, 10, 0.3) 50%,
+		rgba(5, 16, 10, 0.05) 100%
+	);
+	z-index: 1;
+}
+
+/* Indhold nederst til venstre */
+.om-hero-content {
+	position: relative;
+	z-index: 2;
+	padding: 0 3rem 4rem 3rem;
+}
+
+.om-hero-title {
+	font-size: clamp(5rem, 12vw, 10rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 0.9;
+	margin: 0 0 1rem;
+}
+
+.om-hero-subtitle {
+	font-family: var(--font-acumin) !important;
+	font-size: clamp(1rem, 2vw, 1.35rem) !important;
+	color: var(--color-sand) !important;
+	margin: 0;
+}
+
+/* Mascot — nederst til højre */
+.om-hero-mascot {
+	position: absolute;
+	bottom: 2rem;
+	right: 3rem;
+	z-index: 2;
+	pointer-events: none;
+	opacity: 0.9;
+}
+
+.om-hero-mascot svg {
+	width: 220px;
+	height: auto;
+}
+
+/* ── Vores Historie ── */
+.om-historie {
+	position: relative;
+	background: var(--color-sand);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+/* Aaringe — højre side */
+.om-historie-aaringe {
+	position: absolute;
+	right: -14rem;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.om-historie-aaringe svg {
+	width: 580px;
+	height: auto;
+}
+
+/* To-kolonne layout */
+.om-historie-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	gap: 6rem;
+	align-items: center;
+}
+
+/* Tekst */
+.om-historie-title {
+	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	line-height: 1;
+	margin: 0 0 2.5rem;
+}
+
+.om-historie-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	line-height: 1.75;
+	margin: 0 0 1.5rem;
+}
+
+.om-historie-p:last-child {
+	margin-bottom: 0;
+}
+
+/* ── Græsrødder og Ildsjæle ── */
+.om-ildsjæle {
+	position: relative;
+	background: var(--color-gron);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+.om-ildsjæle-aaringe {
+	position: absolute;
+	right: -14rem;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.om-ildsjæle-aaringe svg {
+	width: 520px;
+	height: auto;
+}
+
+.om-ildsjæle-aaringe svg path {
+	stroke: var(--color-sand) !important;
+}
+
+.om-ildsjæle-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 0.85fr 1.5fr;
+	gap: 5rem;
+	align-items: stretch;
+}
+
+.om-ildsjæle-title {
+	font-size: clamp(3rem, 5.5vw, 4.5rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 1;
+	margin: 0 0 2.5rem;
+}
+
+.om-ildsjæle-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.75;
+	margin: 0 0 1.5rem;
+}
+
+.om-ildsjæle-p:last-child {
+	margin-bottom: 0;
+}
+
+/* Tre portræt-billeder + overlappende talebobbel */
+.om-ildsjæle-right {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.om-ildsjæle-photos {
+	flex: 1;
+	min-height: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.75rem;
+}
+
+.om-ildsjæle-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 1.5rem;
+	display: block;
+}
+
+/* Talebobbel — absolut over billederne, flugter bund */
+.om-ildsjæle-quote {
+	position: absolute;
+	bottom: -2rem;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.om-ildsjæle-quote svg {
+	width: 100%;
+	height: 5.5rem;
+	display: block;
+}
+
+.om-ildsjæle-quote-text {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	font-style: italic;
+	color: var(--color-sand) !important;
+	margin: 0;
+	padding: 0 2.5rem;
+	text-align: center;
+	line-height: 1.3;
+	transform: translateY(-4px);
+}
+
+/* ── Frivillighed ── */
+.om-frivillighed {
+	position: relative;
+	background: var(--color-sand);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+/* Aaringe — venstre side */
+.om-frivillighed-aaringe {
+	position: absolute;
+	left: -14rem;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.om-frivillighed-aaringe svg {
+	width: 680px;
+	height: auto;
+}
+
+.om-frivillighed-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 6rem;
+	align-items: stretch;
+}
+
+/* Billede med afrundede hjørner */
+.om-frivillighed-img-wrap {
+	border-radius: 1.5rem;
+	overflow: hidden;
+}
+
+.om-frivillighed-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Tekst */
+.om-frivillighed-title {
+	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	color: var(--color-rod) !important;
+	text-transform: uppercase;
+	line-height: 1;
+	margin: 0 0 2rem;
+}
+
+.om-frivillighed-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	line-height: 1.75;
+	margin: 0 0 1.25rem;
+}
+
+/* Bullet-liste */
+.om-frivillighed-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.om-frivillighed-list li {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-rod) !important;
+	line-height: 1.75;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.om-frivillighed-list li::before {
+	content: '·';
+	position: absolute;
+	left: 0;
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+/* ── Vores Fællesskab ── */
+.om-faellesskab {
+	position: relative;
+	background: var(--color-rod);
+	padding: 8rem 4rem;
+	overflow: hidden;
+}
+
+/* Aaringe — højre side, sand farve */
+.om-faellesskab-aaringe {
+	position: absolute;
+	right: -14rem;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.om-faellesskab-aaringe svg {
+	width: 580px;
+	height: auto;
+}
+
+.om-faellesskab-aaringe svg path {
+	stroke: var(--color-sand) !important;
+}
+
+.om-faellesskab-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1300px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	gap: 6rem;
+	align-items: center;
+}
+
+/* Tekst */
+.om-faellesskab-title {
+	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	color: var(--color-sand) !important;
+	text-transform: uppercase;
+	line-height: 1;
+	margin: 0 0 2rem;
+}
+
+.om-faellesskab-p {
+	font-family: var(--font-acumin) !important;
+	font-size: 1rem !important;
+	color: var(--color-sand) !important;
+	line-height: 1.75;
+	margin: 0 0 1.25rem;
+}
+
+.om-faellesskab-p:last-child {
+	margin-bottom: 0;
+}
+
+/* 2×2 billedgrid */
+.om-faellesskab-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.75rem;
+}
+
+.om-faellesskab-img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 1.5rem;
+	display: block;
+}
+
+/* ── Before/After Slider ── */
+.om-slider {
+	position: relative;
+	overflow: hidden;
+	border-radius: 2.5rem;
+	aspect-ratio: 4 / 3;
+	cursor: ew-resize;
+	user-select: none;
+}
+
+.om-slider-color {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.om-slider-bw-clip {
+	position: absolute;
+	inset: 0;
+	clip-path: inset(0 0 0 50%);
+}
+
+.om-slider-bw {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Handle — vertikal linje + knop */
+.om-slider-handle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.om-slider-line {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 2px;
+	transform: translateX(-50%);
+	background: white;
+}
+
+.om-slider-knob {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(-50%, -50%);
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	color: var(--color-rod);
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}

@@ -1,4 +1,90 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import aaringeRaw from "../assets/svg/aaringe.svg?raw";
+import logoRaw from "../assets/svg/logo_sandfarve.svg?raw";
+import bgImage from "../assets/images/mudder_og_regnslag.webp";
+import barenImg from "../assets/images/baren.webp";
+import faellessangImg from "../assets/images/fællessang.webp";
+import "../styles/ung.css";
 ---
-<MainLayout></MainLayout>
+
+<MainLayout title="Ung i Midten – Midtfyns Festival">
+
+	<!-- ── Hero ── -->
+	<section class="ung-hero">
+		<img src={bgImage.src} alt="" class="ung-hero-bg" />
+		<div class="ung-hero-overlay"></div>
+
+		<div class="ung-hero-content">
+			<h1 class="font-walnut ung-hero-title">Ung i Midten</h1>
+			<h3 class="ung-hero-subtitle">Et fællesskab du kan mærke</h3>
+		</div>
+	</section>
+
+	<!-- ── Mere end en festival ── -->
+	<section class="ung-mere">
+		<div class="ung-mere-inner">
+
+			<div class="ung-mere-text">
+				<h2 class="font-walnut ung-mere-title">Mere end en festival</h2>
+				<p class="ung-mere-p">Ung i Midten er et festivalunivers for unge i Faaborg-Midtfyn Kommune — skabt for at samle unge på tværs af skoler, ungdomsuddannelser og fællesskaber.</p>
+				<p class="ung-mere-p">Siden festivalens genrejsning i 2019 er Ung i Midten vokset fra 650 til næsten 1000 deltagende unge. I dag er det blevet et stærkt samlingspunkt, hvor unge mellem 14 og 25 år mødes om oplevelser, kreativitet og fællesskab.</p>
+			</div>
+
+			<div class="ung-mere-aaringe" set:html={aaringeRaw}></div>
+
+		</div>
+	</section>
+
+	<!-- ── Et sted hvor unge er i centrum ── -->
+	<section class="ung-centrum">
+
+		<div class="ung-centrum-aaringe" set:html={aaringeRaw}></div>
+
+		<div class="ung-centrum-inner">
+
+			<!-- Billede — direkte grid-child -->
+			<div class="ung-centrum-img-wrap">
+				<img src={barenImg.src} alt="" class="ung-centrum-img" />
+			</div>
+
+			<!-- Tekst -->
+			<div class="ung-centrum-text">
+				<h2 class="font-walnut ung-centrum-title">Et sted hvor unge<br/>er i centrum</h2>
+				<p class="ung-centrum-p">Ung i Midten handler om at gøre det spændende, trygt og inspirerende at være ung i kommunen.</p>
+				<p class="ung-centrum-p">Festivaldagen samler musik, workshops, aktiviteter, fællesskab og kreative oplevelser i ét samlet univers — med fokus på det, unge interesserer sig for og har brug for.</p>
+				<p class="ung-centrum-p">Her kan unge:</p>
+				<ul class="ung-centrum-list">
+					<li>møde nye mennesker</li>
+					<li>opdage fællesskaber</li>
+					<li>prøve nye aktiviteter</li>
+					<li>få inspiration til fremtiden</li>
+					<li>og opleve følelsen af at være en del af noget større</li>
+				</ul>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ── Fællessang — fuld bredde ── -->
+	<img src={faellessangImg.src} alt="" class="ung-fullwidth-img" />
+
+	<!-- ── Skabt Sammen med Unge ── -->
+	<section class="ung-skabt">
+
+		<div class="ung-skabt-deko" set:html={logoRaw}></div>
+
+		<div class="ung-skabt-inner">
+			<h2 class="font-walnut ung-skabt-title">Skabt<br/>Sammen<br/>med&nbsp;Unge</h2>
+
+			<div class="ung-skabt-text">
+				<p class="ung-skabt-p">Festivalen fungerer som en levende platform, hvor unge kan møde andre unge, ungeguider og betydningsfulde voksne i trygge og inspirerende rammer. Et stærkere ungeliv i kommunen</p>
+				<p class="ung-skabt-p">Ung i Midten er en del af et større arbejde med at skabe flere muligheder, stærkere fællesskaber og bedre trivsel for unge i Faaborg-Midtfyn Kommune.</p>
+				<p class="ung-skabt-p">Målet er at skabe forbindelser mellem unge, tilbud og fællesskaber — særligt i de perioder, hvor overgange, usikkerhed eller mistrivsel kan fylde.</p>
+				<p class="ung-skabt-p">Med unge stemmer, behov og perspektiver i centrum skaber Ung i Midten et rum, hvor alle kan føle sig velkomne og være en del af noget større.</p>
+			</div>
+		</div>
+
+	</section>
+
+</MainLayout>
