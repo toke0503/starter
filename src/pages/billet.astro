@@ -1,6 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import billetMaskotRaw from "../assets/svg/billet_maskot.svg?raw";
+import armbaandRaw from "../assets/svg/armband.svg?raw";
+import carRaw from "../assets/svg/car.svg?raw";
+import teltRaw from "../assets/svg/telt.svg?raw";
+import glampingRaw from "../assets/svg/glamping.svg?raw";
 import Button from "../components/Button.astro";
 import "../styles/billet.css";
 
@@ -26,6 +30,9 @@ const TICKET_URL = "https://billet.unitedtickets.dk/event/midtfyn-festival-2026/
 			</h4>
 
 		</div>
+
+		<!-- Armbånd-illustration -->
+		<div class="billet-hero-armbaand" set:html={armbaandRaw} aria-hidden="true"></div>
 	</section>
 
 	<!-- Armbånd-sektion -->
@@ -122,6 +129,12 @@ const TICKET_URL = "https://billet.unitedtickets.dk/event/midtfyn-festival-2026/
 
 		<h2 class="font-walnut billet-overnatning-title">Overnatning</h2>
 
+		<!-- Bil og telt illustrationer -->
+		<div class="billet-overnatning-deko" aria-hidden="true">
+			<div class="billet-deko-svg billet-deko-car" set:html={carRaw}></div>
+			<div class="billet-deko-svg billet-deko-telt" set:html={teltRaw}></div>
+		</div>
+
 		<div class="billet-grid">
 
 			<!-- Camping Billet Voksen -->
@@ -215,6 +228,9 @@ const TICKET_URL = "https://billet.unitedtickets.dk/event/midtfyn-festival-2026/
 	<section class="billet-overnatning" style="padding-bottom: 20rem;">
 
 		<h2 class="font-walnut billet-overnatning-title">Glamping</h2>
+
+		<!-- Glamping-illustration -->
+		<div class="billet-glamping-deko" set:html={glampingRaw} aria-hidden="true"></div>
 
 		<div class="billet-grid billet-grid--2col">
 
