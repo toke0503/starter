@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import '../styles/tailwind.css';
+import '../styles/animations.css';
 const { title } = Astro.props;
 ---
 <html lang="da">
@@ -31,6 +32,228 @@ const { title } = Astro.props;
 		<slot />
 
 		<Footer></Footer>
-			
+
+		<!-- ── Eksamensprojekt-popup ── -->
+		<div id="exam-popup" aria-hidden="true">
+			<p id="exam-popup-text">Dette er et eksamensprojekt — siden du forsøger at åbne er ikke blevet kodet.</p>
+			<button id="exam-popup-close" aria-label="Luk">✕</button>
+		</div>
+
+		<style>
+			#exam-popup {
+				position: fixed;
+				bottom: 2rem;
+				left: 50%;
+				transform: translateX(-50%) translateY(calc(100% + 2rem));
+				background: var(--color-gron);
+				color: var(--color-sand);
+				font-family: var(--font-acumin);
+				font-size: 0.95rem;
+				padding: 1rem 3rem 1rem 1.5rem;
+				border-radius: 0.75rem;
+				box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				z-index: 9999;
+				max-width: min(480px, calc(100vw - 2rem));
+				transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+				opacity: 0;
+				pointer-events: none;
+			}
+			#exam-popup.visible {
+				transform: translateX(-50%) translateY(0);
+				opacity: 1;
+				pointer-events: all;
+			}
+			#exam-popup-text {
+				margin: 0;
+				line-height: 1.5;
+			}
+			#exam-popup-close {
+				position: absolute;
+				top: 0.6rem;
+				right: 0.75rem;
+				background: none;
+				border: none;
+				color: var(--color-sand);
+				font-size: 0.85rem;
+				cursor: pointer;
+				opacity: 0.7;
+				padding: 0;
+				line-height: 1;
+			}
+			#exam-popup-close:hover { opacity: 1; }
+		</style>
+
+		<script>
+			const popup = document.getElementById('exam-popup')!;
+			const closeBtn = document.getElementById('exam-popup-close')!;
+			let hideTimer: ReturnType<typeof setTimeout>;
+
+			function showPopup() {
+				clearTimeout(hideTimer);
+				popup.classList.add('visible');
+				hideTimer = setTimeout(() => popup.classList.remove('visible'), 4000);
+			}
+
+			closeBtn.addEventListener('click', () => {
+				clearTimeout(hideTimer);
+				popup.classList.remove('visible');
+			});
+
+			document.addEventListener('click', (e) => {
+				const btn = (e.target as Element).closest('button.btn');
+				if (btn && (btn as HTMLButtonElement).type !== 'submit') showPopup();
+			});
+
+			// href="#" links
+			document.querySelectorAll<HTMLAnchorElement>('a.btn[href="#"]').forEach(a => {
+				a.addEventListener('click', e => { e.preventDefault(); showPopup(); });
+			});
+		</script>
+
+		<script>
+			// ── AI-skabt billede-badges ──
+			(function () {
+				// Find første positionerede forfader (ikke html/body)
+				// Semantic section/main/article gøres positioned hvis de endnu ikke er det
+				function findHost(img: HTMLImageElement): HTMLElement | null {
+					let el: HTMLElement | null = img.parentElement;
+					for (let i = 0; i < 10 && el; i++) {
+						const tag = el.tagName.toLowerCase();
+						if (tag === 'html' || tag === 'body') break;
+						if (getComputedStyle(el).position !== 'static') return el;
+						if (tag === 'section' || tag === 'main' || tag === 'article') {
+							el.style.position = 'relative';
+							return el;
+						}
+						el = el.parentElement as HTMLElement;
+					}
+					return null;
+				}
+
+				document.querySelectorAll<HTMLImageElement>('img').forEach(img => {
+					// Dekorativt / aria-skjult
+					if (img.getAttribute('aria-hidden') === 'true') return;
+
+					// SVG-filer
+					if ((img.src || '').includes('.svg')) return;
+
+					// Kunstner-pressebilleder og artist-cards
+					if (img.closest('.kunstner-hero, .kunstner-header, .artist-hero, [data-marquee], .artist-card')) return;
+
+					// BW-lag i slideren (ligger under farvebilledet)
+					const cls = img.className || '';
+					if (cls.includes('-slider-bw') || cls.includes('-overlay')) return;
+
+					const isAbsolute = ['absolute', 'fixed'].includes(getComputedStyle(img).position);
+					const host = findHost(img);
+
+					if (host) {
+						// Ét badge pr. host-element (undgå dubletter ved delte forfædre)
+						if (!host.querySelector('.ai-badge')) {
+							const badge = document.createElement('span');
+							badge.className = 'ai-badge';
+							badge.setAttribute('aria-hidden', 'true');
+							badge.textContent = 'AI-skabt';
+							host.appendChild(badge);
+						}
+					} else if (!isAbsolute) {
+						// Fallback for billeder direkte i body (f.eks. fuld-bredde-billeder)
+						const parent = img.parentElement!;
+						const wrap = document.createElement('div');
+						wrap.className = 'ai-img-wrap';
+						parent.insertBefore(wrap, img);
+						wrap.appendChild(img);
+						const badge = document.createElement('span');
+						badge.className = 'ai-badge';
+						badge.setAttribute('aria-hidden', 'true');
+						badge.textContent = 'AI-skabt';
+						wrap.appendChild(badge);
+					}
+				});
+			})();
+		</script>
+
+		<script>
+			// ── Scroll-animationer ──
+			(function () {
+				if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+				// Klasser der ikke skal animeres
+				const SKIP = [
+					'-bg', '-overlay', '-wave-', '-aaringe', '-mascot',
+					'-deko', '-spacer', '-line', '-knob', '-handle',
+					'-slider-color', '-slider-bw', '-hero-bg', '-clip',
+				];
+
+				function shouldSkip(el: Element): boolean {
+					if (el.getAttribute('aria-hidden') === 'true') return true;
+					const c = typeof el.className === 'string'
+						? el.className
+						: ((el.className as SVGAnimatedString)?.baseVal ?? '');
+					return SKIP.some(p => c.includes(p));
+				}
+
+				// Animationstype pr. selektor — rækkefølge afgør prioritet (første match vinder)
+				const ANIM_MAP: Array<{ sel: string; type: string }> = [
+					{ sel: 'h1, h2, h3',                    type: 'heading' },
+					{ sel: 'section p, section ul',          type: 'up'      },
+					{ sel: '.btn',                           type: 'up'      },
+					{ sel: '.artist-card',                   type: 'scale'   },
+					{ sel: '.om-slider',                     type: 'scale'   },
+					{ sel: '[class*="-img-wrap"]',           type: 'scale'   },
+					{ sel: '[class*="-photos"]',             type: 'scale'   },
+					{ sel: 'section img',                    type: 'scale'   },
+					{ sel: '.kunstner-spotify',              type: 'scale'   },
+					{ sel: '.kunstner-social-icons',         type: 'up'      },
+					{ sel: '.praktisk-faq-item',             type: 'fade'    },
+					{ sel: '[class*="-quote"]',              type: 'up'      },
+					{ sel: '[class*="-meta"]',               type: 'up'      },
+				];
+
+				// Tildel animationstype (første match vinder)
+				ANIM_MAP.forEach(({ sel, type }) => {
+					document.querySelectorAll(sel).forEach(el => {
+						if (!shouldSkip(el) && !el.hasAttribute('data-anim')) {
+							el.setAttribute('data-anim', type);
+						}
+					});
+				});
+
+				// Fjern data-anim fra elementer der er indlejret i et allerede-animeret element
+				document.querySelectorAll('[data-anim] [data-anim]').forEach(el => {
+					el.removeAttribute('data-anim');
+				});
+
+				// Stagger: søskende i samme forælder animerer lidt forskudt
+				const seen = new Set<Element>();
+				document.querySelectorAll('[data-anim]').forEach(el => {
+					const parent = el.parentElement;
+					if (!parent || seen.has(parent)) return;
+					seen.add(parent);
+					const siblings = Array.from(parent.children).filter(c => c.hasAttribute('data-anim'));
+					if (siblings.length > 1) {
+						siblings.forEach((sib, i) => {
+							(sib as HTMLElement).style.transitionDelay = `${i * 0.08}s`;
+						});
+					}
+				});
+
+				// Observer
+				const io = new IntersectionObserver((entries) => {
+					entries.forEach(e => {
+						if (e.isIntersecting) {
+							e.target.classList.add('is-visible');
+							io.unobserve(e.target);
+						}
+					});
+				}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+				document.querySelectorAll('[data-anim]').forEach(el => io.observe(el));
+			})();
+		</script>
+
 	</body>
 </html>

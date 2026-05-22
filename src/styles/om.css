@@ -9,6 +9,45 @@
 	align-items: flex-end;
 }
 
+/* Bølge: sand → grøn (ildsjæle) */
+.om-wave-historie-gron {
+	position: absolute;
+	bottom: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 178px;
+	z-index: 5;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	transform: scaleY(-1);
+	pointer-events: none;
+}
+
+/* Bølge: hero → sand (placeret i toppen af om-historie) */
+.om-wave-hero-sand {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
 .om-hero-bg {
 	position: absolute;
 	inset: 0;
@@ -35,7 +74,7 @@
 .om-hero-content {
 	position: relative;
 	z-index: 2;
-	padding: 0 3rem 4rem 3rem;
+	padding: 0 3rem 11rem 3rem;
 }
 
 .om-hero-title {
@@ -56,7 +95,7 @@
 /* Mascot — nederst til højre */
 .om-hero-mascot {
 	position: absolute;
-	bottom: 2rem;
+	bottom: 13rem;
 	right: 3rem;
 	z-index: 2;
 	pointer-events: none;
@@ -72,8 +111,7 @@
 .om-historie {
 	position: relative;
 	background: var(--color-sand);
-	padding: 8rem 4rem;
-	overflow: hidden;
+	padding: 8rem 4rem 0;
 }
 
 /* Aaringe — højre side */
@@ -127,9 +165,9 @@
 /* ── Græsrødder og Ildsjæle ── */
 .om-ildsjæle {
 	position: relative;
+	z-index: 2;
 	background: var(--color-gron);
-	padding: 8rem 4rem;
-	overflow: hidden;
+	padding: 15rem 4rem 0;
 }
 
 .om-ildsjæle-aaringe {
@@ -236,11 +274,31 @@
 	transform: translateY(-4px);
 }
 
+/* Bølge: grøn → sand (frivillighed) */
+.om-wave-ildsjæle-sand {
+	position: absolute;
+	bottom: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 178px;
+	z-index: 0;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	transform: scaleY(-1);
+	pointer-events: none;
+}
+
 /* ── Frivillighed ── */
 .om-frivillighed {
 	position: relative;
 	background: var(--color-sand);
-	padding: 8rem 4rem;
+	padding: 15rem 4rem 12rem;
 	overflow: hidden;
 }
 
@@ -324,12 +382,57 @@
 	line-height: 1.6;
 }
 
+/* Bølge: sand → rød (fællesskab) */
+.om-wave-frivillighed-rod {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-rod);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
 /* ── Vores Fællesskab ── */
 .om-faellesskab {
 	position: relative;
+	z-index: 2;
 	background: var(--color-rod);
 	padding: 8rem 4rem;
-	overflow: hidden;
+}
+
+/* Luft under bølgen inden footer */
+.om-footer-spacer {
+	height: 10rem;
+	background: var(--color-sand);
+}
+
+/* Bølge: rød → sand (footer) */
+.om-wave-faellesskab-sand {
+	position: absolute;
+	bottom: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 178px;
+	z-index: 0;
+	background: var(--color-rod);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	transform: scaleY(-1);
+	pointer-events: none;
 }
 
 /* Aaringe — højre side, sand farve */

@@ -5,6 +5,26 @@
 	position: relative;
 	min-height: 100svh;
 	overflow: hidden;
+	margin-bottom: -2px;
+}
+
+/* Bølge: hero → grøn */
+.kunstner-wave-hero-gron {
+	position: absolute;
+	bottom: 0;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 2;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
 }
 
 .kunstner-hero-bg {
@@ -22,7 +42,26 @@
 	position: relative;
 	background: var(--color-gron);
 	overflow: hidden;
-	padding: 10rem 3rem 12rem;
+	padding: 10rem 3rem 20rem;
+}
+
+/* Bølge: grøn → sand (footer) */
+.kunstner-wave-info-sand {
+	position: absolute;
+	bottom: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 5;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
 }
 
 /* Aaringe dekorationer */
@@ -49,9 +88,14 @@
 }
 
 .kunstner-info-aaringe--right {
-	top: 50%;
-	right: -14rem;
-	transform: translateY(-60%);
+	top: 5%;
+	right: -16rem;
+	transform: translateY(0%);
+}
+
+.kunstner-info-aaringe--right svg {
+	width: 1000px;
+	height: auto;
 }
 
 /* Indhold — centreret kolonne */
@@ -111,6 +155,18 @@
 	flex-direction: row;
 	gap: 1.5rem;
 	margin-bottom: 8rem;
+}
+
+/* Køb billet-knap: grøn baggrund med sand stroke */
+.kunstner-info-buttons .btn:last-child {
+	background: var(--color-gron) !important;
+	border-color: var(--color-sand) !important;
+	color: var(--color-sand) !important;
+}
+
+.kunstner-info-buttons .btn:last-child:hover {
+	background: var(--color-gron) !important;
+	border-color: transparent !important;
 }
 
 /* Bio-tekst — venstrestillet i centreret kolonne */

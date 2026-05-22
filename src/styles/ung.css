@@ -9,6 +9,25 @@
 	align-items: flex-end;
 }
 
+/* Bølge: hero → sand (placeret i toppen af ung-mere) */
+.ung-wave-hero-sand {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
 .ung-hero-bg {
 	position: absolute;
 	inset: 0;
@@ -35,7 +54,7 @@
 .ung-hero-content {
 	position: relative;
 	z-index: 2;
-	padding: 0 3rem 4rem 3rem;
+	padding: 0 3rem 14rem 3rem;
 }
 
 .ung-hero-title {
@@ -49,12 +68,16 @@
 
 /* ── Mere end en festival ── */
 .ung-mere {
+	position: relative;
+	z-index: 1;
 	background: var(--color-sand);
-	padding: 8rem 4rem;
-	overflow: hidden;
+	padding: 0 4rem 7rem;
+	margin-top: -3rem;
 }
 
 .ung-mere-inner {
+	position: relative;
+	z-index: 11;
 	max-width: 1300px;
 	margin: 0 auto;
 	display: grid;
@@ -98,11 +121,50 @@
 }
 
 /* ── Et sted hvor unge er i centrum ── */
+/* Bølge: sand → grøn (centrum) */
+.ung-wave-mere-gron {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
 .ung-centrum {
 	position: relative;
+	z-index: 2;
 	background: var(--color-gron);
 	padding: 8rem 4rem;
-	overflow: hidden;
+}
+
+/* Bølge: grøn → billede (under centrum) */
+.ung-wave-centrum-gron {
+	position: absolute;
+	bottom: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 178px;
+	z-index: 0;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	transform: scaleY(-1);
+	pointer-events: none;
 }
 
 .ung-centrum-inner {
@@ -124,7 +186,7 @@
 	transform: translate(-50%, -50%);
 	width: 45%;
 	pointer-events: none;
-	z-index: 0;
+	z-index: 11;
 	opacity: 0.2;
 }
 
@@ -195,18 +257,56 @@
 	line-height: 1.6;
 }
 
+/* Bølge: billede → grøn (skabt) */
+.ung-wave-skabt-gron {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
 /* ── Skabt Sammen med Unge ── */
 .ung-skabt {
 	position: relative;
+	z-index: 2;
 	background: var(--color-gron);
-	padding: 8rem 4rem;
-	overflow: hidden;
+	padding: 8rem 4rem 20rem;
+}
+
+/* Bølge: grøn → sand (footer) */
+.ung-wave-footer {
+	position: absolute;
+	bottom: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 0;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
 }
 
 /* Subtil maskot-dekoration i baggrunden */
 .ung-skabt-deko {
 	position: absolute;
-	top: 50%;
+	top: 35%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	pointer-events: none;
@@ -255,7 +355,7 @@
 .ung-fullwidth-img {
 	display: block;
 	width: 100%;
-	height: 60vh;
+	height: 75vh;
 	object-fit: cover;
 	object-position: center center;
 }

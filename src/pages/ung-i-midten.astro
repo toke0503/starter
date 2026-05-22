@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Wave from "../components/Wave.astro";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import logoRaw from "../assets/svg/logo_sandfarve.svg?raw";
 import bgImage from "../assets/images/mudder_og_regnslag.webp";
@@ -23,6 +24,8 @@ import "../styles/ung.css";
 
 	<!-- ── Mere end en festival ── -->
 	<section class="ung-mere">
+		<!-- Bølge: Hero → Sand -->
+		<div class="ung-wave-hero-sand" aria-hidden="true"></div>
 		<div class="ung-mere-inner">
 
 			<div class="ung-mere-text">
@@ -38,6 +41,8 @@ import "../styles/ung.css";
 
 	<!-- ── Et sted hvor unge er i centrum ── -->
 	<section class="ung-centrum">
+		<!-- Bølge: Sand → Grøn -->
+		<div class="ung-wave-mere-gron" aria-hidden="true"></div>
 
 		<div class="ung-centrum-aaringe" set:html={aaringeRaw}></div>
 
@@ -64,6 +69,8 @@ import "../styles/ung.css";
 			</div>
 
 		</div>
+		<!-- Bølge: Grøn → billede (under centrum) -->
+		<div class="ung-wave-centrum-gron" aria-hidden="true"></div>
 	</section>
 
 	<!-- ── Fællessang — fuld bredde ── -->
@@ -71,6 +78,8 @@ import "../styles/ung.css";
 
 	<!-- ── Skabt Sammen med Unge ── -->
 	<section class="ung-skabt">
+		<!-- Bølge: Billede → Grøn -->
+		<div class="ung-wave-skabt-gron" aria-hidden="true"></div>
 
 		<div class="ung-skabt-deko" set:html={logoRaw}></div>
 
@@ -85,6 +94,8 @@ import "../styles/ung.css";
 			</div>
 		</div>
 
+		<!-- Bølge: Grøn → Sand (footer) -->
+		<div class="ung-wave-footer" aria-hidden="true"></div>
 	</section>
 
 </MainLayout>

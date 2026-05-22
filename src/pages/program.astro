@@ -58,6 +58,8 @@ const artists = [
 		<img src={bgImage.src} alt="" class="program-bg" />
 		<h1 class="font-walnut program-title">Program</h1>
 		<div class="program-mascot" set:html={programMaskotRaw}></div>
+		<!-- Bølge: Hero → Sand -->
+		<div class="program-wave-hero-sand" aria-hidden="true"></div>
 	</section>
 
 	<!-- ── Artist-grid ── -->
@@ -113,6 +115,8 @@ const artists = [
 
 	<!-- ── Sangønske-sektion ── -->
 	<section class="program-sangonske">
+		<!-- Bølge: Sand → Rød -->
+		<div class="program-wave-sand-rod" aria-hidden="true"></div>
 		<div class="program-sangonske-maskot" set:html={sangonskeRaw}></div>
 		<h2 class="font-walnut program-sangonske-title">
 			Hvilke artister drømmer<br/>du om på Dyreskuepladsen?
@@ -124,6 +128,10 @@ const artists = [
 			favorit på plakaten, når vi ses igen til sommer
 		</p>
 		<Button variant="sand" href="#">Del dine ønsker her</Button>
+
+		<!-- Bølge: Rød → Sand (footer) -->
+		<div class="program-wave-rod-sand" aria-hidden="true"></div>
+
 	</section>
 
 </MainLayout>

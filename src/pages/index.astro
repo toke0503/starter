@@ -11,12 +11,13 @@ import nonprofit from "../assets/images/frivilige.webp";
 import frivillige from "../assets/images/frivilig_armbånd.webp";
 import scene from "../assets/images/tom_scene.webp";
 import musik from "../assets/images/drone_crowd.webp";
-import faellesskab from "../assets/images/faelleskab.webp";
 import foodtruck from "../assets/images/foodtruck_og_fælleskab.webp";
 
 // Import SVG
 import logoSvg from "../assets/svg/logo.svg";
+import logoSandSvg from "../assets/svg/logo_sandfarve.svg";
 import aaringeSvg from "../assets/svg/aaringe.svg";
+import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import brevMaskotSvg from "../assets/svg/brev_maskot.svg";
 import soundwaveSvg from "../assets/svg/soundwave.svg";
 import soundwave1Svg from "../assets/svg/soundwave1.svg";
@@ -62,16 +63,29 @@ const artists = [
 	<main class="w-full overflow-hidden">
 		<!-- Hero Section -->
 		<section class="relative w-full bg-gron overflow-hidden min-h-screen flex flex-col items-center justify-center py-20">
-			<img src={logoSvg.src} alt="Midtfyns Festival Logo" class="w-64 h-auto mb-12" />
-			<Heading htmlheading="h1" font="walnut" class="text-hvid text-center mb-6">Midtfyns Festival</Heading>
-			<Heading htmlheading="h3" font="acumin" class="text-hvid text-center uppercase tracking-wide">Af græsrødder og ildsjæle</Heading>
+			<img src={logoSandSvg.src} alt="Midtfyns Festival Logo" class="w-64 h-auto mb-12" />
+			<Heading htmlheading="h1" font="walnut" class="text-sand text-center mb-6">Midtfyns Festival</Heading>
+			<Heading htmlheading="h3" font="acumin" class="text-sand text-center uppercase tracking-wide">Af græsrødder og ildsjæle</Heading>
 		</section>
 
 		<!-- Countdown Section directly under hero -->
-		<section class="relative w-full overflow-hidden">
-			<Image src={faellesskab} alt="Fællesskab" class="w-full h-[76vh] object-cover" />
+		<section class="relative w-full overflow-hidden" style="background: var(--color-gron);">
+			<video
+				autoplay
+				loop
+				muted
+				playsinline
+				aria-hidden="true"
+				class="w-full h-screen object-cover block"
+			>
+				<source src="/midtfyns.webm" type="video/webm" />
+			</video>
 			<div class="absolute inset-0 bg-black/40"></div>
-			<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+
+			<!-- Bølge: Grøn hero → Countdown (bolgesand flipped, grøn) -->
+			<div class="index-wave-hero-countdown" aria-hidden="true"></div>
+
+			<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style="z-index: 10;">
 				<Heading
 					htmlheading="h1"
 					font="walnut"
@@ -98,7 +112,7 @@ const artists = [
 					</div>
 				</div>
 				<div class="mb-6">
-					<Button variant="white" size="large">KØB DIN BILLET</Button>
+					<Button variant="white" size="large" href="/billet">KØB DIN BILLET</Button>
 				</div>
 			</div>
 
@@ -130,27 +144,33 @@ const artists = [
 			  setInterval(tick,1000);
 			})();
 			</script>
+
+			<!-- Bølge: Countdown → Sand -->
+			<div class="index-wave-countdown-sand" aria-hidden="true"></div>
+
+			<!-- AI-badge på videoen -->
+			<span class="ai-badge" aria-hidden="true">AI-skabt</span>
 		</section>
 
 		<!-- Ny På Scenen Section -->
-		<section class="relative w-full pt-32 pb-28 bg-sand overflow-hidden">
+		<section class="relative w-full pt-32 pb-28 bg-sand">
 
 			<!-- Aaringe dekorationer -->
 			<img
 				src={aaringeSvg.src}
 				alt=""
 				aria-hidden="true"
-				class="absolute -top-16 -right-28 w-[38rem] opacity-75 pointer-events-none select-none"
+				class="absolute -top-16 -right-28 w-[38rem] opacity-75 pointer-events-none select-none z-[10]"
 			/>
 			<img
 				src={aaringeSvg.src}
 				alt=""
 				aria-hidden="true"
-				class="absolute -bottom-16 -left-28 w-[32rem] opacity-65 pointer-events-none select-none"
+				class="absolute -bottom-16 -left-28 w-[32rem] opacity-65 pointer-events-none select-none z-[25]"
 			/>
 
 			<!-- Overskrift + badge -->
-			<div class="max-w-7xl mx-auto px-8 relative z-10">
+			<div class="max-w-7xl mx-auto px-8 relative z-[30]">
 				<div class="relative text-center mb-8">
 					<div
 						class="absolute top-2 right-0"
@@ -183,7 +203,7 @@ const artists = [
 			</div>
 
 			<!-- Fuld-bredde auto-scrollende marquee -->
-			<div class="overflow-hidden mb-16 py-4 relative z-10">
+			<div class="overflow-hidden mb-16 py-4 relative z-[30]">
 				<!--
 					To identiske spor side om side.
 					Animationen kører translateX(-50%) = præcis ét spors bredde.
@@ -229,14 +249,17 @@ const artists = [
 			</div>
 
 			<!-- Knap -->
-			<div class="flex justify-center relative z-10">
-				<Button variant="primary" size="large">SE PROGRAMMET</Button>
+			<div class="flex justify-center relative z-[30]">
+				<Button variant="primary" size="large" href="/program">SE PROGRAMMET</Button>
 			</div>
+
+			<!-- Bølge: Sand → Rød (sand-bølge hænger ned i rød sektion) -->
+			<div class="index-wave-sand-rod" aria-hidden="true"></div>
 
 		</section>
 
 		<!-- Kom i Stemning Section -->
-		<section class="relative w-full pt-28 pb-32 overflow-hidden" style="background: var(--color-rod);">
+		<section class="relative w-full pt-56 pb-32 overflow-hidden" style="background: var(--color-rod);">
 
 			<!-- Sektion header -->
 			<div class="max-w-7xl mx-auto px-8 mb-16 text-center">
@@ -554,15 +577,18 @@ const artists = [
 		</section>
 
 		<!-- Mere end en Festival Section -->
-		<section class="relative w-full py-24 overflow-hidden" style="background: var(--color-gron);">
+		<section class="relative w-full pt-52 pb-72 overflow-hidden" style="background: var(--color-gron);">
 
-			<!-- Aaringe dekoration — hvid via CSS filter, stor, venstre side -->
-			<img src={aaringeSvg.src} alt="" aria-hidden="true"
-				style="position: absolute; left: -18rem; top: 62%; transform: translateY(-50%); width: 82rem; pointer-events: none; filter: brightness(0) invert(1);" />
+			<!-- Bølge: Rød → Grøn -->
+			<div class="index-wave-rod-gron" aria-hidden="true"></div>
+
+			<!-- Aaringe dekoration — sandfarvet, stor, venstre side -->
+			<div aria-hidden="true" class="index-aaringe-sand" set:html={aaringeRaw}
+				style="position: absolute; left: -18rem; top: 62%; transform: translateY(-50%); width: 82rem; pointer-events: none;"></div>
 
 			<!-- Sektionsoverskrift -->
 			<div class="max-w-7xl mx-auto px-8 mb-14 text-center relative" style="z-index: 10;">
-				<Heading htmlheading="h1" font="walnut" class="text-hvid uppercase program-heading">
+				<Heading htmlheading="h1" font="walnut" class="text-sand uppercase program-heading">
 					Mere end en festival
 				</Heading>
 			</div>
@@ -571,7 +597,7 @@ const artists = [
 			<div class="max-w-7xl mx-auto px-8 relative" style="z-index: 10; display: flex; flex-direction: column; gap: 2rem;">
 
 				<!-- Kort 1: Ung i Midten — billede venstre -->
-				<div style="background: var(--color-gron); border: 3px solid rgba(255,255,255,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+				<div style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
 					<div style="width: 36%; flex-shrink: 0; position: relative;">
 						<Image
 							src={ungIMidten}
@@ -582,25 +608,25 @@ const artists = [
 					</div>
 					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
-							<Heading htmlheading="h2" font="walnut" class="text-hvid uppercase">Ung i Midten</Heading>
-							<p class="text-hvid" style="margin-top: 1rem;">
+							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Ung i Midten</Heading>
+							<p class="text-sand" style="margin-top: 1rem;">
 								Ung i Midten samler unge fra hele Faaborg-Midtfyn til en festivaldag fyldt med musik, fællesskab og nye oplevelser. Her mødes unge på tværs af skoler, interesser og fællesskaber for at skabe minder, relationer og plads til at være ung samme.
 							</p>
 						</div>
-						<Button variant="white" size="large">OPLEV UNG I MIDTEN</Button>
+						<Button variant="sand" size="large" href="/ung-i-midten">OPLEV UNG I MIDTEN</Button>
 					</div>
 				</div>
 
 				<!-- Kort 2: Frivilighed — tekst venstre, billede højre -->
-				<div style="background: var(--color-gron); border: 3px solid rgba(255,255,255,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+				<div style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
 					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
-							<Heading htmlheading="h2" font="walnut" class="text-hvid uppercase">Frivilighed</Heading>
-							<p class="text-hvid" style="margin-top: 1rem;">
+							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Frivilighed</Heading>
+							<p class="text-sand" style="margin-top: 1rem;">
 								Midtfyns Festival er skabt af fællesskab, ildsjæle og frivillige kræfter. Som frivillig bliver du en del af holdet bag festivalen og er med til at skabe oplevelser, stemning og fællesskab på pladsen i Ringe.
 							</p>
 						</div>
-						<Button variant="white" size="large">BLIV EN DEL AF FÆLLESSKABET</Button>
+						<Button variant="sand" size="large">BLIV EN DEL AF FÆLLESSKABET</Button>
 					</div>
 					<div style="width: 36%; flex-shrink: 0; position: relative;">
 						<Image
@@ -613,7 +639,7 @@ const artists = [
 				</div>
 
 				<!-- Kort 3: Alt er Non-Profit — billede venstre -->
-				<div style="background: var(--color-gron); border: 3px solid rgba(255,255,255,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+				<div style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
 					<div style="width: 36%; flex-shrink: 0; position: relative;">
 						<Image
 							src={foodtruck}
@@ -624,16 +650,19 @@ const artists = [
 					</div>
 					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
-							<Heading htmlheading="h2" font="walnut" class="text-hvid uppercase">Alt er Non-Profit</Heading>
-							<p class="text-hvid" style="margin-top: 1rem;">
+							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Alt er Non-Profit</Heading>
+							<p class="text-sand" style="margin-top: 1rem;">
 								Midtfyns Festival er bygget på fællesskab, frivillighed og engagerede lokale kræfter. Som medlem af foreningen er du med til at bakke op om festivalen og sikre, at den folkelige festivalstemning lever videre.
 							</p>
 						</div>
-						<Button variant="white" size="large">BAK OP OM FESTIVALEN</Button>
+						<Button variant="sand" size="large">BAK OP OM FESTIVALEN</Button>
 					</div>
 				</div>
 
 			</div>
+
+			<!-- Bølge: Grøn → Sand (footer) -->
+			<div class="index-wave-gron-sand" aria-hidden="true"></div>
 
 		</section>
 
@@ -643,6 +672,110 @@ const artists = [
 </MainLayout>
 
 <style>
+	/* ── Bølge: countdown → sand ── */
+	.index-wave-countdown-sand {
+		position: absolute;
+		bottom: -3px;
+		left: -2px;
+		right: -2px;
+		width: calc(100% + 4px);
+		height: 176px;
+		z-index: 5;
+		background: var(--color-sand);
+		-webkit-mask-image: url('/bolgesand.png');
+		mask-image: url('/bolgesand.png');
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		pointer-events: none;
+	}
+
+	/* ── Bølge: sand → rød ── */
+	.index-wave-sand-rod {
+		position: absolute;
+		bottom: -174px;
+		left: -2px;
+		right: -2px;
+		width: calc(100% + 4px);
+		height: 176px;
+		z-index: 20;
+		background: var(--color-sand);
+		-webkit-mask-image: url('/bolgesand.png');
+		mask-image: url('/bolgesand.png');
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		transform: scaleY(-1);
+		pointer-events: none;
+	}
+
+	/* ── Bølge: grøn → sand (footer) ── */
+	.index-wave-gron-sand {
+		position: absolute;
+		bottom: -2px;
+		left: -2px;
+		right: -2px;
+		width: calc(100% + 4px);
+		height: 176px;
+		z-index: 5;
+		background: var(--color-sand);
+		-webkit-mask-image: url('/bolgesand.png');
+		mask-image: url('/bolgesand.png');
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		pointer-events: none;
+	}
+
+	/* ── Bølge: rød → grøn ── */
+	.index-wave-rod-gron {
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		width: calc(100% + 4px);
+		height: 176px;
+		z-index: 5;
+		background: var(--color-rod);
+		-webkit-mask-image: url('/bolgesand.png');
+		mask-image: url('/bolgesand.png');
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		transform: scaleY(-1);
+		pointer-events: none;
+	}
+
+	/* ── Bølge: grøn hero → countdown ── */
+	.index-wave-hero-countdown {
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		width: calc(100% + 4px);
+		height: 176px;
+		z-index: 5;
+		background: var(--color-gron);
+		/* bolgesand.png har transparent top og sand-fyld i bunden.
+		   Flipped: sand-fyld (opak) → øverst = grønt synligt.
+		   Bølgekant hænger ned mod fotoet nedenfor. */
+		-webkit-mask-image: url('/bolgesand.png');
+		mask-image: url('/bolgesand.png');
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		transform: scaleY(-1);
+		pointer-events: none;
+	}
+
+	.index-aaringe-sand :global(svg path) {
+		stroke: var(--color-sand) !important;
+	}
 	:global {
 		.font-walnut {
 			font-family: var(--font-walnut);

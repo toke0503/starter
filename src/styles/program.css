@@ -7,6 +7,26 @@
 	overflow: hidden;
 	display: flex;
 	align-items: flex-end;
+	margin-bottom: -2px;
+}
+
+/* Bølge: hero → sand */
+.program-wave-hero-sand {
+	position: absolute;
+	bottom: 0;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 2;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
 }
 
 .program-bg {
@@ -27,12 +47,12 @@
 	text-transform: uppercase;
 	line-height: 0.9;
 	margin: 0;
-	padding: 0 3rem 3rem 3rem;
+	padding: 0 3rem 14rem 3rem;
 }
 
 .program-mascot {
 	position: absolute;
-	bottom: 2rem;
+	bottom: 13rem;
 	right: 3rem;
 	z-index: 2;
 	pointer-events: none;
@@ -45,8 +65,9 @@
 
 /* ── Sangønske-sektion ── */
 .program-sangonske {
+	position: relative;
 	background: var(--color-rod);
-	padding: 5rem 3rem 6rem;
+	padding: 5rem 3rem 20rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -83,8 +104,46 @@
 .program-artists {
 	position: relative;
 	background: var(--color-sand);
-	padding: 3.5rem 3rem 6rem;
+	padding: 3.5rem 3rem 14rem;
 	overflow: hidden;
+}
+
+/* Bølge: rød → sand (footer) */
+.program-wave-rod-sand {
+	position: absolute;
+	bottom: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 5;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
+/* Bølge: sand → rød (placeret i toppen af sangønske-sektion) */
+.program-wave-sand-rod {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-rod);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
 }
 
 /* Aaringe — venstre side */
@@ -200,6 +259,11 @@
 	object-fit: cover;
 	object-position: center top;
 	display: block;
+	transition: transform 0.4s ease;
+}
+
+.artist-card:hover .artist-card-img {
+	transform: scale(1.06);
 }
 
 /* Gradient-overlay for læsbarhed */
@@ -246,12 +310,16 @@
 	justify-content: center;
 	color: var(--color-rod);
 	cursor: pointer;
-	transition: background 0.2s ease;
+	transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 	backdrop-filter: blur(4px);
 }
 
 .artist-card-star:hover {
-	background: rgba(254, 247, 221, 0.45);
+	background: var(--color-sand);
+	border-color: var(--color-sand);
+	color: var(--color-rod);
+	transform: scale(1.12);
+	transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .artist-card-star--active {

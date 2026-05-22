@@ -1,0 +1,67 @@
+---
+/**
+ * Wave.astro — organisk bølgedivider mellem sektioner
+ *
+ * Placering:
+ *   Solid-farve sektioner  → sæt som SIDST element inde i sektionen
+ *   Hero-sektioner         → pak i .wave-hero-wrap (se nedenfor)
+ *
+ * Props:
+ *   fill   – CSS-farve på bølgefyldet (= næste sektions baggrundsfarve)
+ *   flip   – spejl horisontalt for variation (default: false)
+ *   hero   – brug position:absolute bottom:0 layout til hero-sektioner
+ */
+const {
+	fill = "var(--color-sand)",
+	flip = false,
+	hero = false,
+} = Astro.props;
+---
+
+<div
+	class:list={["wave", { "wave--flip": flip, "wave--hero": hero }]}
+	aria-hidden="true"
+>
+	<svg
+		viewBox="0 0 1440 100"
+		preserveAspectRatio="none"
+		xmlns="http://www.w3.org/2000/svg"
+		class="wave__svg"
+	>
+		<path
+			d="M-1,58 C160,8 300,96 480,52 C660,8 780,88 960,46 C1140,4 1280,82 1441,42 L1441,101 L-1,101 Z"
+			fill={fill}
+		/>
+	</svg>
+</div>
+
+<style>
+	.wave {
+		display: block;
+		width: 100%;
+		line-height: 0;
+		/* Træk 1px ned for at undgå hårfin gap mod næste sektion */
+		margin-bottom: -1px;
+	}
+
+	.wave__svg {
+		display: block;
+		width: 100%;
+		height: 80px;
+	}
+
+	/* Spejl bølgens form horisontalt for variation */
+	.wave--flip .wave__svg {
+		transform: scaleX(-1);
+	}
+
+	/* Hero-variant: absolut placeret i bunden af hero-sektionen */
+	.wave--hero {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 3;
+		margin-bottom: 0;
+	}
+</style>

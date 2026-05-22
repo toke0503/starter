@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Wave from "../components/Wave.astro";
 import logoSandRaw from "../assets/svg/logo_sandfarve.svg?raw";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import talebobbel from "../assets/svg/talebobbel.svg?raw";
@@ -34,6 +35,8 @@ import "../styles/om.css";
 
 	<!-- ── Vores Historie ── -->
 	<section class="om-historie">
+		<!-- Bølge: Hero → Sand -->
+		<div class="om-wave-hero-sand" aria-hidden="true"></div>
 
 		<div class="om-historie-aaringe" set:html={aaringeRaw}></div>
 
@@ -63,6 +66,10 @@ import "../styles/om.css";
 			</div>
 
 		</div>
+
+		<!-- Bølge: Sand → Grøn -->
+		<div class="om-wave-historie-gron" aria-hidden="true"></div>
+
 	</section>
 
 	<!-- ── Græsrødder og Ildsjæle ── -->
@@ -94,6 +101,8 @@ import "../styles/om.css";
 			</div>
 
 		</div>
+		<!-- Bølge: Grøn → Sand -->
+		<div class="om-wave-ildsjæle-sand" aria-hidden="true"></div>
 	</section>
 
 	<!-- ── Frivillighed ── -->
@@ -127,6 +136,8 @@ import "../styles/om.css";
 
 	<!-- ── Vores Fællesskab ── -->
 	<section class="om-faellesskab">
+		<!-- Bølge: Sand → Rød -->
+		<div class="om-wave-frivillighed-rod" aria-hidden="true"></div>
 
 		<div class="om-faellesskab-aaringe" set:html={aaringeRaw}></div>
 
@@ -150,7 +161,12 @@ import "../styles/om.css";
 			</div>
 
 		</div>
+		<!-- Bølge: Rød → Sand (footer) -->
+		<div class="om-wave-faellesskab-sand" aria-hidden="true"></div>
 	</section>
+
+	<!-- Luft under bølgen inden footer (kun på om-siden) -->
+	<div class="om-footer-spacer"></div>
 
 </MainLayout>
 

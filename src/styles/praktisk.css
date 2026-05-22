@@ -9,6 +9,44 @@
 	align-items: flex-end;
 }
 
+/* Bølge: sand → grøn (transport) */
+.praktisk-wave-sand-gron {
+	position: absolute;
+	bottom: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 5;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
+/* Bølge: hero → sand (placeret i toppen af FAQ-sektion) */
+.praktisk-wave-hero-sand {
+	position: absolute;
+	top: -176px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 180px;
+	z-index: 10;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
 .praktisk-hero-bg {
 	position: absolute;
 	inset: 0;
@@ -36,7 +74,7 @@
 .praktisk-hero-content {
 	position: relative;
 	z-index: 2;
-	padding: 0 3rem 4rem 3rem;
+	padding: 0 3rem 15rem 3rem;
 	max-width: 700px;
 }
 
@@ -60,7 +98,7 @@
 /* Maskot — nederst til højre */
 .praktisk-mascot {
 	position: absolute;
-	bottom: 1rem;
+	bottom: 12rem;
 	right: 3rem;
 	z-index: 2;
 	pointer-events: none;
@@ -75,8 +113,7 @@
 .praktisk-faq {
 	position: relative;
 	background: var(--color-sand);
-	padding: 6rem 3rem 8rem;
-	overflow: hidden;
+	padding: 6rem 3rem 18rem;
 }
 
 /* Aaringe dekorationer */
@@ -96,7 +133,7 @@
 }
 
 .praktisk-faq-aaringe--right {
-	bottom: -8rem;
+	top: 20rem;
 	right: -14rem;
 }
 
@@ -235,8 +272,7 @@
 .praktisk-transport {
 	position: relative;
 	background: var(--color-gron);
-	padding: 6rem 3rem 8rem;
-	overflow: hidden;
+	padding: 6rem 3rem 10rem;
 }
 
 .praktisk-transport-title {
@@ -251,8 +287,46 @@
 .praktisk-camping {
 	position: relative;
 	background: var(--color-rod);
-	padding: 6rem 3rem 8rem;
-	overflow: hidden;
+	padding: 18rem 3rem 18rem;
+}
+
+/* Bølge: rød → sand (mad) */
+.praktisk-wave-rod-sand {
+	position: absolute;
+	bottom: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 5;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
+}
+
+/* Bølge: grøn → rød (camping) */
+.praktisk-wave-gron-rod {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 10;
+	background: var(--color-gron);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	transform: scaleY(-1);
+	pointer-events: none;
 }
 
 .praktisk-camping-title {

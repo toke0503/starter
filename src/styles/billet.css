@@ -52,8 +52,29 @@
 
 /* Armbånd-sektion */
 .billet-armbaand {
+	position: relative;
 	background: var(--color-rod);
 	padding: 5rem 3rem 7rem;
+}
+
+/* Bølge: rød → grøn */
+.billet-wave-rod-gron {
+	position: absolute;
+	bottom: -174px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 5;
+	background: var(--color-rod);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	transform: scaleY(-1);
+	pointer-events: none;
 }
 .billet-armbaand-title {
 	text-align: center;
@@ -162,8 +183,28 @@
 
 /* Overnatning-sektion */
 .billet-overnatning {
+	position: relative;
 	background: var(--color-gron);
 	padding: 5rem 3rem 7rem;
+}
+
+/* Bølge: grøn → sand (footer) */
+.billet-wave-gron-sand {
+	position: absolute;
+	bottom: -2px;
+	left: -2px;
+	right: -2px;
+	width: calc(100% + 4px);
+	height: 176px;
+	z-index: 5;
+	background: var(--color-sand);
+	-webkit-mask-image: url('/bolgesand.png');
+	mask-image: url('/bolgesand.png');
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	pointer-events: none;
 }
 .billet-overnatning-title {
 	text-align: center;
