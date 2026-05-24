@@ -59,7 +59,7 @@ const artists = [
 ];
 ---
 
-<MainLayout title="Midtfyns Festival">
+<MainLayout title="Midtfyns Festival" description="Midtfyns Festival 2026 — musik, fællesskab og lange sommeraftener i Ringe på Fyn. Køb billet og se programmet her.">
 	<main class="w-full overflow-hidden">
 		<!-- Hero Section -->
 		<section class="relative w-full bg-gron overflow-hidden min-h-screen flex flex-col items-center justify-center py-20">
@@ -161,12 +161,14 @@ const artists = [
 				alt=""
 				aria-hidden="true"
 				class="program-aaringe-top absolute -top-16 -right-28 w-[38rem] opacity-75 pointer-events-none select-none z-[10]"
+				loading="lazy"
 			/>
 			<img
 				src={aaringeSvg.src}
 				alt=""
 				aria-hidden="true"
 				class="absolute -bottom-16 -left-28 w-[32rem] opacity-65 pointer-events-none select-none z-[25]"
+				loading="lazy"
 			/>
 
 			<!-- Overskrift + badge -->
@@ -283,6 +285,7 @@ const artists = [
 					src={soundwaveSvg.src}
 					alt=""
 					aria-hidden="true"
+					loading="lazy"
 					style="
 						position: absolute;
 						top: 45%;
@@ -299,6 +302,7 @@ const artists = [
 					src={soundwave1Svg.src}
 					alt=""
 					aria-hidden="true"
+					loading="lazy"
 					style="
 						position: absolute;
 						top: 45%;
@@ -315,6 +319,7 @@ const artists = [
 					src={soundwave2Svg.src}
 					alt=""
 					aria-hidden="true"
+					loading="lazy"
 					style="
 						position: absolute;
 						top: 45%;
@@ -341,6 +346,7 @@ const artists = [
 					<iframe
 						style="border-radius: 16px; display: block;"
 						src="https://open.spotify.com/embed/playlist/39Ve7NVQitcRAfUmzIzriK?utm_source=generator&theme=0"
+						title="Spotify afspiller"
 						width="100%"
 						height="480"
 						frameborder="0"
@@ -379,6 +385,7 @@ const artists = [
 								src={brevMaskotSvg.src}
 								alt=""
 								aria-hidden="true"
+								loading="lazy"
 								class="newsletter-mascot"
 								style="
 									position: absolute;

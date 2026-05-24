@@ -1,6 +1,9 @@
 /* ── Praktisk Information-side ── */
+/* Indeholder styles for praktisk-hero, FAQ-sektion (billetter/adgang),
+   transport-sektion (grøn), camping-sektion (rød) og mad-sektion (sand).
+   Alle accordion-items bruger JS-drevet højdeanimation, ikke CSS display:none. */
 
-/* ── Hero ── */
+/* ── Hero: fuld skærm med baggrundsbillede, overlay og tekst i bunden til venstre ── */
 .praktisk-hero {
 	position: relative;
 	min-height: 100svh;
@@ -108,7 +111,7 @@
 	height: auto;
 }
 
-/* ── FAQ-sektion ── */
+/* ── FAQ-sektion: sand baggrund med accordion-items og aaringe-dekorationer ── */
 .praktisk-faq {
 	position: relative;
 	background: var(--color-sand);
@@ -255,7 +258,7 @@
 	font-weight: 700;
 }
 
-/* ── Mad og Drikkevarer (sand sektion, aaringe højre) ── */
+/* ── Mad og Drikkevarer: sand baggrund med accordion-items og aaringe til højre ── */
 .praktisk-mad {
 	position: relative;
 	background: var(--color-sand);
@@ -269,7 +272,7 @@
 	right: -14rem;
 }
 
-/* ── Transport + Parkering (grøn sektion) ── */
+/* ── Transport + Parkering: grøn baggrund med sand-variant accordion-items ── */
 .praktisk-transport {
 	position: relative;
 	background: var(--color-gron);
@@ -284,7 +287,7 @@
 	margin: 0 0 2rem;
 }
 
-/* ── Camping (rød sektion) ── */
+/* ── Camping: rød baggrund med sand-variant accordion-items og bølger top og bund ── */
 .praktisk-camping {
 	position: relative;
 	background: var(--color-rod);
@@ -338,7 +341,7 @@
 	margin: 0 0 2rem;
 }
 
-/* Sand-variant af accordion (til brug på grøn og rød baggrund) */
+/* ── Sand-variant af accordion: bruges på grøn og rød baggrund — grænser og tekst i sandfarve ── */
 .praktisk-faq-item--sand {
 	background: transparent;
 	border-color: var(--color-sand) !important;

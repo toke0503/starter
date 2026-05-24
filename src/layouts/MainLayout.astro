@@ -3,13 +3,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import '../styles/tailwind.css';
 import '../styles/animations.css';
-const { title = 'Midtfyns Festival' } = Astro.props;
+const { title = 'Midtfyns Festival', description = 'Midtfyns Festival — af græsrødder og ildsjæle. Festival i Ringe på Fyn med musik, fællesskab og uforglemmelige oplevelser.' } = Astro.props;
 ---
 <html lang="da">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
 		<title>{Astro.props.title}</title>
 
 		<!-- Preconnect: åbner forbindelsen til Adobe Fonts tidligt -->
@@ -17,8 +18,9 @@ const { title = 'Midtfyns Festival' } = Astro.props;
 		<link rel="preconnect" href="https://p.typekit.net" crossorigin />
 		<link rel="dns-prefetch" href="https://use.typekit.net" />
 
-		<!-- Fonts -->
-		<link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css" />
+		<!-- Fonts — media=print trick: loader non-blocking, skifter til all når hentet -->
+		<link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css" media="print" onload="this.media='all'" />
+		<noscript><link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css" /></noscript>
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -155,6 +157,13 @@ const { title = 'Midtfyns Festival' } = Astro.props;
 		</style>
 
 		<script>
+			/*
+			 * ── Eksamensgaten ──
+			 * Viser et adgangskode-overlay ved sideindlæsning for at beskytte
+			 * eksamensprojektet. Koden gemmes i localStorage, så brugeren kun
+			 * skal taste koden én gang pr. browser.
+			 * Gaten fades ud og fjernes fra DOM'en efter godkendelse (400ms).
+			 */
 			const gate  = document.getElementById('auth-gate')!;
 			const form  = document.getElementById('auth-form')!;
 			const input = document.getElementById('auth-input') as HTMLInputElement;
@@ -242,6 +251,13 @@ const { title = 'Midtfyns Festival' } = Astro.props;
 		</style>
 
 		<script>
+			/*
+			 * ── Eksamensprojekt-popup ──
+			 * Viser en toast-meddelelse når brugeren klikker på en knap der ikke
+			 * er implementeret (type !== "submit"). Fortæller at siden er et
+			 * eksamensprojekt og at den pågældende funktion ikke er kodet.
+			 * Popuppen forsvinder automatisk efter 4 sekunder eller ved klik på X.
+			 */
 			const popup = document.getElementById('exam-popup')!;
 			const closeBtn = document.getElementById('exam-popup-close')!;
 			let hideTimer: ReturnType<typeof setTimeout>;
@@ -269,7 +285,15 @@ const { title = 'Midtfyns Festival' } = Astro.props;
 		</script>
 
 		<script>
-			// ── AI-skabt billede-badges ──
+			/*
+			 * ── AI-skabt billede-badges ──
+			 * Tilføjer automatisk et lille "AI-skabt"-badge til alle billeder
+			 * der er genereret med AI, så brugeren er informeret.
+			 * Undtagelser: SVG-filer, dekorative aria-skjulte billeder, kunstner-
+			 * pressebilleder og marquee-elementer.
+			 * Badget placeres absolut i billedets nærmeste positionerede forfader.
+			 * Hvis ingen forfader findes, wrappes billedet i et nyt div-element.
+			 */
 			(function () {
 				// Find første positionerede forfader (ikke html/body)
 				// Semantic section/main/article gøres positioned hvis de endnu ikke er det
@@ -332,7 +356,16 @@ const { title = 'Midtfyns Festival' } = Astro.props;
 		</script>
 
 		<script>
-			// ── Scroll-animationer ──
+			/*
+			 * ── Scroll-animationer ──
+			 * Tildeler data-anim attributter til elementer ud fra en prioriteret
+			 * animations-map (ANIM_MAP). Første match vinder.
+			 * Animationstyper: "heading" (translateY 40px), "up" (22px), "scale" (0.95),
+			 * "fade" (kun opacity). Søskende animerer forskudt via stagger-delay.
+			 * IntersectionObserver trigger .is-visible-klassen når elementet ruller ind
+			 * — CSS-overgangene i animations.css håndterer selve animationen.
+			 * Deaktiveres automatisk for brugere med prefers-reduced-motion.
+			 */
 			(function () {
 				if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 

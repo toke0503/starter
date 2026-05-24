@@ -51,7 +51,7 @@ const artists = [
 ];
 ---
 
-<MainLayout title="Program – Midtfyns Festival">
+<MainLayout title="Program – Midtfyns Festival" description="Se det fulde program for Midtfyns Festival 2026. Filtrer efter dag, scene og kategori og tilføj dine favoritartister.">
 
 	<!-- ── Hero ── -->
 	<section class="program-hero">
@@ -92,7 +92,7 @@ const artists = [
 			{artists.map(artist => (
 				<article class="artist-card" data-name={artist.name} data-kategori={artist.kategori} data-dag={artist.dag} data-scene={artist.scene}>
 					<a href="/kunstner/saveus" class="artist-card-link" aria-label={`Læs mere om ${artist.name}`}></a>
-					<img src={artist.image.src} alt={artist.name} class="artist-card-img" />
+					<img src={artist.image.src} alt={artist.name} class="artist-card-img" loading="lazy" />
 					<div class="artist-card-overlay"></div>
 					<h2 class="font-walnut artist-card-name">{artist.name}</h2>
 					<button class="artist-card-star" aria-label="Tilføj til favoritter">

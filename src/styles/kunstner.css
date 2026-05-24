@@ -1,6 +1,8 @@
 /* ── Kunstner-side ── */
+/* Indeholder styles for kunstner-hero (pressebillede), info-sektion (grøn baggrund
+   med navn, meta, knapper, bio og Spotify embed) og sociale medier-sektion. */
 
-/* ── Hero ── */
+/* ── Hero: fuld skærm med pressebillede som baggrund ── */
 .kunstner-hero {
 	position: relative;
 	min-height: 100svh;
@@ -37,7 +39,7 @@
 	z-index: 0;
 }
 
-/* ── Info-sektion ── */
+/* ── Info-sektion: grøn baggrund med centreret kolonne — kunstnernavn, meta, knapper og bio ── */
 .kunstner-info {
 	position: relative;
 	background: var(--color-gron);
@@ -185,7 +187,7 @@
 	margin-bottom: 0;
 }
 
-/* ── Spotify embed ── */
+/* ── Spotify embed: centreret iframe med maks-bredde 900px ── */
 .kunstner-spotify {
 	position: relative;
 	z-index: 1;
@@ -194,7 +196,7 @@
 	margin: 10rem auto 0;
 }
 
-/* ── Sociale medier ── */
+/* ── Sociale medier: centreret sektion med titeltekst og sociale ikoner ── */
 .kunstner-social {
 	position: relative;
 	z-index: 1;

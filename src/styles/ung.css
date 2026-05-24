@@ -1,6 +1,8 @@
 /* ── Ung i Midten-side ── */
+/* Indeholder styles for ung-hero, mere-end-en-festival, et-sted-hvor-unge-er-i-centrum,
+   fuld-bredde-billede og skabt-sammen-med-unge-sektioner. */
 
-/* ── Hero ── */
+/* ── Hero: fuld skærm med baggrundsbillede og overlay ── */
 .ung-hero {
 	position: relative;
 	min-height: 100svh;
@@ -66,7 +68,7 @@
 	white-space: nowrap;
 }
 
-/* ── Mere end en festival ── */
+/* ── Mere end en festival: sand baggrund, tekst til venstre og aaringe-dekoration til højre ── */
 .ung-mere {
 	position: relative;
 	z-index: 1;
@@ -119,7 +121,7 @@
 	height: auto;
 }
 
-/* ── Et sted hvor unge er i centrum ── */
+/* ── Et sted hvor unge er i centrum: grøn baggrund, billede til venstre og tekst/liste til højre ── */
 /* Bølge: sand → grøn (centrum) */
 .ung-wave-mere-gron {
 	position: absolute;
@@ -273,7 +275,7 @@
 	pointer-events: none;
 }
 
-/* ── Skabt Sammen med Unge ── */
+/* ── Skabt Sammen med Unge: grøn baggrund, stor titeltekst til venstre og brødtekst til højre ── */
 .ung-skabt {
 	position: relative;
 	z-index: 2;
@@ -347,7 +349,7 @@
 	margin-bottom: 0;
 }
 
-/* ── Fuld-bredde billede ── */
+/* ── Fuld-bredde billede: strækker sig kant-til-kant som visuelt brud mellem sektioner ── */
 .ung-fullwidth-img {
 	display: block;
 	width: 100%;

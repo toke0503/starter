@@ -1,6 +1,8 @@
 /* ── Om Midtfyns Festival-side ── */
+/* Indeholder styles for om-hero, vores-historie (med before/after-slider),
+   græsrødder-og-ildsjæle, frivillighed og vores-fællesskab-sektioner. */
 
-/* ── Hero ── */
+/* ── Hero: fuld skærm med baggrundsbillede, mørkt overlay og maskot ── */
 .om-hero {
 	position: relative;
 	min-height: 100svh;
@@ -107,7 +109,7 @@
 	height: auto;
 }
 
-/* ── Vores Historie ── */
+/* ── Vores Historie: sand baggrund, to-kolonne layout med tekst og before/after-slider ── */
 .om-historie {
 	position: relative;
 	background: var(--color-sand);
@@ -161,7 +163,7 @@
 	margin-bottom: 0;
 }
 
-/* ── Græsrødder og Ildsjæle ── */
+/* ── Græsrødder og Ildsjæle: grøn baggrund, tekst til venstre, tre billeder + talebobbel til højre ── */
 .om-ildsjæle {
 	position: relative;
 	z-index: 2;
@@ -291,7 +293,7 @@
 	pointer-events: none;
 }
 
-/* ── Frivillighed ── */
+/* ── Frivillighed: sand baggrund, blob-billede til venstre og tekst/liste til højre ── */
 .om-frivillighed {
 	position: relative;
 	background: var(--color-sand);
@@ -396,7 +398,7 @@
 	pointer-events: none;
 }
 
-/* ── Vores Fællesskab ── */
+/* ── Vores Fællesskab: rød baggrund, tekst til venstre og 2×2 billedgrid til højre ── */
 .om-faellesskab {
 	position: relative;
 	z-index: 2;
@@ -495,7 +497,7 @@
 	display: block;
 }
 
-/* ── Before/After Slider ── */
+/* ── Before/After Slider: drag-håndtag afslører sort-hvid vs. farve historisk billede ── */
 .om-slider {
 	position: relative;
 	overflow: hidden;

@@ -1,5 +1,8 @@
 /* ── Kontakt-side ── */
+/* Indeholder styles for kontakt-sektionen med baggrundsbillede, kortlayout,
+   venstre-kolonne med adresse/email og højre-kolonne med kontaktformular. */
 
+/* Fuld-skærms sektion der centrerer kontakt-kortet over baggrundsbillede */
 .kontakt-section {
 	min-height: 100svh;
 	position: relative;
@@ -159,7 +162,7 @@
 	text-underline-offset: 3px;
 }
 
-/* ── Formular ── */
+/* ── Formular: flex-kolonne med name/email felter og tekstfelt ── */
 .kontakt-form {
 	display: flex;
 	flex-direction: column;

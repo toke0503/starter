@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Wave from "../components/Wave.astro";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import logoRaw from "../assets/svg/logo_sandfarve.svg?raw";
 import bgImage from "../assets/images/mudder_og_regnslag.webp";
@@ -9,7 +8,7 @@ import faellessangImg from "../assets/images/faellessang.webp";
 import "../styles/ung.css";
 ---
 
-<MainLayout title="Ung i Midten – Midtfyns Festival">
+<MainLayout title="Ung i Midten – Midtfyns Festival" description="Ung i Midten samler unge fra Faaborg-Midtfyn til en festivaldag fyldt med musik, workshops og fællesskab. For unge mellem 14 og 25 år.">
 
 	<!-- ── Hero ── -->
 	<section class="ung-hero">
@@ -50,7 +49,7 @@ import "../styles/ung.css";
 
 			<!-- Billede — direkte grid-child -->
 			<div class="ung-centrum-img-wrap">
-				<img src={barenImg.src} alt="" class="ung-centrum-img" />
+				<img src={barenImg.src} alt="" class="ung-centrum-img" loading="lazy" />
 			</div>
 
 			<!-- Tekst -->
@@ -74,7 +73,7 @@ import "../styles/ung.css";
 	</section>
 
 	<!-- ── Fællessang — fuld bredde ── -->
-	<img src={faellessangImg.src} alt="" class="ung-fullwidth-img" />
+	<img src={faellessangImg.src} alt="" class="ung-fullwidth-img" loading="lazy" />
 
 	<!-- ── Skabt Sammen med Unge ── -->
 	<section class="ung-skabt">

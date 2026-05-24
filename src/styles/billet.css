@@ -1,6 +1,8 @@
 /* ── Billet-side styles ── */
+/* Indeholder styles for billet-hero (rød baggrund med maskot og titel),
+   armbånds-sektion med billet-grid, overnatnings-sektion og glamping-sektion. */
 
-/* Hero */
+/* ── Hero: rød baggrund, centreret indhold, armbånds-illustration som baggrundsdekoration ── */
 .billet-hero {
 	min-height: 100svh;
 	background: var(--color-rod);
@@ -119,7 +121,7 @@
 	z-index: 3;
 }
 
-/* Grid */
+/* ── Grid: responsivt 5-kolonne grid der falder til 3 → 2 → 1 kolonne ── */
 .billet-grid {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -176,7 +178,7 @@
 	}
 }
 
-/* Kort */
+/* ── Billet-kort: sand baggrund, flex-kolonne med indhold øverst og pris+knap i bunden ── */
 .billet-card {
 	background: var(--color-sand);
 	border-radius: 1.5rem;
@@ -284,7 +286,7 @@
 	width: 280px;
 }
 
-/* Overnatning-sektion */
+/* ── Overnatning-sektion: grøn baggrund med bil/telt-illustrationer og camping-grid ── */
 .billet-overnatning {
 	position: relative;
 	background: var(--color-gron);

@@ -1,35 +1,46 @@
+/* ── Tailwind CSS — global stilgrundlag for Midtfyns Festival ── */
+
+/* Tailwind v4 base import + plugins */
 @import "tailwindcss";
 
+/* Typography-plugin: prose-klasser til rig tekstformatering */
 @plugin '@tailwindcss/typography';
+/* Forms-plugin: normaliserer browser-standardstile for form-elementer */
 @plugin '@tailwindcss/forms';
+/* Animerede Tailwind-klasser (animate-*) */
 @import "tailwindcss-animated";
+/* Intersect-plugin: trigger klasser når elementer scroll ind i viewport */
 @import "tailwindcss-intersect";
 
 /* Removed local Honk, Quicksand and Domine @font-face declarations */
 
+/* ── Design tokens (farver + typografi) ── */
 @theme {
   /* Her tilføjes theme variable // tokens */
 
-  /*Farver */
-  --color-rod: #f15c56;
-  --color-gron: #375639;
-  --color-sand: #fef7dd;
-  --color-sort: #000000;
-  --color-hvid: #ffffff;
+  /* Festivalens brandfarver */
+  --color-rod: #f15c56;   /* Rød — primær accent */
+  --color-gron: #375639;  /* Mørkegrøn — sekundær */
+  --color-sand: #fef7dd;  /* Sandfarve — baggrund og tekst på mørk */
+  --color-sort: #000000;  /* Sort */
+  --color-hvid: #ffffff;  /* Hvid */
 
-  /*Typografi */
+  /* Typografi */
   /* Removed display/sans/serif tokens (Honk/Quicksand/Domine)
      Added body font `geller-headline` for paragraph text */
-  --font-body: "geller-headline", serif;
-  --font-walnut: "walnut", sans-serif;
-  --font-acumin: "acumin-pro", sans-serif;
+  --font-body: "geller-headline", serif;   /* Brødtekst: serif med karakter */
+  --font-walnut: "walnut", sans-serif;     /* Display/overskrifter: dekorativ */
+  --font-acumin: "acumin-pro", sans-serif; /* UI/labels: neutral sans-serif */
 }
 
+/* ── Base-regler: globale standard-styles for HTML-elementer ── */
 @layer base {
+  /* Forhindrer vandret scroll på alle skærmstørrelser */
   html, body {
     overflow-x: hidden;
   }
 
+  /* h1 og h2: walnut-font, normal vægt — festivalidentitet */
   h1,
   h2 {
     font-family: var(--font-walnut);
@@ -37,6 +48,7 @@
     font-style: normal;
   }
 
+  /* Fluid font-size: skalerer mellem 2.25rem (mobil) og 6.25rem (desktop) */
   h1 {
     font-size: clamp(2.25rem, 7vw, 6.25rem);
   }
@@ -45,6 +57,7 @@
     font-size: clamp(1.5rem, 3.5vw, 3.25rem);
   }
 
+  /* h3 og h4: acumin-font til labels og undertitler */
   h3,
   h4 {
     font-family: var(--font-acumin);
@@ -52,6 +65,7 @@
     font-style: normal;
   }
 
+  /* h3: altid uppercase — bruges til sektion-undertitler */
   h3 {
     font-size: clamp(1rem, 2.75vw, 2.625rem);
     text-transform: uppercase;
@@ -61,6 +75,7 @@
     font-size: clamp(1rem, 2vw, 2rem);
   }
 
+  /* Links: acumin, fluid størrelse */
   a {
     font-family: var(--font-acumin);
     font-size: clamp(1rem, 1.25vw, 1.25rem);
@@ -68,6 +83,7 @@
     font-style: normal;
   }
 
+  /* Brødtekst: geller-headline serif, fluid størrelse */
   p {
     font-family: var(--font-body);
     font-size: clamp(1rem, 1.25vw, 1.25rem);
@@ -76,16 +92,21 @@
   }
 }
 
+/* ── Komponenter (reserveret til fremtidige globale komponenter) ── */
 @layer components {
 }
 
+/* ── Hjælpeklasser: font-utility-klasser til inline brug ── */
 @layer utilities {
+  /* Tving walnut-font — bruges direkte på HTML-elementer med class="font-walnut" */
   .font-walnut {
     font-family: var(--font-walnut) !important;
   }
+  /* Tving acumin-font */
   .font-acumin {
     font-family: var(--font-acumin) !important;
   }
+  /* Tving body-font (geller-headline) */
   .font-body {
     font-family: var(--font-body) !important;
   }
