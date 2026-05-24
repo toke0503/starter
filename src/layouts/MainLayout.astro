@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import '../styles/tailwind.css';
 import '../styles/animations.css';
-const { title } = Astro.props;
+const { title = 'Midtfyns Festival' } = Astro.props;
 ---
 <html lang="da">
 	<head>
@@ -26,7 +26,162 @@ const { title } = Astro.props;
 		<script defer src="/observer.min.js"></script>
 	</head>
 	<body class="">
-		
+
+		<!-- ── Adgangskode-gate ── -->
+		<div id="auth-gate">
+			<div id="auth-box">
+				<p class="auth-label">Midtfyns Festival</p>
+				<h2 id="auth-title">Indtast adgangskode</h2>
+				<p class="auth-desc">Da dette er et eksamensprojekt, kræver siden en adgangskode for at kunne tilgås.</p>
+				<form id="auth-form" autocomplete="off">
+					<input
+						id="auth-input"
+						type="password"
+						placeholder="Adgangskode"
+						autocomplete="new-password"
+						spellcheck="false"
+					/>
+					<p id="auth-error">Forkert kode — prøv igen</p>
+					<button type="submit" id="auth-btn">Gå ind</button>
+				</form>
+			</div>
+		</div>
+
+		<style>
+			#auth-gate {
+				position: fixed;
+				inset: 0;
+				z-index: 99999;
+				background: var(--color-gron);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 2rem;
+				transition: opacity 0.4s ease;
+			}
+			#auth-gate.hidden {
+				opacity: 0;
+				pointer-events: none;
+			}
+			#auth-box {
+				background: var(--color-sand);
+				border-radius: 1.5rem;
+				padding: 3rem 3.5rem 3.5rem;
+				width: 100%;
+				max-width: 420px;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+			.auth-label {
+				font-family: var(--font-acumin) !important;
+				font-size: 0.95rem !important;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--color-rod) !important;
+				margin: 0 0 0.25rem;
+				opacity: 0.6;
+			}
+			#auth-title {
+				font-family: var(--font-walnut), serif;
+				font-size: clamp(1.75rem, 5vw, 2.5rem);
+				color: var(--color-rod);
+				text-transform: uppercase;
+				line-height: 1;
+				margin: 0 0 1.5rem;
+			}
+			.auth-desc {
+				font-family: var(--font-acumin) !important;
+				font-size: 1rem !important;
+				color: var(--color-rod) !important;
+				line-height: 1.6;
+				margin: 0 0 1.5rem;
+				opacity: 0.75;
+			}
+			#auth-form {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+			}
+			#auth-input {
+				font-family: var(--font-acumin);
+				font-size: 1rem;
+				color: var(--color-rod);
+				background: var(--color-sand);
+				border: 1.5px solid var(--color-rod);
+				border-radius: 0.75rem;
+				padding: 0.9rem 1rem;
+				outline: none;
+				width: 100%;
+				box-sizing: border-box;
+				transition: box-shadow 0.2s ease;
+			}
+			#auth-input:focus {
+				box-shadow: 0 0 0 3px rgba(241, 92, 86, 0.2);
+			}
+			#auth-input::placeholder {
+				color: rgba(241, 92, 86, 0.35);
+			}
+			#auth-error {
+				font-family: var(--font-acumin) !important;
+				font-size: 0.9rem !important;
+				color: var(--color-rod) !important;
+				margin: 0;
+				opacity: 0;
+				transition: opacity 0.2s ease;
+			}
+			#auth-error.visible {
+				opacity: 1;
+			}
+			#auth-btn {
+				font-family: var(--font-acumin);
+				font-weight: 600;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: var(--color-sand);
+				background: var(--color-rod);
+				border: none;
+				border-radius: 3rem;
+				padding: 0.9rem 2rem;
+				cursor: pointer;
+				transition: opacity 0.2s ease;
+				margin-top: 0.5rem;
+			}
+			#auth-btn:hover {
+				opacity: 0.85;
+			}
+		</style>
+
+		<script>
+			const gate  = document.getElementById('auth-gate')!;
+			const form  = document.getElementById('auth-form')!;
+			const input = document.getElementById('auth-input') as HTMLInputElement;
+			const error = document.getElementById('auth-error')!;
+			const CODE  = 'EKeksamen';
+
+			// Allerede godkendt?
+			if (localStorage.getItem('mff-auth') === CODE) {
+				gate.classList.add('hidden');
+				setTimeout(() => gate.remove(), 400);
+			}
+
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				if (input.value === CODE) {
+					localStorage.setItem('mff-auth', CODE);
+					gate.classList.add('hidden');
+					setTimeout(() => gate.remove(), 400);
+				} else {
+					error.classList.add('visible');
+					input.value = '';
+					input.focus();
+					setTimeout(() => error.classList.remove('visible'), 2500);
+				}
+			});
+		</script>
+
 		<Header></Header>
 		
 		<slot />
