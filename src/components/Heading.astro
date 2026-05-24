@@ -1,37 +1,36 @@
 ---
 // Henter parametrene fra Astro.props
-const { htmlheading="h2", size, font, stylingclasses="", class: userClass="" } = Astro.props; 
+const { htmlheading="h2", size, font, stylingclasses="", class: userClass="" } = Astro.props;
 const Htmlheading = htmlheading;
 
 // Hvis der ikke er angivet en font, vælg walnut for h1/h2 og acumin for h3/h4
 const fontProp = font ?? (htmlheading === 'h1' || htmlheading === 'h2' ? 'walnut' : 'acumin');
 
-// Definer default størrelse pr. heading-tag, så det matcher designsystemet
-const defaultSizeByHeading = {
-"h1": "text-[170px]",
-"h2": "text-[52px]",
-"h3": "text-[42px]",
-"h4": "text-[27px]",
+// Flydende størrelser: clamp(mobil, fluid, desktop)
+const defaultSizeByHeading: Record<string, string> = {
+	"h1": "clamp(2.25rem, 11.8vw, 10.625rem)",  // 36px → 170px
+	"h2": "clamp(1.5rem, 3.5vw, 3.25rem)",       // 24px → 52px
+	"h3": "clamp(1rem, 2.75vw, 2.625rem)",        // 16px → 42px
+	"h4": "clamp(1rem, 2vw, 1.6875rem)",          // 16px → 27px
 };
 
-// Definer valgfrie størrelsesklasser til manuel override via `size` prop
-const sizeClasses = {
-"large": "text-[170px]",
-"medium": "text-[52px]",
-"small": "text-[42px]",
-"xsmall": "text-[27px]",
+const sizeValues: Record<string, string> = {
+	"large":   "clamp(2.25rem, 11.8vw, 10.625rem)",
+	"medium":  "clamp(1.5rem, 3.5vw, 3.25rem)",
+	"small":   "clamp(1rem, 2.75vw, 2.625rem)",
+	"xsmall":  "clamp(1rem, 2vw, 1.6875rem)",
 };
 
-const resolvedSizeClass = size ? sizeClasses[size] : defaultSizeByHeading[htmlheading];
+const resolvedFontSize = size ? sizeValues[size] : defaultSizeByHeading[htmlheading];
 
 //Definer den styling (Tailwind classes), der gør sig gældende for de forskellige skrifttyper.
-const fontClasses = {
-"display": "font-walnut",
-"sans": "font-acumin",
-"serif": "font-body",
-"walnut": "font-walnut",
-"acumin": "font-acumin",
-"body": "font-body",
+const fontClasses: Record<string, string> = {
+	"display": "font-walnut",
+	"sans":    "font-acumin",
+	"serif":   "font-body",
+	"walnut":  "font-walnut",
+	"acumin":  "font-acumin",
+	"body":    "font-body",
 };
 ---
-<Htmlheading class:list={[stylingclasses, resolvedSizeClass, fontClasses[fontProp], userClass]}><slot /></Htmlheading>
+<Htmlheading style={`font-size: ${resolvedFontSize};`} class:list={[stylingclasses, fontClasses[fontProp], userClass]}><slot /></Htmlheading>

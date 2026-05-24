@@ -93,7 +93,7 @@ const artists = [
 				>
 					Vi samles igen om
 				</Heading>
-				<div class="countdown-wrapper flex flex-row flex-wrap items-end justify-center gap-20 mb-12">
+				<div class="countdown-wrapper flex flex-row flex-wrap items-end justify-center mb-12">
 					<div class="countdown-item flex items-end gap-2">
 						<h1 id="cd-days" class="countdown-number text-hvid font-walnut leading-none">39</h1>
 						<h3 id="cd-days-label" class="countdown-label text-hvid font-acumin uppercase">dage</h3>
@@ -160,7 +160,7 @@ const artists = [
 				src={aaringeSvg.src}
 				alt=""
 				aria-hidden="true"
-				class="absolute -top-16 -right-28 w-[38rem] opacity-75 pointer-events-none select-none z-[10]"
+				class="program-aaringe-top absolute -top-16 -right-28 w-[38rem] opacity-75 pointer-events-none select-none z-[10]"
 			/>
 			<img
 				src={aaringeSvg.src}
@@ -173,13 +173,13 @@ const artists = [
 			<div class="max-w-7xl mx-auto px-8 relative z-[30]">
 				<div class="relative text-center mb-8">
 					<div
-						class="absolute top-2 right-0"
+						class="program-badge-wrap absolute top-2 right-0"
 						style="
 							background: var(--color-rod);
 							color: var(--color-sand);
 							padding: 0.7rem 2rem;
 							font-family: var(--font-body);
-							font-size: 1.15rem;
+							font-size: clamp(0.75rem, 1.2vw, 1.15rem);
 							font-weight: 400;
 							white-space: nowrap;
 							transform: rotate(6deg);
@@ -197,7 +197,7 @@ const artists = [
 					</Heading>
 				</div>
 
-				<p class="text-center text-rod font-geller text-2xl leading-relaxed max-w-3xl mx-auto mb-16">
+				<p class="text-center text-rod font-geller leading-relaxed max-w-3xl mx-auto mb-16">
 					Glæd dig til et stærkt program med både etablerede navne og nye favoritter
 				</p>
 			</div>
@@ -249,7 +249,7 @@ const artists = [
 			</div>
 
 			<!-- Knap -->
-			<div class="flex justify-center relative z-[30]">
+			<div class="program-cta flex justify-center relative z-[30]">
 				<Button variant="primary" size="large" href="/program">SE PROGRAMMET</Button>
 			</div>
 
@@ -270,7 +270,7 @@ const artists = [
 				>
 					Kom i stemning
 				</Heading>
-				<p style="color: var(--color-sand); font-family: var(--font-body); font-size: 1.25rem; max-width: 42rem; margin: 1.5rem auto 0; line-height: 1.7;">
+				<p style="color: var(--color-sand); font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.25rem); max-width: 42rem; margin: 1.5rem auto 0; line-height: 1.7;">
 					Sæt dig i festival-mode allerede nu — lyt til vores officielle playlist og bliv klar til at synge med fra første node.
 				</p>
 			</div>
@@ -364,10 +364,10 @@ const artists = [
 					"
 				>
 					<!-- To kolonner: venstre tekst+maskot / højre formular -->
-					<div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: stretch;">
+					<div class="newsletter-grid" style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: stretch;">
 
 						<!-- Venstre: overskrift + brødtekst + maskot i bund -->
-						<div style="position: relative; padding-bottom: 3.5rem; min-height: 22rem;">
+						<div class="newsletter-left" style="position: relative; padding-bottom: 3.5rem; min-height: 22rem;">
 							<Heading htmlheading="h2" font="walnut" class="text-rod uppercase">
 								Mere Midtfyn i indbakken
 							</Heading>
@@ -379,6 +379,7 @@ const artists = [
 								src={brevMaskotSvg.src}
 								alt=""
 								aria-hidden="true"
+								class="newsletter-mascot"
 								style="
 									position: absolute;
 									bottom: 3.5rem;
@@ -584,7 +585,7 @@ const artists = [
 
 			<!-- Aaringe dekoration — sandfarvet, stor, venstre side -->
 			<div aria-hidden="true" class="index-aaringe-sand" set:html={aaringeRaw}
-				style="position: absolute; left: -18rem; top: 62%; transform: translateY(-50%); width: 82rem; pointer-events: none;"></div>
+				style="position: absolute; left: -45rem; top: 50%; transform: translateY(-50%); width: 90rem; pointer-events: none; opacity: 0.5;"></div>
 
 			<!-- Sektionsoverskrift -->
 			<div class="max-w-7xl mx-auto px-8 mb-14 text-center relative" style="z-index: 10;">
@@ -597,8 +598,8 @@ const artists = [
 			<div class="max-w-7xl mx-auto px-8 relative" style="z-index: 10; display: flex; flex-direction: column; gap: 2rem;">
 
 				<!-- Kort 1: Ung i Midten — billede venstre -->
-				<div style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
-					<div style="width: 36%; flex-shrink: 0; position: relative;">
+				<div class="promo-card" style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+					<div class="promo-card-img" style="width: 36%; flex-shrink: 0; position: relative;">
 						<Image
 							src={ungIMidten}
 							alt="Ung i Midten"
@@ -606,7 +607,7 @@ const artists = [
 							style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
 						/>
 					</div>
-					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+					<div class="promo-card-body" style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
 							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Ung i Midten</Heading>
 							<p class="text-sand" style="margin-top: 1rem;">
@@ -618,8 +619,8 @@ const artists = [
 				</div>
 
 				<!-- Kort 2: Frivilighed — tekst venstre, billede højre -->
-				<div style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
-					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+				<div class="promo-card" style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+					<div class="promo-card-body" style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
 							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Frivilighed</Heading>
 							<p class="text-sand" style="margin-top: 1rem;">
@@ -628,7 +629,7 @@ const artists = [
 						</div>
 						<Button variant="sand" size="large">BLIV EN DEL AF FÆLLESSKABET</Button>
 					</div>
-					<div style="width: 36%; flex-shrink: 0; position: relative;">
+					<div class="promo-card-img" style="width: 36%; flex-shrink: 0; position: relative;">
 						<Image
 							src={nonprofit}
 							alt="Frivillige ved Midtfyns Festival"
@@ -639,8 +640,8 @@ const artists = [
 				</div>
 
 				<!-- Kort 3: Alt er Non-Profit — billede venstre -->
-				<div style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
-					<div style="width: 36%; flex-shrink: 0; position: relative;">
+				<div class="promo-card" style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
+					<div class="promo-card-img" style="width: 36%; flex-shrink: 0; position: relative;">
 						<Image
 							src={foodtruck}
 							alt="Fællesskab og foodtrucks ved Midtfyns Festival"
@@ -648,7 +649,7 @@ const artists = [
 							style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
 						/>
 					</div>
-					<div style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+					<div class="promo-card-body" style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
 							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Alt er Non-Profit</Heading>
 							<p class="text-sand" style="margin-top: 1rem;">
@@ -773,6 +774,11 @@ const artists = [
 		pointer-events: none;
 	}
 
+	.index-aaringe-sand :global(svg) {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
 	.index-aaringe-sand :global(svg path) {
 		stroke: var(--color-sand) !important;
 	}
@@ -827,7 +833,7 @@ const artists = [
 		}
 
 		.countdown-heading {
-			font-size: clamp(3rem, 7vw, 7rem);
+			font-size: clamp(2.25rem, 7vw, 7rem);
 			line-height: 0.9;
 		}
 
@@ -841,24 +847,24 @@ const artists = [
 		}
 
 		.countdown-number {
-			font-size: clamp(4rem, 9vw, 8rem);
+			font-size: clamp(2.25rem, 9vw, 8rem);
 			line-height: 0.8;
 		}
 
 		.countdown-label {
-			font-size: clamp(1.5rem, 2vw, 2.5rem);
+			font-size: clamp(0.75rem, 2vw, 2.5rem);
 			line-height: 1;
 			padding-bottom: 0.7rem;
 			letter-spacing: 0.03em;
 		}
 
 		.program-heading {
-			font-size: clamp(4rem, 9vw, 9rem);
+			font-size: clamp(2.25rem, 9vw, 9rem);
 			line-height: 0.9;
 		}
 
 		.stemning-heading {
-			font-size: clamp(4rem, 9vw, 9rem);
+			font-size: clamp(2.25rem, 9vw, 9rem);
 			line-height: 0.9;
 		}
 
@@ -867,7 +873,7 @@ const artists = [
 			color: var(--color-sand);
 			padding: 0.75rem 2rem;
 			font-family: var(--font-acumin);
-			font-size: 1.1rem;
+			font-size: clamp(0.75rem, 1.1vw, 1.1rem);
 			font-weight: 400;
 			letter-spacing: 0.01em;
 			transform: rotate(6deg);
@@ -878,23 +884,97 @@ const artists = [
 
 
 		@media (max-width: 768px) {
-			.countdown-wrapper {
-				gap: 2.5rem;
-			}
-
-			.countdown-item {
-				width: 100%;
-				justify-content: center;
-			}
-
-			.countdown-label {
-				padding-bottom: 0.35rem;
-			}
-
 			/* Lidt langsommere på mobil */
 			[data-marquee] {
 				animation-duration: 40s !important;
 			}
+		}
+
+	}
+
+	/* ── Promo-kort: mobil vertikal layout ── */
+	@media (max-width: 640px) {
+		:global(.promo-card) {
+			flex-direction: column !important;
+			min-height: auto !important;
+		}
+
+		:global(.promo-card-img) {
+			width: 100% !important;
+			height: 260px;
+			flex-shrink: 0;
+			position: relative !important;
+			order: -1;
+		}
+
+		:global(.promo-card-body) {
+			padding: 1.75rem 1.5rem !important;
+		}
+	}
+
+	/* ── Nyhedsbrev: mobil enkelt-kolonne ── */
+	@media (max-width: 640px) {
+		:global(.newsletter-grid) {
+			grid-template-columns: 1fr !important;
+			gap: 0 !important;
+		}
+
+		:global(.newsletter-left) {
+			display: flex !important;
+			flex-direction: column !important;
+			align-items: center !important;
+			text-align: center !important;
+			min-height: auto !important;
+			padding-bottom: 0 !important;
+		}
+
+		:global(.newsletter-mascot) {
+			position: static !important;
+			transform: none !important;
+			left: auto !important;
+			bottom: auto !important;
+			width: 7rem !important;
+			order: -1;
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	/* ── Program-knap: sand baggrund ── */
+	:global(.program-cta .btn) {
+		background-color: var(--color-sand);
+	}
+	:global(.program-cta .btn:hover) {
+		background-color: var(--color-sand);
+	}
+
+	@media (max-width: 640px) {
+		/* Program-sektion: aaringe og badge */
+		:global(.program-aaringe-top) {
+			width: 18rem !important;
+		}
+
+		:global(.program-badge-wrap) {
+			top: -2.5rem !important;
+		}
+	}
+
+	@media (max-width: 640px) {
+		:global(.countdown-wrapper) {
+			gap: 1rem 3rem;
+		}
+
+		:global(.countdown-item) {
+			width: 40%;
+			justify-content: center;
+		}
+
+		:global(.countdown-number) {
+			font-size: clamp(2.25rem, 13vw, 8rem);
+		}
+
+		:global(.countdown-label) {
+			font-size: clamp(0.75rem, 3vw, 2.5rem);
+			padding-bottom: 0.3rem;
 		}
 	}
 </style>

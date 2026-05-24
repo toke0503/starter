@@ -58,7 +58,7 @@
 }
 
 .ung-hero-title {
-	font-size: clamp(3rem, 10vw, 10rem) !important;
+	font-size: clamp(2.25rem, 10vw, 10rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -87,7 +87,7 @@
 }
 
 .ung-mere-title {
-	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	font-size: clamp(1.5rem, 5vw, 4rem) !important;
 	color: var(--color-rod) !important;
 	text-transform: uppercase;
 	line-height: 1;
@@ -96,7 +96,6 @@
 
 .ung-mere-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	line-height: 1.75;
 	margin: 0 0 1.25rem;
@@ -219,7 +218,7 @@
 }
 
 .ung-centrum-title {
-	font-size: clamp(2.5rem, 4.5vw, 4rem) !important;
+	font-size: clamp(1.5rem, 4.5vw, 4rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 1.05;
@@ -228,7 +227,6 @@
 
 .ung-centrum-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.75;
 	margin: 0 0 0.25rem;
@@ -242,7 +240,6 @@
 
 .ung-centrum-list li {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.75;
 	padding-left: 1.25rem;
@@ -331,7 +328,7 @@
 }
 
 .ung-skabt-title {
-	font-size: clamp(3.5rem, 9vw, 8rem) !important;
+	font-size: clamp(2.25rem, 9vw, 8rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -341,7 +338,6 @@
 
 .ung-skabt-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.75;
 	margin: 0 0 1.25rem;
@@ -363,9 +359,103 @@
 /* ── Hero subtitle ── */
 .ung-hero-subtitle {
 	font-family: var(--font-acumin) !important;
-	font-size: clamp(1.2rem, 2.5vw, 2.5rem) !important;
+	font-size: clamp(1rem, 2.5vw, 2.5rem) !important;
 	color: var(--color-sand) !important;
 	line-height: 1.2;
 	margin: 0;
 	white-space: nowrap;
+}
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+	.ung-mere-inner,
+	.ung-centrum-inner,
+	.ung-skabt-inner {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+	.ung-centrum-img-wrap {
+		min-height: 320px;
+	}
+	.ung-skabt-title {
+		text-align: center;
+		white-space: normal;
+	}
+}
+
+/* ── Mobil ── */
+@media (max-width: 640px) {
+	/* Hero */
+	.ung-hero-content {
+		padding: 0 1.5rem 20rem 1.5rem;
+	}
+
+	/* Mere end en festival */
+	.ung-mere {
+		padding: 2rem 1.5rem 16rem;
+	}
+	.ung-mere-inner {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		position: relative;
+	}
+	.ung-mere-aaringe {
+		position: absolute;
+		top: -1rem;
+		right: -3rem;
+		margin-right: 0;
+		justify-content: flex-end;
+		opacity: 0.1;
+	}
+	.ung-mere-aaringe svg {
+		width: 200px;
+		max-width: 200px;
+	}
+
+	/* Skabt Sammen med Unge */
+	.ung-skabt {
+		padding: 8rem 1.5rem 16rem;
+	}
+	.ung-skabt-inner {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+	.ung-skabt-title {
+		text-align: center;
+		white-space: normal;
+	}
+	.ung-skabt-deko {
+		top: 50%;
+		opacity: 0.07;
+	}
+	.ung-skabt-deko svg {
+		width: 320px;
+	}
+
+	/* Et sted hvor unge er i centrum */
+	.ung-centrum {
+		padding: 8rem 1.5rem 6rem;
+	}
+	.ung-centrum-inner {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+	/* Billede: centreret øverst med fast størrelse */
+	.ung-centrum-img-wrap {
+		width: 260px;
+		height: 300px;
+		margin: 0 auto;
+		min-height: unset;
+	}
+	/* Aaringe: bag billedet, centreret */
+	.ung-centrum-aaringe {
+		top: 5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 360px;
+		z-index: 0;
+	}
+	.ung-centrum-aaringe svg {
+		width: 100%;
+	}
 }

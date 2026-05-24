@@ -112,7 +112,7 @@
 
 /* Kunstnernavn */
 .kunstner-info-navn {
-	font-size: clamp(5rem, 12vw, 10rem) !important;
+	font-size: clamp(2.25rem, 12vw, 10rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -137,13 +137,12 @@
 
 .kunstner-info-label {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	letter-spacing: 0.04em;
 }
 
 .kunstner-info-value {
-	font-size: clamp(2rem, 5vw, 3.5rem) !important;
+	font-size: clamp(1.5rem, 5vw, 3.5rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 1;
@@ -177,7 +176,6 @@
 
 .kunstner-info-bio p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.75;
 	margin: 0 0 1.75rem;
@@ -207,7 +205,7 @@
 }
 
 .kunstner-social-title {
-	font-size: clamp(2rem, 4.5vw, 3.5rem) !important;
+	font-size: clamp(1.5rem, 4.5vw, 3.5rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	text-align: center;
@@ -229,4 +227,11 @@
 
 .kunstner-social-link:hover {
 	opacity: 0.65;
+}
+
+@media (max-width: 640px) {
+	.kunstner-info-buttons {
+		flex-direction: column;
+		gap: 1rem;
+	}
 }

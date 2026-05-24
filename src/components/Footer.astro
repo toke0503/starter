@@ -2,7 +2,7 @@
 import logoSvgRaw from '../assets/svg/logo.svg?raw';
 ---
 
-<footer style="background: var(--color-sand); padding: 5.5rem 3rem 4.5rem;">
+<footer class="site-footer" style="background: var(--color-sand); padding: 5.5rem 3rem 4.5rem;">
 	<div style="max-width: 1100px; margin: 0 auto; text-align: center;">
 
 		<!-- Maskot -->
@@ -16,16 +16,16 @@ import logoSvgRaw from '../assets/svg/logo.svg?raw';
 
 		<!-- Tagline -->
 		<p class="footer-tagline" style="color: var(--color-rod); margin-bottom: 5rem;">
-			Af græsrødder &amp; Ildsjæle
+			Af græsrødder &amp; ildsjæle
 		</p>
 
 		<!-- 3 kolonner -->
-		<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4.5rem;">
+		<div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4.5rem;">
 
 			<!-- Foreningen -->
 			<div>
 				<h4 style="color: var(--color-rod); margin-bottom: 1rem;">Foreningen</h4>
-				<address style="font-style: normal; font-family: var(--font-acumin); font-size: 1rem; line-height: 1.85; color: var(--color-rod);">
+				<address style="font-style: normal; font-family: var(--font-acumin); line-height: 1.85; color: var(--color-rod);">
 					Lombjergevej 20<br/>
 					5750 Ringe<br/>
 					Danmark<br/>
@@ -38,7 +38,7 @@ import logoSvgRaw from '../assets/svg/logo.svg?raw';
 				<h4 style="color: var(--color-rod); margin-bottom: 1rem;">Generel kontakt</h4>
 				<a
 					href="mailto:info@midtfynsfestival.dk"
-					style="font-family: var(--font-acumin); font-size: 1rem; color: var(--color-rod); text-decoration: none;"
+					style="font-family: var(--font-acumin); color: var(--color-rod); text-decoration: none;"
 					class="footer-email"
 				>info@midtfynsfestival.dk</a>
 			</div>
@@ -46,7 +46,7 @@ import logoSvgRaw from '../assets/svg/logo.svg?raw';
 			<!-- Bliv frivillig -->
 			<div>
 				<h4 style="color: var(--color-rod); margin-bottom: 1rem;">Bliv frivillig</h4>
-				<p style="font-family: var(--font-acumin); font-size: 1rem; color: var(--color-rod); margin: 0;">
+				<p style="font-family: var(--font-acumin); color: var(--color-rod); margin: 0;">
 					Skriv til <a href="/kontakt" class="footer-link">frivilligkordinatoren</a> →
 				</p>
 			</div>
@@ -96,13 +96,12 @@ import logoSvgRaw from '../assets/svg/logo.svg?raw';
 
 	/* ── MIDTFYNS FESTIVAL — stor walnut-overskrift ── */
 	.footer-title {
-		font-size: clamp(4.5rem, 9vw, 8.5rem);
+		font-size: clamp(1.5rem, 9vw, 8.5rem);
 		white-space: nowrap;
 	}
 
-	/* ── Tagline — geller lidt større end standard p ── */
+	/* ── Tagline ── */
 	.footer-tagline {
-		font-size: 1.85rem;
 	}
 
 	/* ── Email hover ── */
@@ -116,7 +115,6 @@ import logoSvgRaw from '../assets/svg/logo.svg?raw';
 	/* ── Frivillig-link: understreg ── */
 	.footer-link {
 		font-family: var(--font-acumin);
-		font-size: 1rem;
 		color: var(--color-rod);
 		text-decoration: underline;
 		text-underline-offset: 3px;
@@ -131,5 +129,32 @@ import logoSvgRaw from '../assets/svg/logo.svg?raw';
 	}
 	.footer-social:hover {
 		opacity: 0.65;
+	}
+
+	/* ── Mobil ── */
+	@media (max-width: 640px) {
+		.site-footer {
+			padding-left: 1.5rem !important;
+			padding-right: 1.5rem !important;
+		}
+		.footer-grid {
+			grid-template-columns: 1fr !important;
+			gap: 2.5rem !important;
+			text-align: center;
+		}
+		.footer-tagline {
+			margin-bottom: 3rem !important;
+		}
+	}
+
+	/* ── Tablet (3 kolonner stadig, bare mindre gap) ── */
+	@media (min-width: 641px) and (max-width: 900px) {
+		.site-footer {
+			padding-left: 2rem !important;
+			padding-right: 2rem !important;
+		}
+		.footer-grid {
+			gap: 1.5rem !important;
+		}
 	}
 </style>

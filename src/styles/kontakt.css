@@ -110,7 +110,7 @@
 }
 
 .kontakt-title {
-	font-size: clamp(4rem, 6vw, 6rem) !important;
+	font-size: clamp(2.25rem, 6vw, 6rem) !important;
 	color: var(--color-rod) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -144,7 +144,6 @@
 
 .kontakt-info-text {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	line-height: 1.65;
 	margin: 0;
@@ -152,7 +151,6 @@
 
 .kontakt-info-text a {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	text-decoration: none;
 }
@@ -184,7 +182,6 @@
 
 .kontakt-label {
 	font-family: var(--font-acumin) !important;
-	font-size: 0.95rem !important;
 	font-weight: 700 !important;
 	color: var(--color-rod) !important;
 	margin: 0;
@@ -193,7 +190,6 @@
 .kontakt-input,
 .kontakt-textarea {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	background: var(--color-sand) !important;
 	border: 1.5px solid var(--color-rod);
@@ -226,4 +222,53 @@
 	padding-left: 1rem !important;
 	padding-right: 1rem !important;
 	background: var(--color-sand) !important;
+}
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+	.kontakt-content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	.kontakt-form-row {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ── Mobil ── */
+@media (max-width: 640px) {
+	.kontakt-section {
+		padding: 7rem 1rem 10rem;
+		align-items: center;
+	}
+	.kontakt-card {
+		padding: 2rem 1.5rem 3.5rem;
+		width: 95%;
+		gap: 1.5rem;
+	}
+	/* Enkelt kolonne — brand øverst, form nedenunder */
+	.kontakt-content {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+	/* Skjul adresse og email på mobil */
+	.kontakt-info {
+		display: none;
+	}
+	/* Stak navn + mail vertikalt */
+	.kontakt-form-row {
+		grid-template-columns: 1fr;
+	}
+	/* Mascot lidt mindre */
+	.kontakt-mascot svg {
+		width: 110px;
+	}
+	/* Aaringe smaller og tættere på kortet */
+	.kontakt-aaringe {
+		bottom: -4rem;
+		right: -3rem;
+	}
+	.kontakt-aaringe svg {
+		width: 300px;
+	}
 }

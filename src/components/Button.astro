@@ -182,7 +182,13 @@ const sizeClasses = {
 	}
 
 	.btn--large {
-		font-size: 32px;
+		font-size: clamp(1.75rem, 2.5vw, 2rem);
+	}
+
+	@media (max-width: 768px) {
+		.btn {
+			padding: 15px 30px !important;
+		}
 	}
 
 	.btn--medium {

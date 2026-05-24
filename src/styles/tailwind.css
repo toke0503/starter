@@ -38,11 +38,11 @@
   }
 
   h1 {
-    font-size: 100px;
+    font-size: clamp(2.25rem, 7vw, 6.25rem);
   }
 
   h2 {
-    font-size: 52px;
+    font-size: clamp(1.5rem, 3.5vw, 3.25rem);
   }
 
   h3,
@@ -53,24 +53,24 @@
   }
 
   h3 {
-    font-size: 42px;
+    font-size: clamp(1rem, 2.75vw, 2.625rem);
     text-transform: uppercase;
   }
 
   h4 {
-    font-size: 32px;
+    font-size: clamp(1rem, 2vw, 2rem);
   }
 
   a {
     font-family: var(--font-acumin);
-    font-size: 20px;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
     font-weight: 400;
     font-style: normal;
   }
 
   p {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
     font-weight: 400;
     font-style: normal;
   }

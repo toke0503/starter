@@ -190,6 +190,7 @@ const { title } = Astro.props;
 
 				function shouldSkip(el: Element): boolean {
 					if (el.getAttribute('aria-hidden') === 'true') return true;
+					if (el.closest('[data-marquee]')) return true;
 					const c = typeof el.className === 'string'
 						? el.className
 						: ((el.className as SVGAnimatedString)?.baseVal ?? '');

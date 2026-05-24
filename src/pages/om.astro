@@ -25,12 +25,13 @@ import "../styles/om.css";
 		<img src={bgImage.src} alt="" class="om-hero-bg" />
 		<div class="om-hero-overlay"></div>
 
+		<div class="om-hero-mascot" set:html={logoSandRaw}></div>
+
 		<div class="om-hero-content">
 			<h1 class="font-walnut om-hero-title">Om Midtfyns<br/>Festival</h1>
 			<p class="om-hero-subtitle">Af græsrødder og ildsjæle</p>
 		</div>
 
-		<div class="om-hero-mascot" set:html={logoSandRaw}></div>
 	</section>
 
 	<!-- ── Vores Historie ── -->
@@ -191,4 +192,10 @@ import "../styles/om.css";
 	slider.addEventListener('touchstart', e => { isDragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
 	window.addEventListener('touchmove',  e => { if (isDragging) setPosition(e.touches[0].clientX); }, { passive: true });
 	window.addEventListener('touchend',   () => { isDragging = false; });
+
+	// Stretch talebobbel SVG vertically on mobile
+	if (window.innerWidth < 640) {
+		const quoteSvg = document.querySelector<SVGElement>('.om-ildsjæle-quote svg');
+		if (quoteSvg) quoteSvg.setAttribute('preserveAspectRatio', 'none');
+	}
 </script>

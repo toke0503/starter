@@ -42,7 +42,7 @@
 .program-title {
 	position: relative;
 	z-index: 2;
-	font-size: clamp(5rem, 12vw, 11rem) !important;
+	font-size: clamp(2.25rem, 12vw, 11rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -83,7 +83,7 @@
 }
 
 .program-sangonske-title {
-	font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+	font-size: clamp(1.5rem, 5vw, 4.5rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 1.05;
@@ -93,7 +93,6 @@
 
 .program-sangonske-text {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.7;
 	max-width: 620px;
@@ -181,7 +180,6 @@
 .filter-btn {
 	position: relative;
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	font-weight: 600 !important;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
@@ -286,7 +284,7 @@
 	left: 0.75rem;
 	right: 0.75rem;
 	z-index: 2;
-	font-size: 52px !important;
+	font-size: clamp(1.5rem, 4vw, 3.25rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	text-align: center;
@@ -330,4 +328,76 @@
 .artist-card-star--active svg path {
 	fill: var(--color-rod);
 	stroke: var(--color-rod);
+}
+
+/* ── Tablet ── */
+@media (max-width: 1200px) {
+	/* Filterbar: stak grupperne lodret så de ikke clippes */
+	.program-filters {
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		gap: 0;
+		border-bottom: none;
+		padding-bottom: 0;
+		margin-bottom: 2rem;
+	}
+	.program-filters-group {
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid rgba(241, 92, 86, 0.25);
+	}
+	.program-filters-group:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+	.artist-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 900px) {
+	.artist-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* ── Mobil ── */
+@media (max-width: 640px) {
+	.program-artists {
+		padding: 3rem 1.25rem 16rem;
+	}
+
+	/* Filter: én gruppe pr. række med separator */
+	.program-filters {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+		border-bottom: none;
+		padding-bottom: 0;
+		margin-bottom: 2rem;
+	}
+
+	.program-filters-group {
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid rgba(241, 92, 86, 0.25);
+	}
+
+	.program-filters-group:last-child {
+		border-bottom: none;
+	}
+
+	/* Artist-grid: 2 kolonner */
+	.artist-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem;
+	}
+
+	/* Artistnavn lidt mindre på mobil */
+	.artist-card-name {
+		font-size: clamp(1rem, 5.5vw, 3.25rem) !important;
+	}
 }

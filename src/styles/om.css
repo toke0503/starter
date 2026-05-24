@@ -78,7 +78,7 @@
 }
 
 .om-hero-title {
-	font-size: clamp(5rem, 12vw, 10rem) !important;
+	font-size: clamp(2.25rem, 12vw, 10rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -143,7 +143,7 @@
 
 /* Tekst */
 .om-historie-title {
-	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	font-size: clamp(1.5rem, 5vw, 4rem) !important;
 	color: var(--color-rod) !important;
 	text-transform: uppercase;
 	line-height: 1;
@@ -152,7 +152,6 @@
 
 .om-historie-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	line-height: 1.75;
 	margin: 0 0 1.5rem;
@@ -200,7 +199,7 @@
 }
 
 .om-ildsjæle-title {
-	font-size: clamp(3rem, 5.5vw, 4.5rem) !important;
+	font-size: clamp(1.5rem, 5.5vw, 4.5rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 1;
@@ -209,7 +208,6 @@
 
 .om-ildsjæle-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.75;
 	margin: 0 0 1.5rem;
@@ -264,7 +262,6 @@
 	align-items: center;
 	justify-content: center;
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	font-style: italic;
 	color: var(--color-sand) !important;
 	margin: 0;
@@ -343,7 +340,7 @@
 
 /* Tekst */
 .om-frivillighed-title {
-	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	font-size: clamp(1.5rem, 5vw, 4rem) !important;
 	color: var(--color-rod) !important;
 	text-transform: uppercase;
 	line-height: 1;
@@ -352,7 +349,6 @@
 
 .om-frivillighed-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	line-height: 1.75;
 	margin: 0 0 1.25rem;
@@ -367,7 +363,6 @@
 
 .om-frivillighed-list li {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	line-height: 1.75;
 	padding-left: 1.25rem;
@@ -467,7 +462,7 @@
 
 /* Tekst */
 .om-faellesskab-title {
-	font-size: clamp(2.5rem, 5vw, 4rem) !important;
+	font-size: clamp(1.5rem, 5vw, 4rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 1;
@@ -476,7 +471,6 @@
 
 .om-faellesskab-p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.75;
 	margin: 0 0 1.25rem;
@@ -566,4 +560,129 @@
 	gap: 6px;
 	color: var(--color-rod);
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+	.om-historie-inner,
+	.om-ildsjæle-inner,
+	.om-frivillighed-inner,
+	.om-faellesskab-inner {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+	.om-ildsjæle-photos {
+		height: 260px;
+	}
+	.om-frivillighed-img-wrap {
+		max-height: 340px;
+	}
+}
+
+/* ── Mobil ── */
+@media (max-width: 640px) {
+	/* Hero */
+	.om-hero-mascot {
+		display: none;
+	}
+	.om-hero-content {
+		padding: 0 1.5rem 14rem 1.5rem;
+	}
+
+	/* Vores Historie: stak tekst over slider */
+	.om-historie {
+		padding: 3rem 1.5rem 0;
+	}
+	.om-historie-inner {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+	.om-historie-title {
+		text-align: center;
+	}
+	.om-historie-aaringe {
+		top: auto;
+		bottom: 4rem;
+		transform: none;
+		right: -16rem;
+	}
+	.om-historie-aaringe svg {
+		width: 360px;
+	}
+
+	/* Ildsjæle: stak */
+	.om-ildsjæle {
+		padding: 14rem 1.5rem 4rem;
+	}
+	.om-ildsjæle-aaringe {
+		display: none;
+	}
+	.om-ildsjæle-inner {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+	.om-ildsjæle-title {
+		text-align: center;
+	}
+	.om-ildsjæle-photos {
+		grid-template-columns: repeat(2, 1fr);
+		height: 280px;
+	}
+	.om-ildsjæle-photo:nth-child(2) {
+		display: none;
+	}
+	.om-ildsjæle-photo {
+		border-radius: 1rem;
+	}
+	/* Quote-bobbel: relativ på mobil, trækkes lidt op over billederne */
+	.om-ildsjæle-quote {
+		position: relative;
+		bottom: auto;
+		margin-top: -2rem;
+		z-index: 3;
+	}
+	.om-ildsjæle-quote svg {
+		height: 9rem !important;
+	}
+
+	/* Frivillighed: stak — billede øverst */
+	.om-frivillighed {
+		padding: 16rem 1.5rem 14rem;
+	}
+	.om-frivillighed-aaringe {
+		opacity: 0.2;
+		left: -18rem;
+	}
+	.om-frivillighed-aaringe svg {
+		width: 320px;
+	}
+	.om-frivillighed-inner {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+	.om-frivillighed-img-wrap {
+		order: -1;
+		max-height: 300px;
+	}
+	.om-frivillighed-title {
+		text-align: center;
+	}
+
+	/* Fællesskab: stak */
+	.om-faellesskab {
+		padding: 6rem 1.5rem;
+	}
+	.om-faellesskab-aaringe {
+		opacity: 0.1;
+	}
+	.om-faellesskab-aaringe svg {
+		width: 320px;
+	}
+	.om-faellesskab-inner {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+	.om-faellesskab-title {
+		text-align: center;
+	}
 }

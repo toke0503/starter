@@ -79,7 +79,7 @@
 }
 
 .praktisk-title {
-	font-size: clamp(5rem, 12vw, 10rem) !important;
+	font-size: clamp(2.25rem, 12vw, 10rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	line-height: 0.9;
@@ -88,7 +88,6 @@
 
 .praktisk-subtitle {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-sand) !important;
 	line-height: 1.7;
 	margin: 0;
@@ -123,7 +122,7 @@
 	z-index: 0;
 }
 .praktisk-faq-aaringe svg {
-	width: 520px;
+	width: 360px;
 	height: auto;
 }
 
@@ -156,7 +155,7 @@
 }
 
 .praktisk-faq-title {
-	font-size: clamp(2rem, 4vw, 3rem) !important;
+	font-size: clamp(1.5rem, 4vw, 3rem) !important;
 	color: var(--color-rod) !important;
 	text-transform: uppercase;
 	text-align: center;
@@ -165,6 +164,7 @@
 
 /* Accordion-item */
 .praktisk-faq-item {
+	background: var(--color-sand);
 	border: 1.5px solid var(--color-rod);
 	border-radius: 0.75rem;
 	margin-bottom: 0.6rem;
@@ -200,7 +200,7 @@
 
 .praktisk-faq-question {
 	font-family: var(--font-acumin) !important;
-	font-size: 1.15rem !important;
+	font-size: clamp(1rem, 1.2vw, 1.15rem) !important;
 	font-weight: 400 !important;
 	color: var(--color-rod) !important;
 	margin: 0;
@@ -229,17 +229,18 @@
 	transition: background 0.2s ease;
 }
 
-.praktisk-faq-item:hover {
-	background: rgba(241, 92, 86, 0.04);
+.praktisk-faq-item:hover,
+.praktisk-faq-item[open] {
+	background: var(--color-sand);
 }
 
-.praktisk-faq-item--sand:hover {
+.praktisk-faq-item--sand:hover,
+.praktisk-faq-item--sand[open] {
 	background: rgba(254, 247, 221, 0.06);
 }
 
 .praktisk-faq-answer p {
 	font-family: var(--font-acumin) !important;
-	font-size: 1rem !important;
 	color: var(--color-rod) !important;
 	line-height: 1.7;
 	margin: 0;
@@ -276,7 +277,7 @@
 }
 
 .praktisk-transport-title {
-	font-size: clamp(2rem, 4vw, 3rem) !important;
+	font-size: clamp(1.5rem, 4vw, 3rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	text-align: center;
@@ -330,7 +331,7 @@
 }
 
 .praktisk-camping-title {
-	font-size: clamp(2rem, 4vw, 3rem) !important;
+	font-size: clamp(1.5rem, 4vw, 3rem) !important;
 	color: var(--color-sand) !important;
 	text-transform: uppercase;
 	text-align: center;
@@ -339,6 +340,7 @@
 
 /* Sand-variant af accordion (til brug på grøn og rød baggrund) */
 .praktisk-faq-item--sand {
+	background: transparent;
 	border-color: var(--color-sand) !important;
 }
 
