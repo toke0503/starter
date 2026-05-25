@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
 import logoSandRaw from "../assets/svg/logo_sandfarve.svg?raw";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import talebobbel from "../assets/svg/talebobbel.svg?raw";
@@ -21,7 +22,7 @@ import "../styles/om.css";
 
 	<!-- ── Hero ── -->
 	<section class="om-hero">
-		<img src={bgImage.src} alt="" class="om-hero-bg" />
+		<Image src={bgImage} alt="" class="om-hero-bg" fetchpriority="high" />
 		<div class="om-hero-overlay"></div>
 
 		<div class="om-hero-mascot" set:html={logoSandRaw}></div>
@@ -52,9 +53,9 @@ import "../styles/om.css";
 
 			<!-- Before/After Slider -->
 			<div class="om-slider" id="om-slider">
-				<img src={droneColor.src} alt="Midtfyns Festival nu" class="om-slider-color" loading="lazy" />
+				<Image src={droneColor} alt="Midtfyns Festival nu" class="om-slider-color" loading="lazy" />
 				<div class="om-slider-bw-clip">
-					<img src={droneBw.src} alt="Midtfyns Festival før" class="om-slider-bw" loading="lazy" />
+					<Image src={droneBw} alt="Midtfyns Festival før" class="om-slider-bw" loading="lazy" />
 				</div>
 				<div class="om-slider-handle">
 					<div class="om-slider-line"></div>
@@ -90,9 +91,9 @@ import "../styles/om.css";
 			<!-- Billeder + citat -->
 			<div class="om-ildsjæle-right">
 				<div class="om-ildsjæle-photos">
-					<img src={ildsjæleImg1.src} alt="" class="om-ildsjæle-photo" loading="lazy" />
-					<img src={ildsjæleImg2.src} alt="" class="om-ildsjæle-photo" loading="lazy" />
-					<img src={ildsjæleImg3.src} alt="" class="om-ildsjæle-photo" loading="lazy" />
+					<Image src={ildsjæleImg1} alt="" class="om-ildsjæle-photo" loading="lazy" />
+					<Image src={ildsjæleImg2} alt="" class="om-ildsjæle-photo" loading="lazy" />
+					<Image src={ildsjæleImg3} alt="" class="om-ildsjæle-photo" loading="lazy" />
 				</div>
 				<div class="om-ildsjæle-quote">
 					<Fragment set:html={talebobbel} />
@@ -114,7 +115,7 @@ import "../styles/om.css";
 
 			<!-- Blob-billede til venstre -->
 			<div class="om-frivillighed-img-wrap">
-				<img src={frivilligImg.src} alt="" class="om-frivillighed-img" loading="lazy" />
+				<Image src={frivilligImg} alt="" class="om-frivillighed-img" loading="lazy" />
 			</div>
 
 			<!-- Tekst til højre -->
@@ -154,10 +155,10 @@ import "../styles/om.css";
 
 			<!-- 2×2 billedgrid -->
 			<div class="om-faellesskab-grid">
-				<img src={faellesskabImg1.src} alt="" class="om-faellesskab-img" loading="lazy" />
-				<img src={faellesskabImg2.src} alt="" class="om-faellesskab-img" loading="lazy" />
-				<img src={faellesskabImg3.src} alt="" class="om-faellesskab-img" loading="lazy" />
-				<img src={faellesskabImg4.src} alt="" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg1} alt="" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg2} alt="" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg3} alt="" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg4} alt="" class="om-faellesskab-img" loading="lazy" />
 			</div>
 
 		</div>

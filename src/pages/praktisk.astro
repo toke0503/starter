@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
 import logoSandRaw from "../assets/svg/logo_sandfarve.svg?raw";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import bgImage from "../assets/images/velkommen_til_midtfyns_festvial.webp";
@@ -10,7 +11,7 @@ import "../styles/praktisk.css";
 
 	<!-- ── Hero ── -->
 	<section class="praktisk-hero">
-		<img src={bgImage.src} alt="" class="praktisk-hero-bg" />
+		<Image src={bgImage} alt="" class="praktisk-hero-bg" fetchpriority="high" />
 		<div class="praktisk-hero-overlay"></div>
 
 		<div class="praktisk-hero-content">

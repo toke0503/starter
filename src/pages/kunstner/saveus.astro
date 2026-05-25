@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
 import Button from "../../components/Button.astro";
 import aaringeRaw from "../../assets/svg/aaringe.svg?raw";
 import bgImage from "../../assets/images/pressebillede_saveus.webp";
@@ -10,7 +11,7 @@ import "../../styles/kunstner.css";
 
 	<!-- ── Hero ── -->
 	<section class="kunstner-hero">
-		<img src={bgImage.src} alt="Saveus" class="kunstner-hero-bg" />
+		<Image src={bgImage} alt="Saveus" class="kunstner-hero-bg" fetchpriority="high" />
 		<!-- Bølge: Hero → Grøn -->
 		<div class="kunstner-wave-hero-gron" aria-hidden="true"></div>
 	</section>

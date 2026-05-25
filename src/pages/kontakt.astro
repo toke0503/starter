@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
 import Button from "../components/Button.astro";
 import brevMaskotRaw from "../assets/svg/brev_maskot.svg?raw";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
@@ -12,7 +13,7 @@ import "../styles/kontakt.css";
 	<section class="kontakt-section">
 
 		<!-- Baggrundsbillede -->
-		<img src={bgImage.src} alt="" class="kontakt-bg" />
+		<Image src={bgImage} alt="" class="kontakt-bg" fetchpriority="high" />
 		<div class="kontakt-bg-overlay"></div>
 
 		<!-- Kortet -->
