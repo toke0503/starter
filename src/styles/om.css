@@ -226,7 +226,9 @@
 	flex-direction: column;
 }
 
+/* position: relative så AI-badge lander på selve fotogitteret, ikke kolonnen */
 .om-ildsjæle-photos {
+	position: relative;
 	flex: 1;
 	min-height: 0;
 	display: grid;
@@ -327,8 +329,9 @@
 	align-items: stretch;
 }
 
-/* Billede med afrundede hjørner */
+/* Billede med afrundede hjørner — position: relative så AI-badge lander her */
 .om-frivillighed-img-wrap {
+	position: relative;
 	border-radius: 1.5rem;
 	overflow: hidden;
 }
@@ -482,8 +485,9 @@
 	margin-bottom: 0;
 }
 
-/* 2×2 billedgrid */
+/* 2×2 billedgrid — position: relative så AI-badge lander her, ikke i tekstkolonnen */
 .om-faellesskab-grid {
+	position: relative;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 0.75rem;

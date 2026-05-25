@@ -198,7 +198,9 @@ const { title = 'Midtfyns Festival', description = 'Midtfyns Festival — af gr�
 		<Footer></Footer>
 
 		<!-- ── Eksamensprojekt-popup ── -->
-		<div id="exam-popup" aria-hidden="true">
+		<!-- inert bruges i stedet for aria-hidden: forhindrer fokus og skærmlæseradgang
+		     uden at skabe en modsigelse med fokusérbare børn (aria-hidden + button = Lighthouse-fejl) -->
+		<div id="exam-popup" inert>
 			<p id="exam-popup-text">Dette er et eksamensprojekt — siden du forsøger at åbne er ikke blevet kodet.</p>
 			<button id="exam-popup-close" aria-label="Luk">✕</button>
 		</div>
@@ -264,13 +266,22 @@ const { title = 'Midtfyns Festival', description = 'Midtfyns Festival — af gr�
 
 			function showPopup() {
 				clearTimeout(hideTimer);
+				popup.removeAttribute('inert');
 				popup.classList.add('visible');
-				hideTimer = setTimeout(() => popup.classList.remove('visible'), 4000);
+				hideTimer = setTimeout(hidePopup, 4000);
+			}
+
+			function hidePopup() {
+				popup.classList.remove('visible');
+				// inert gensættes når animationen er færdig, så knappen ikke forbliver fokusérbar
+				popup.addEventListener('transitionend', () => {
+					if (!popup.classList.contains('visible')) popup.setAttribute('inert', '');
+				}, { once: true });
 			}
 
 			closeBtn.addEventListener('click', () => {
 				clearTimeout(hideTimer);
-				popup.classList.remove('visible');
+				hidePopup();
 			});
 
 			document.addEventListener('click', (e) => {
@@ -336,6 +347,13 @@ const { title = 'Midtfyns Festival', description = 'Midtfyns Festival — af gr�
 							badge.className = 'ai-badge';
 							badge.setAttribute('aria-hidden', 'true');
 							badge.textContent = 'AI-skabt';
+							// Sektionsbaggrunde: placér badge under header i stedet for bunden,
+							// så bølger fra næste sektion (z-index: 10) ikke dækker badget over
+							const hostTag = host.tagName.toLowerCase();
+							if (hostTag === 'section' || hostTag === 'main') {
+								badge.style.bottom = 'auto';
+								badge.style.top = '5.5rem';
+							}
 							host.appendChild(badge);
 						}
 					} else if (!isAbsolute) {
