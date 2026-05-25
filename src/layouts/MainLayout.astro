@@ -18,38 +18,8 @@ const { title = 'Midtfyns Festival', description = 'Midtfyns Festival — af gr�
 		<link rel="preconnect" href="https://p.typekit.net" crossorigin />
 		<link rel="dns-prefetch" href="https://use.typekit.net" />
 
-		<!--
-		  TypeKit font-display fix:
-		  TypeKit leverer @font-face med font-display:block som standard — det gør
-		  overskrifter USYNLIGE i op til 3 sek. mens fonte hentes, og LCP måles
-		  først når fonten er klar (~5-6 sek. på simuleret mobil).
-
-		  Vi henter TypeKit-CSS via fetch(), erstatter block → swap, og injicerer
-		  resultatet som en <style>-tag. Med swap vises tekst straks med
-		  fallback-fonte → LCP falder til tæt på FCP (~2-3 sek. gevinst).
-
-		  Fallback: hvis fetch fejler (CORS eller netværk), indlæses stylesheet
-		  normalt — ingen forværring i forhold til det tidligere.
-		-->
-		<script is:inline>
-		(function () {
-			var url = 'https://use.typekit.net/vcx4njo.css';
-			fetch(url)
-				.then(function (r) { return r.text(); })
-				.then(function (css) {
-					var s = document.createElement('style');
-					s.setAttribute('data-typekit', '');
-					s.textContent = css.replace(/font-display\s*:\s*block/g, 'font-display:swap');
-					document.head.appendChild(s);
-				})
-				.catch(function () {
-					var l = document.createElement('link');
-					l.rel = 'stylesheet';
-					l.href = url;
-					document.head.appendChild(l);
-				});
-		})();
-		</script>
+		<!-- Fonts — media=print trick: loader non-blocking, skifter til all når hentet -->
+		<link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css" media="print" onload="this.media='all'" />
 		<noscript><link rel="stylesheet" href="https://use.typekit.net/vcx4njo.css" /></noscript>
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
