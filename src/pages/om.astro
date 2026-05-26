@@ -22,7 +22,7 @@ import "../styles/om.css";
 
 	<!-- ── Hero ── -->
 	<section class="om-hero">
-		<Image src={bgImage} alt="" class="om-hero-bg" fetchpriority="high" />
+		<Image src={bgImage} alt="" aria-hidden="true" class="om-hero-bg" fetchpriority="high" />
 		<div class="om-hero-overlay"></div>
 
 		<div class="om-hero-mascot" set:html={logoSandRaw}></div>
@@ -91,9 +91,9 @@ import "../styles/om.css";
 			<!-- Billeder + citat -->
 			<div class="om-ildsjæle-right">
 				<div class="om-ildsjæle-photos">
-					<Image src={ildsjæleImg1} alt="" class="om-ildsjæle-photo" loading="lazy" />
-					<Image src={ildsjæleImg2} alt="" class="om-ildsjæle-photo" loading="lazy" />
-					<Image src={ildsjæleImg3} alt="" class="om-ildsjæle-photo" loading="lazy" />
+					<Image src={ildsjæleImg1} alt="Frivillig med festivalarmbånd" class="om-ildsjæle-photo" loading="lazy" />
+					<Image src={ildsjæleImg2} alt="Baren på Midtfyns Festival" class="om-ildsjæle-photo" loading="lazy" />
+					<Image src={ildsjæleImg3} alt="Solnedgang over campingpladsen" class="om-ildsjæle-photo" loading="lazy" />
 				</div>
 				<div class="om-ildsjæle-quote">
 					<Fragment set:html={talebobbel} />
@@ -115,7 +115,7 @@ import "../styles/om.css";
 
 			<!-- Blob-billede til venstre -->
 			<div class="om-frivillighed-img-wrap">
-				<Image src={frivilligImg} alt="" class="om-frivillighed-img" loading="lazy" />
+				<Image src={frivilligImg} alt="Frivillige på Midtfyns Festival" class="om-frivillighed-img" loading="lazy" />
 			</div>
 
 			<!-- Tekst til højre -->
@@ -155,10 +155,10 @@ import "../styles/om.css";
 
 			<!-- 2×2 billedgrid -->
 			<div class="om-faellesskab-grid">
-				<Image src={faellesskabImg1} alt="" class="om-faellesskab-img" loading="lazy" />
-				<Image src={faellesskabImg2} alt="" class="om-faellesskab-img" loading="lazy" />
-				<Image src={faellesskabImg3} alt="" class="om-faellesskab-img" loading="lazy" />
-				<Image src={faellesskabImg4} alt="" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg1} alt="Festivaldeltagere i mudder og regnslag" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg2} alt="Fællessang på festivalen" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg3} alt="Festivaldeltagere skåler" class="om-faellesskab-img" loading="lazy" />
+				<Image src={faellesskabImg4} alt="Fællesskab på Midtfyns Festival" class="om-faellesskab-img" loading="lazy" />
 			</div>
 
 		</div>
