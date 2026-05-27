@@ -124,7 +124,7 @@
 /* ── Grid: responsivt 5-kolonne grid der falder til 3 → 2 → 1 kolonne ── */
 .billet-grid {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
 	max-width: 1400px;
 	margin: 0 auto;
