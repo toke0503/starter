@@ -59,7 +59,7 @@ const pathname = Astro.url.pathname;
 		<img src={baren.src} alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
 		<div style="position: absolute; inset: 0; background: rgba(254,247,221,0.45);"></div>
 		<div style="position: absolute; bottom: 2.5rem; left: 1.5rem; z-index: 1;">
-			<span class="font-walnut menu-wordmark" style="color: var(--color-sand); text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 0.82; letter-spacing: -0.04em;">Menu</span>
+			<span class="font-walnut menu-wordmark" style="color: var(--color-sand); text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 0.82;">Menu</span>
 		</div>
 	</div>
 
@@ -106,7 +106,7 @@ const pathname = Astro.url.pathname;
 	</div>
 
 	<!-- Aaringe — dekorativ, lille og næsten gennemsigtig -->
-	<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 22rem; pointer-events: none; z-index: 2; opacity: 0.35;">
+	<div class="menu-aaringe-wrap" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 22rem; pointer-events: none; z-index: 2; opacity: 0.35;">
 		<img src={aaringe.src} alt="" style="width: 100%; height: auto; display: block;" />
 	</div>
 
@@ -261,7 +261,15 @@ const pathname = Astro.url.pathname;
 	.social-icon-link:hover { opacity: 0.65; }
 
 	/* ─── MENU-tekst: responsiv ─── */
-	.menu-wordmark { font-size: clamp(5rem, 15vw, 16rem); }
+	.menu-wordmark { font-size: clamp(5rem, 15vw, 16rem); letter-spacing: -0.04em; }
+	@media (min-width: 769px) {
+		.menu-wordmark { letter-spacing: 0.08em; }
+	}
+
+	/* ─── Aaringe: større på desktop ─── */
+	@media (min-width: 769px) {
+		.menu-aaringe-wrap { width: 36rem; }
+	}
 
 	/* ─── Mobil ─── */
 	@media (max-width: 768px) {
