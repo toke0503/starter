@@ -265,3 +265,21 @@ const TICKET_URL = "https://billet.unitedtickets.dk/event/midtfyn-festival-2026/
 	</section>
 
 </MainLayout>
+
+<script>
+	function equalizeCardHeights() {
+		document.querySelectorAll<HTMLElement>('.billet-grid').forEach(grid => {
+			const cards = Array.from(grid.querySelectorAll<HTMLElement>('.billet-card'));
+			// Nulstil højder så vi måler naturlig indholdshøjde
+			cards.forEach(c => { c.style.height = ''; });
+			// Kun lighed hvis der er mere end én kolonne (ikke mobil)
+			const cols = getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+(?=\d)/).length;
+			if (cols <= 1) return;
+			const maxH = Math.max(...cards.map(c => c.offsetHeight));
+			cards.forEach(c => { c.style.height = maxH + 'px'; });
+		});
+	}
+
+	equalizeCardHeights();
+	window.addEventListener('resize', equalizeCardHeights);
+</script>
