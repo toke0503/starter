@@ -80,13 +80,13 @@ const pathname = Astro.url.pathname;
 		<div style="position: absolute; bottom: 3rem; right: 4rem; text-align: right; z-index: 1;">
 			<span style="display: block; font-family: var(--font-acumin); font-size: 0.8rem; color: var(--color-rod); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.55; margin-bottom: 0.75rem;">Følg os på<br/>sociale medier</span>
 			<div style="display: flex; gap: 0.625rem; justify-content: flex-end;">
-				<a href="https://facebook.com/midtfynsfestival" target="_blank" rel="noopener" class="social-icon-link">
+				<a href="https://www.facebook.com/profile.php?id=61590162043035" target="_blank" rel="noopener" class="social-icon-link">
 					<svg width="38" height="38" viewBox="0 0 38 38" fill="none">
 						<circle cx="19" cy="19" r="18" stroke="var(--color-rod)" stroke-width="1.5"/>
 						<path d="M20.5,14H22.5V11.5H20C17.8,11.5 16.5,13 16.5,15V16.5H14.5V19H16.5V26.5H19.5V19H21.5L22,16.5H19.5V15C19.5,14.4 19.9,14 20.5,14Z" fill="var(--color-rod)"/>
 					</svg>
 				</a>
-				<a href="https://instagram.com/midtfynsfestival" target="_blank" rel="noopener" class="social-icon-link">
+				<a href="https://www.instagram.com/midtfynsfestival_skoleprojekt/" target="_blank" rel="noopener" class="social-icon-link">
 					<svg width="38" height="38" viewBox="0 0 38 38" fill="none">
 						<circle cx="19" cy="19" r="18" stroke="var(--color-rod)" stroke-width="1.5"/>
 						<rect x="11.5" y="11.5" width="15" height="15" rx="4.5" stroke="var(--color-rod)" stroke-width="1.5"/>
@@ -106,7 +106,7 @@ const pathname = Astro.url.pathname;
 	</div>
 
 	<!-- Aaringe — dekorativ, lille og næsten gennemsigtig -->
-	<div class="menu-aaringe-wrap" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 22rem; pointer-events: none; z-index: 2; opacity: 0.35;">
+	<div class="menu-aaringe-wrap" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 2; opacity: 0.35;">
 		<img src={aaringe.src} alt="" style="width: 100%; height: auto; display: block;" />
 	</div>
 
@@ -266,7 +266,8 @@ const pathname = Astro.url.pathname;
 		.menu-wordmark { letter-spacing: 0.08em; }
 	}
 
-	/* ─── Aaringe: større på desktop ─── */
+	/* ─── Aaringe: størrelse ─── */
+	.menu-aaringe-wrap { width: 22rem; }
 	@media (min-width: 769px) {
 		.menu-aaringe-wrap { width: 36rem; }
 	}
