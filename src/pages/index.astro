@@ -61,7 +61,7 @@ const artists = [
 			<!-- Logo indlejret direkte i HTML — ingen netværksanmodning, hurtigere LCP -->
 			<div class="hero-logo w-64 mb-12" role="img" aria-label="Midtfyns Festival Logo" set:html={logoSandRaw}></div>
 			<Heading htmlheading="h1" font="walnut" class="text-sand text-center mb-6">Midtfyns Festival</Heading>
-			<Heading htmlheading="h3" font="acumin" class="text-sand text-center uppercase tracking-wide">Af græsrødder og ildsjæle</Heading>
+			<p class="font-acumin text-sand text-center uppercase tracking-wide" style="font-size: clamp(1rem, 2.75vw, 2.625rem);">Af græsrødder og ildsjæle</p>
 			<div class="mt-10">
 				<Button variant="sand" size="large" href="/billet">KØB DIN BILLET</Button>
 			</div>
@@ -88,28 +88,29 @@ const artists = [
 
 			<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style="z-index: 10;">
 				<Heading
-					htmlheading="h1"
+					htmlheading="h2"
 					font="walnut"
+					size="large"
 					class="text-hvid text-center uppercase mb-12 leading-none countdown-heading"
 				>
 					Vi samles igen om
 				</Heading>
 				<div class="countdown-wrapper flex flex-row flex-wrap items-end justify-center mb-12" style="gap: clamp(3rem, 8vw, 14rem);">
 					<div class="countdown-item flex items-end gap-2">
-						<h1 id="cd-days" class="countdown-number text-hvid font-walnut leading-none">39</h1>
-						<h3 id="cd-days-label" class="countdown-label text-hvid font-acumin uppercase">dage</h3>
+						<span id="cd-days" class="countdown-number text-hvid font-walnut font-bold leading-none">39</span>
+						<span id="cd-days-label" class="countdown-label text-hvid font-acumin font-bold uppercase">dage</span>
 					</div>
 					<div class="countdown-item flex items-end gap-2">
-						<h1 id="cd-hours" class="countdown-number text-hvid font-walnut leading-none">04</h1>
-						<h3 id="cd-hours-label" class="countdown-label text-hvid font-acumin uppercase">timer</h3>
+						<span id="cd-hours" class="countdown-number text-hvid font-walnut font-bold leading-none">04</span>
+						<span id="cd-hours-label" class="countdown-label text-hvid font-acumin font-bold uppercase">timer</span>
 					</div>
 					<div class="countdown-item flex items-end gap-2">
-						<h1 id="cd-mins" class="countdown-number text-hvid font-walnut leading-none">42</h1>
-						<h3 id="cd-mins-label" class="countdown-label text-hvid font-acumin uppercase">minutter</h3>
+						<span id="cd-mins" class="countdown-number text-hvid font-walnut font-bold leading-none">42</span>
+						<span id="cd-mins-label" class="countdown-label text-hvid font-acumin font-bold uppercase">minutter</span>
 					</div>
 					<div class="countdown-item flex items-end gap-2">
-						<h1 id="cd-secs" class="countdown-number text-hvid font-walnut leading-none">14</h1>
-						<h3 id="cd-secs-label" class="countdown-label text-hvid font-acumin uppercase">sekunder</h3>
+						<span id="cd-secs" class="countdown-number text-hvid font-walnut font-bold leading-none">14</span>
+						<span id="cd-secs-label" class="countdown-label text-hvid font-acumin font-bold uppercase">sekunder</span>
 					</div>
 				</div>
 				<div class="mb-6">
@@ -212,8 +213,9 @@ const artists = [
 						Fuldt program · kommer snart
 					</div>
 					<Heading
-						htmlheading="h1"
+						htmlheading="h2"
 						font="walnut"
+						size="large"
 						class="text-rod text-center uppercase program-heading"
 					>
 						På scenen
@@ -295,8 +297,9 @@ const artists = [
 			<!-- Sektion header -->
 			<div class="max-w-7xl mx-auto px-8 mb-16 text-center">
 				<Heading
-					htmlheading="h1"
+					htmlheading="h2"
 					font="walnut"
+					size="large"
 					class="uppercase stemning-heading text-sand"
 				>
 					Kom i stemning
@@ -629,7 +632,7 @@ const artists = [
 
 			<!-- Sektionsoverskrift -->
 			<div class="max-w-7xl mx-auto px-8 mb-14 text-center relative" style="z-index: 10;">
-				<Heading htmlheading="h1" font="walnut" class="text-sand uppercase program-heading">
+				<Heading htmlheading="h2" font="walnut" size="large" class="text-sand uppercase program-heading">
 					Mere end en festival
 				</Heading>
 			</div>
@@ -651,7 +654,7 @@ const artists = [
 					</div>
 					<div class="promo-card-body" style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
-							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Ung i Midten</Heading>
+							<Heading htmlheading="h3" font="walnut" size="medium" class="text-sand uppercase">Ung i Midten</Heading>
 							<p class="text-sand" style="margin-top: 1rem;">
 								Ung i Midten samler unge fra hele Faaborg-Midtfyn til en festivaldag fyldt med musik, fællesskab og nye oplevelser. Her mødes unge på tværs af skoler, interesser og fællesskaber for at skabe minder, relationer og plads til at være ung samme.
 							</p>
@@ -664,7 +667,7 @@ const artists = [
 				<div class="promo-card" style="background: var(--color-gron); border: 3px solid rgba(254,247,221,0.65); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: row; min-height: 380px;">
 					<div class="promo-card-body" style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
-							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Frivilighed</Heading>
+							<Heading htmlheading="h3" font="walnut" size="medium" class="text-sand uppercase">Frivilighed</Heading>
 							<p class="text-sand" style="margin-top: 1rem;">
 								Midtfyns Festival er skabt af fællesskab, ildsjæle og frivillige kræfter. Som frivillig bliver du en del af holdet bag festivalen og er med til at skabe oplevelser, stemning og fællesskab på pladsen i Ringe.
 							</p>
@@ -697,7 +700,7 @@ const artists = [
 					</div>
 					<div class="promo-card-body" style="flex: 1; padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
 						<div>
-							<Heading htmlheading="h2" font="walnut" class="text-sand uppercase">Alt er Non-Profit</Heading>
+							<Heading htmlheading="h3" font="walnut" size="medium" class="text-sand uppercase">Alt er Non-Profit</Heading>
 							<p class="text-sand" style="margin-top: 1rem;">
 								Midtfyns Festival er bygget på fællesskab, frivillighed og engagerede lokale kræfter. Som medlem af foreningen er du med til at bakke op om festivalen og sikre, at den folkelige festivalstemning lever videre.
 							</p>

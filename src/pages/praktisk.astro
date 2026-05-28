@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { Image } from 'astro:assets';
+import Button from "../components/Button.astro";
 import logoSandRaw from "../assets/svg/logo_sandfarve.svg?raw";
 import aaringeRaw from "../assets/svg/aaringe.svg?raw";
 import bgImage from "../assets/images/velkommen_til_midtfyns_festvial.webp";
@@ -45,7 +46,12 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Hvordan køber jeg billet?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Billetter købes online via festivalens billetsystem.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Alle billetter til Midtfyns Festival 2026 købes online. Vi tilbyder partout, dagbilletter, ungdomsbilletter og børnebilletter — og du kan tilkøbe camping og glamping direkte i samme checkout.</p>
+						<div class="praktisk-faq-cta" onclick="event.stopPropagation()">
+							<Button variant="primary" size="small" href="/billet">Se alle billettyper</Button>
+						</div>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item">
@@ -53,7 +59,12 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Kan jeg få refunderet min billet?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Billetter refunderes kun ved aflysning af hele festivalen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Billetter refunderes som udgangspunkt ikke efter køb. Aflyses festivalen i sin helhed, vil alle billetindehavere blive kontaktet direkte med information om refundering. Har du spørgsmål til din ordre, er du altid velkommen til at skrive til os.</p>
+						<div class="praktisk-faq-cta" onclick="event.stopPropagation()">
+							<Button variant="primary" size="small" href="/kontakt">Skriv til os</Button>
+						</div>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item">
@@ -61,7 +72,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Kan jeg videresælge min billet?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, via den officielle Fan-to-Fan-platform.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, du må gerne sælge din billet videre — men kun via den officielle Fan-to-Fan-platform for at undgå svindel og sikre gyldige billetter. Vi anbefaler aldrig køb eller salg via uofficielle kanaler som Facebook Marketplace eller lignende.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item">
@@ -69,7 +82,12 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Må børn komme med?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, alle under 12 år skal være ledsaget af en betalende voksen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, børn er meget velkomne på Midtfyns Festival. Børn under 6 år kommer gratis ind. Børn fra 6 til 12 år skal have en børnebillet og skal altid være ledsaget af en betalende voksen. Unge fra 13 til 17 år kan købe en ungdomsbillet til nedsat pris.</p>
+						<div class="praktisk-faq-cta" onclick="event.stopPropagation()">
+							<Button variant="primary" size="small" href="/billet">Se børne- og ungdomsbilletter</Button>
+						</div>
+					</div>
 				</details>
 			</div>
 
@@ -92,7 +110,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Hvor foregår festivalen?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Dyrskuepladsen i Ringe.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Midtfyns Festival afholdes på Dyrskuepladsen i Ringe — Lombjergevej 20, 5750 Ringe. Pladsen ligger midt på Fyn med gode forbindelser både med bil og tog, og der er masser af plads til både festival og camping.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item praktisk-faq-item--sand">
@@ -100,7 +120,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Hvordan kommer jeg dertil med tog?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ringe Station ligger tæt på festivalpladsen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ringe Station ligger kun få minutters gang fra festivalpladsen. Der kører tog fra både Odense og Svendborg, og i festivalweekenden kan der være ekstra afgange. Tjek rejseplanen.dk for aktuelle tider og priser.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item praktisk-faq-item--sand">
@@ -108,7 +130,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Er der parkering?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, parkering findes tæt på pladsen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, der er gratis parkering tæt på festivalpladsen. Vi opfordrer til at komme i god tid, da parkeringspladserne kan blive fyldt i løbet af dagen — særligt fredag eftermiddag og lørdag. Overvej gerne at benytte toget eller dele bil med andre for at undgå kø og spare tid.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item praktisk-faq-item--sand">
@@ -116,7 +140,12 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Er der handicapparkering?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, ved hovedindgangen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, der er reserveret handicapparkering ved hovedindgangen til festivalpladsen. Har du særlige behov eller spørgsmål til tilgængelighed på pladsen, er du meget velkommen til at kontakte os på forhånd, så vi kan hjælpe bedst muligt.</p>
+						<div class="praktisk-faq-cta" onclick="event.stopPropagation()">
+							<Button variant="sand" size="small" href="/kontakt">Kontakt os</Button>
+						</div>
+					</div>
 				</details>
 			</div>
 		</div>
@@ -136,7 +165,12 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Er der camping?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, camping ligger ved siden af festivalpladsen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, der er campingområde direkte ved siden af festivalpladsen — så du er midt i stemningen fra du vågner til du sover. Camping kræver en separat campingbillet, som du nemt kan tilkøbe i forbindelse med din festivalbillet. Vi tilbyder teltpladser, campingvogn- og autocamperpladser samt glamping for dem, der ønsker lidt ekstra komfort.</p>
+						<div class="praktisk-faq-cta" onclick="event.stopPropagation()">
+							<Button variant="sand" size="small" href="/billet">Køb campingbillet</Button>
+						</div>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item praktisk-faq-item--sand">
@@ -144,7 +178,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Må jeg tage campingvogn med?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, både campingvogne og autocampere er velkomne på campingpladsen. Sørg for at have købt den rigtige campingbillet ved tilmelding — der er separate billetter til campingvogn og til campingvogn med fortelt eller markise.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item praktisk-faq-item--sand">
@@ -152,7 +188,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Er der bad og toiletter?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, faciliteter findes på campingområdet.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, der er toiletter og badeforhold på campingpladsen. Vi bestræber os på at holde faciliteterne rene og tilgængelige i hele festivalperioden. Hav gerne lidt tålmodighed i myldretiden om morgenen — og bring egne håndklæder og toiletartikler.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item praktisk-faq-item--sand">
@@ -188,7 +226,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Må jeg tage egne drikkevarer med?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Nej.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Nej, egne drikkevarer må ikke medbringes på festivalområdet. Til gengæld har vi et godt udvalg af øl, vin, sodavand og vand til fornuftige priser — og du betaler nemt med kort eller MobilePay overalt på pladsen.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item">
@@ -196,7 +236,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Må jeg tage mad med?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Nej, men der sælges mad på pladsen.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Egne madvarer må ikke medbringes på festivalområdet. Til gengæld er der et bredt udvalg af madboder med både dansk og international mad — fra burgere og hotdogs til sundere alternativer. Der er noget for enhver smag og pengepung.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item">
@@ -204,7 +246,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Findes der vegetariske muligheder?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, vi sørger for at der er vegetariske og veganske muligheder på festivalens madboder. Du behøver ikke bekymre dig om at gå sulten i seng — der er noget for alle uanset kostpræferencer.</p>
+					</div>
 				</details>
 
 				<details class="praktisk-faq-item">
@@ -212,7 +256,9 @@ import "../styles/praktisk.css";
 						<h3 class="praktisk-faq-question">Kan man betale med kort?</h3>
 						<svg class="praktisk-faq-chevron" width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 					</summary>
-					<div class="praktisk-faq-answer"><p>Ja, festivalen anbefaler kort og MobilePay.</p></div>
+					<div class="praktisk-faq-answer">
+						<p>Ja, alle boder og barer på festivalpladsen accepterer Dankort, Visa, Mastercard og MobilePay. Vi anbefaler at bruge kortbetaling, da ikke alle steder accepterer kontanter. Hav evt. MobilePay klar på din telefon for hurtigst mulig betaling.</p>
+					</div>
 				</details>
 			</div>
 		</div>
@@ -260,8 +306,10 @@ import "../styles/praktisk.css";
 			details.open ? closeItem() : openItem();
 		});
 
-		// Klik på svaret lukker også boksen
-		answer.addEventListener('click', () => {
+		// Klik på svaret lukker også boksen — men ikke på CTA-knapper
+		answer.addEventListener('click', e => {
+			const cta = (e.target as HTMLElement).closest('.praktisk-faq-cta');
+			if (cta) return;
 			if (details.open) closeItem();
 		});
 	});
