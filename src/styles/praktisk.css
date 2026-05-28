@@ -254,6 +254,18 @@
 	padding-bottom: 1.25rem;
 }
 
+.praktisk-faq-cta {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+	padding: 0 1.5rem 1.5rem;
+}
+
+/* Fjern bund-padding fra p, når en CTA følger umiddelbart efter */
+.praktisk-faq-answer p:has(+ .praktisk-faq-cta) {
+	padding-bottom: 0;
+}
+
 .praktisk-faq-answer strong {
 	font-weight: 700;
 }
